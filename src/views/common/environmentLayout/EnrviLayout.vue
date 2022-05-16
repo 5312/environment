@@ -67,5 +67,6 @@ export default {
 .ele-admin-body {
   height: calc(100vh - 120px);
   overflow-x: auto;
+  padding-top: 0px !important;
 }
 </style>

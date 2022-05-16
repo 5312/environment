@@ -1,5 +1,5 @@
 export default [{
-        path: "/oneOfpicture/index", //
+        path: "/environment/oneOfpicture/index", //
         meta: {
             hide: 0,
             title: "环保一张图",
@@ -7,15 +7,15 @@ export default [{
         }
     },
     {
-        path: "", //atmosphere/index
+        path: "/environment/atmosphere/index", //atmosphere/index
+        id: 480,
         meta: {
             hide: 0,
             title: "大气监测"
         },
-        component: "",
-        redirect: "/atmosphere/index",
+        redirect: "/environment/atmosphere/index",
         children: [{
-                path: "/atmosphere/index",
+                path: "/environment/atmosphere/index",
                 meta: {
                     hide: 0,
                     icon: "el-icon-house",
@@ -23,7 +23,8 @@ export default [{
                 }
             },
             {
-                path: "" /* /atmosphere/intelligent/intelligent */ ,
+                path: "/atmosphere/intelligent/intelligent" /* /atmosphere/intelligent/intelligent */ ,
+                id: 23232,
                 meta: {
                     hide: 0,
                     icon: "el-icon-orange",
@@ -36,21 +37,21 @@ export default [{
                             title: "实时监测"
                         },
                         children: [{
-                                path: "/atmosphere/intelligent/mapOverview",
+                                path: "/environment/atmosphere/intelligent/mapOverview",
                                 meta: {
                                     hide: 0,
                                     title: "地图概览"
                                 }
                             },
                             {
-                                path: "/atmosphere/intelligent/curve",
+                                path: "/environment/atmosphere/intelligent/curve",
                                 meta: {
                                     hide: 0,
                                     title: "曲线对比"
                                 }
                             },
                             {
-                                path: "/atmosphere/intelligent/dataComparison",
+                                path: "/environment/atmosphere/intelligent/dataComparison",
                                 meta: {
                                     hide: 0,
                                     title: "数据对比"
@@ -59,21 +60,21 @@ export default [{
                         ]
                     },
                     {
-                        path: "/atmosphere/intelligent/callThePolice",
+                        path: "/environment/atmosphere/intelligent/callThePolice",
                         meta: {
                             hide: 0,
                             title: "报警数据"
                         }
                     },
                     {
-                        path: "/h" /* /atmosphere/intelligent/historydata */ ,
+                        path: "/environment/h" /* /atmosphere/intelligent/historydata */ ,
                         meta: {
                             hide: 0,
                             title: "点位详情",
                             uuid: 123123123
                         },
                         children: [{
-                            path: "/atmosphere/intelligent/historydata",
+                            path: "/environment/atmosphere/intelligent/historydata",
                             meta: {
                                 hide: 0,
                                 title: "历史数据"
@@ -91,35 +92,35 @@ export default [{
                     uuid: 10.02115
                 },
                 children: [{
-                        path: "/atmosphere/boilerMonitoring/realTimeCurve",
+                        path: "/environment/atmosphere/boilerMonitoring/realTimeCurve",
                         meta: {
                             hide: 0,
                             title: "实时曲线"
                         }
                     },
                     {
-                        path: "/atmosphere/boilerMonitoring/boilerHistory",
+                        path: "/environment/atmosphere/boilerMonitoring/boilerHistory",
                         meta: {
                             hide: 0,
                             title: "历史数据"
                         }
                     },
                     {
-                        path: "/atmosphere/boilerMonitoring/callThePolice",
+                        path: "/environment/atmosphere/boilerMonitoring/callThePolice",
                         meta: {
                             hide: 0,
                             title: "报警数据"
                         }
                     },
                     {
-                        path: "/atmosphere/boilerMonitoring/earlyWarning",
+                        path: "/environment/atmosphere/boilerMonitoring/earlyWarning",
                         meta: {
                             hide: 0,
                             title: "预警数据"
                         }
                     },
                     {
-                        path: "/atmosphere/boilerMonitoring/threshold",
+                        path: "/environment/atmosphere/boilerMonitoring/threshold",
                         meta: {
                             hide: 0,
                             title: "阈值设置"
@@ -130,14 +131,14 @@ export default [{
         ]
     },
     {
-        path: "",
+        path: "/environment/waterPollution/index",
         meta: {
             hide: 0,
             title: "水污染监测"
         },
-        redirect: "/waterPollution/index",
+        redirect: "/environment/waterPollution/index",
         children: [{
-                path: "/waterPollution/index",
+                path: "/environment/waterPollution/index",
                 meta: {
                     hide: 0,
                     icon: "el-icon-set-up",
@@ -145,42 +146,42 @@ export default [{
                 }
             },
             {
-                path: "/waterPollution",
+                path: "/environment/waterPollution",
                 meta: {
                     hide: 0,
                     icon: "el-icon-set-up",
                     title: "水质在线监测"
                 },
                 children: [{
-                        path: "/waterPollution/onLineMonitor",
+                        path: "/environment/waterPollution/onLineMonitor",
                         meta: {
                             hide: 0,
                             title: "实时数据"
                         }
                     },
                     {
-                        path: "/waterPollution/historyData",
+                        path: "/environment/waterPollution/historyData",
                         meta: {
                             hide: 0,
                             title: "历史数据"
                         }
                     },
                     {
-                        path: "/waterPollution/earlyWarning",
+                        path: "/environment/waterPollution/earlyWarning",
                         meta: {
                             hide: 0,
                             title: "预警数据"
                         }
                     },
                     {
-                        path: "/waterPollution/callThePolice",
+                        path: "/environment/waterPollution/callThePolice",
                         meta: {
                             hide: 0,
                             title: "报警数据"
                         }
                     },
                     {
-                        path: "/waterPollution/threshold",
+                        path: "/environment/waterPollution/threshold",
                         meta: {
                             hide: 0,
                             title: "阈值设置"
@@ -189,7 +190,7 @@ export default [{
                 ]
             },
             {
-                path: "/waterPollution/secondPanel",
+                path: "/environment/waterPollution/secondPanel",
                 meta: {
                     hide: 0,
                     icon: "el-icon-set-up",
@@ -199,14 +200,14 @@ export default [{
         ]
     },
     {
-        path: "",
+        path: "/environment/solidWaste/index",
         meta: {
             hide: 0,
             title: "固体废物监测"
         },
-        redirect: "/solidWaste/index",
+        redirect: "/environment/solidWaste/index",
         children: [{
-                path: "/solidWaste/index",
+                path: "/environment/solidWaste/index",
                 meta: {
                     hide: 0,
                     icon: "el-icon-set-up",
@@ -214,7 +215,7 @@ export default [{
                 }
             },
             {
-                path: "/solidWaste/monitor",
+                path: "/environment/solidWaste/monitor",
                 meta: {
                     hide: 0,
                     icon: "el-icon-set-up",
@@ -222,7 +223,7 @@ export default [{
                 }
             },
             {
-                path: "/solidWaste/camera",
+                path: "/environment/solidWaste/camera",
                 meta: {
                     hide: 0,
                     icon: "el-icon-set-up",
@@ -230,7 +231,7 @@ export default [{
                 }
             },
             {
-                path: "/solidWaste/gangue",
+                path: "/environment/solidWaste/gangue",
                 meta: {
                     hide: 0,
                     icon: "el-icon-set-up",
@@ -238,7 +239,7 @@ export default [{
                 }
             },
             {
-                path: "/solidWaste/danger",
+                path: "/environment/solidWaste/danger",
                 meta: {
                     hide: 0,
                     icon: "el-icon-set-up",
@@ -246,7 +247,7 @@ export default [{
                 }
             },
             {
-                path: "/solidWaste/electronicScale",
+                path: "/environment/solidWaste/electronicScale",
                 meta: {
                     hide: 0,
                     icon: "el-icon-set-up",
@@ -256,14 +257,14 @@ export default [{
         ]
     },
     {
-        path: "",
+        path: "/environment/noise/index",
         meta: {
             hide: 0,
             title: "噪声监测"
         },
-        redirect: "/noise/index",
+        redirect: "/environment/noise/index",
         children: [{
-                path: "/noise/index",
+                path: "/environment/noise/index",
                 meta: {
                     hide: 0,
                     icon: "el-icon-set-up",
@@ -278,21 +279,21 @@ export default [{
                     title: "实时监测"
                 },
                 children: [{
-                        path: "/noise/map",
+                        path: "/environment/noise/map",
                         meta: {
                             hide: 0,
                             title: "地图概览"
                         }
                     },
                     {
-                        path: "/noise/curve",
+                        path: "/environment/noise/curve",
                         meta: {
                             hide: 0,
                             title: "曲线对比"
                         }
                     },
                     {
-                        path: "/noise/dataComparison",
+                        path: "/environment/noise/dataComparison",
                         meta: {
                             hide: 0,
                             title: "数据对比"
@@ -301,7 +302,7 @@ export default [{
                 ]
             },
             {
-                path: "/noise/callThePolice",
+                path: "/environment/noise/callThePolice",
                 meta: {
                     hide: 0,
                     icon: "el-icon-set-up",
@@ -311,14 +312,14 @@ export default [{
         ]
     },
     {
-        path: "",
+        path: "/environment/basics/index",
         meta: {
             hide: 0,
             title: "环保基础管理"
         },
-        redirect: "/basics/index",
+        redirect: "/environment/basics/index",
         children: [{
-                path: "/basics/index",
+                path: "/environment/basics/index",
                 meta: {
                     hide: 0,
                     icon: "el-icon-set-up",
@@ -327,14 +328,14 @@ export default [{
                 }
             },
             {
-                path: "",
+                path: "/environment/basics/pollutants",
                 meta: {
                     hide: 0,
                     icon: "el-icon-set-up",
                     title: "报表管理"
                 },
                 children: [{
-                        path: "/basics/pollutants",
+                        path: "/environment/basics/pollutants",
                         meta: {
                             hide: 0,
                             icon: "el-icon-set-up",
@@ -342,7 +343,7 @@ export default [{
                         }
                     },
                     {
-                        path: "/basics/guolurun",
+                        path: "/environment/basics/guolurun",
                         meta: {
                             hide: 0,
                             icon: "el-icon-set-up",
@@ -350,7 +351,7 @@ export default [{
                         }
                     },
                     {
-                        path: "/basics/production",
+                        path: "/environment/basics/production",
                         meta: {
                             hide: 0,
                             icon: "el-icon-set-up",
@@ -358,7 +359,7 @@ export default [{
                         }
                     },
                     {
-                        path: "/basics/enterprise",
+                        path: "/environment/basics/enterprise",
                         meta: {
                             hide: 0,
                             icon: "el-icon-set-up",
@@ -366,7 +367,7 @@ export default [{
                         }
                     },
                     {
-                        path: "/basics/wushui",
+                        path: "/environment/basics/wushui",
                         meta: {
                             hide: 0,
                             icon: "el-icon-set-up",
@@ -374,7 +375,7 @@ export default [{
                         }
                     },
                     {
-                        path: "/basics/yibanguti",
+                        path: "/environment/basics/yibanguti",
                         meta: {
                             hide: 0,
                             icon: "el-icon-set-up",
@@ -382,7 +383,7 @@ export default [{
                         }
                     },
                     {
-                        path: "/basics/danger",
+                        path: "/environment/basics/danger",
                         meta: {
                             hide: 0,
                             icon: "el-icon-set-up",
@@ -390,7 +391,7 @@ export default [{
                         }
                     },
                     {
-                        path: "/basics/other",
+                        path: "/environment/basics/other",
                         meta: {
                             hide: 0,
                             icon: "el-icon-set-up",
@@ -407,7 +408,7 @@ export default [{
                     title: "环保风险管理"
                 },
                 children: [{
-                        path: "/basics/friendly/getDown",
+                        path: "/environment/basics/friendly/getDown",
                         meta: {
                             hide: 0,
                             icon: "el-icon-set-up",
@@ -415,7 +416,7 @@ export default [{
                         }
                     },
                     {
-                        path: "/basics/friendly/feedback",
+                        path: "/environment/basics/friendly/feedback",
                         meta: {
                             hide: 0,
                             icon: "el-icon-set-up",
@@ -423,7 +424,7 @@ export default [{
                         }
                     },
                     {
-                        path: "/basics/friendly/ziliao",
+                        path: "/environment/basics/friendly/ziliao",
                         meta: {
                             hide: 0,
                             icon: "el-icon-set-up",
@@ -435,14 +436,14 @@ export default [{
         ]
     },
     {
-        path: "",
+        path: "/environment/water/index",
         meta: {
             hide: 0,
             title: "水资源管理"
         },
-        redirect: "/water/index",
+        redirect: "/environment/water/index",
         children: [{
-            path: "/water/index",
+            path: "/environment/water/index",
             meta: {
                 hide: 0,
                 icon: "el-icon-set-up",
@@ -451,14 +452,14 @@ export default [{
         }]
     },
     {
-        path: "",
+        path: "/environment/mine/index",
         meta: {
             hide: 0,
             title: "绿色矿山"
         },
-        redirect: "/mine/index",
+        redirect: "/environment/mine/index",
         children: [{
-                path: "/mine/index",
+                path: "/environment/mine/index",
                 meta: {
                     hide: 0,
                     icon: "el-icon-set-up",
@@ -466,7 +467,7 @@ export default [{
                 }
             },
             {
-                path: "/mine/evaluation",
+                path: "/environment/mine/evaluation",
                 meta: {
                     hide: 0,
                     icon: "el-icon-set-up",

@@ -64,33 +64,20 @@ router.beforeEach(async(to, from, next) => {
         if (!store.state.user.menus) {
             // 判断是否已注册动态路由
             // 获取动态路由
-            let [route, m2] = await store
-                .dispatch("user/getMenuRouters")
-                .catch(() => {
-                    next();
-                });
+            let route = await store.dispatch("user/getMenuRouters").catch(() => {
+                next();
+            });
             if (route && route.children) {
-                route.component = EleLayout;
+                route.component = EnrviLayout;
                 // 去除已注册的路由
                 for (let i = route.children.length - 1; i >= 0; i--) {
                     if (router.resolve(route.children[i].path).resolved.matched.length) {
                         route.children.splice(i, 1);
                     }
                 }
-                router.addRoutes([route]);
+                router.addRoutes([route, route404]);
             }
-            if (m2 && m2.children) {
-                m2.component = EnrviLayout;
-                // 去除已注册的路由
-                for (let i = m2.children.length - 1; i >= 0; i--) {
-                    const urlPath = m2.children[i].path;
-                    /*   */
-                    if (router.resolve(urlPath).resolved.matched.length) {
-                        m2.children.splice(i, 1);
-                    }
-                }
-                router.addRoutes([m2, route404]);
-            }
+
             next({...to, replace: true });
         } else {
             next();

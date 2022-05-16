@@ -23,10 +23,10 @@
       <img src="@/assets/logo.png" alt="logo" /><span>{{ $setting.name }}</span>
     </div>
     <div class="top_color_bar-right">
-      <i
+      <!-- <i
         class="el-icon-sort cursor skew_text transfrom_x"
         @click="EleLayout"
-      ></i>
+      ></i> -->
 
       <!-- 右侧功能区 -->
       <ele-header-right />

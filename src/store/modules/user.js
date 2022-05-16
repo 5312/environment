@@ -102,7 +102,8 @@ export default {
         /* 获取用户菜单路由 */
         getMenuRouters({ commit, state }) {
             return new Promise((resolve, reject) => {
-                if (state.menus) return resolve(menusToRoute(state.menus));
+                // if (state.menus) return resolve(menusToRoute(state.menus));
+                if (state.menus) return resolve(menusEnvironment(menus));
                 if (!setting.menuUrl) {
                     /* 缓存 */
                     commit("SET", { key: "menus", value: [] });
@@ -114,7 +115,8 @@ export default {
                         let menus = setting.parseMenu ?
                             setting.parseMenu(res.data) :
                             res.data.data;
-                        resolve(menusToRoute(menus));
+                        // resolve(menusToRoute(menus));
+                        resolve(menusEnvironment(menus));
                         /* 缓存 */
                         commit("SET", { key: "menus", value: menus });
                     })
@@ -126,46 +128,9 @@ export default {
     }
 };
 
-/** 菜单生成路由 */
-function menusToRoute(menus) {
-    let route = {
-        path: "/",
-        name: "main",
-        children: [],
-        redirect: null
-    };
-    util.eachTreeData(menus, item => {
-        if (setting.parseMenuItem) item = setting.parseMenuItem(item);
-        item.meta = Object.assign({ title: item.title, icon: item.icon, hide: item.hide, uid: item.uid },
-            item.meta
-        );
-        if (
-            item.path &&
-            !item.path.startsWith("http://") &&
-            !item.path.startsWith("https://") &&
-            !item.path.startsWith("//")
-        ) {
-            if (!route.redirect) {
-                route.redirect = item.path;
-                if (!setting.homeTitle) setting.homeTitle = item.meta.title;
-            }
-            route.children.push({
-                path: item.path,
-                name: item.name || item.path,
-                meta: item.meta,
-                component: () =>
-                    import ("@/views" + (item.component || item.path))
-            });
-        }
-    });
-    let m2 = menusEnvironment();
-    return [route, m2];
-}
-/* 第二菜单 */
-/* eslint-disable */
 function menusEnvironment(menus = menus2) {
     let route = {
-        path: "/environment",
+        path: "/",
         name: "environment",
         children: [],
         redirect: null
@@ -192,7 +157,7 @@ function menusEnvironment(menus = menus2) {
                     name: item.name || item.path,
                     meta: item.meta,
                     component: () =>
-                        import ("@/views/environment" + (item.component || item.path))
+                        import ("@/views" + (item.component || item.path))
                 });
             } else {
                 route.children.push({
@@ -202,7 +167,7 @@ function menusEnvironment(menus = menus2) {
                     components: {
                         EleSidebar: EleSidebar,
                         default: () =>
-                            import ("@/views/environment" + (item.component || item.path))
+                            import ("@/views" + (item.component || item.path))
                     }
                 });
             }
