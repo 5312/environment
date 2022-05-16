@@ -2,15 +2,14 @@
  * 项目统一配置
  */
 
-let baseUrl = null;
+let baseUrl = process.env.VUE_APP_API_BASE_URL;
 /* if (process.env.NODE_ENV == "development") {
     baseUrl = "http://ceshi.ydeshui.com/";
     //baseUrl = "http://39.107.102.121:8299/";
 } else {
-    baseUrl ="http://ceshi.ydeshui.com/";
+    baseUrl = "http://ceshi.ydeshui.com/";
 } */
-baseUrl = process.env.VUE_APP_API_BASE_URL;
-
+console.log(baseUrl);
 export default {
     version: "1.0",
     name: "环境在线监测系统", // 项目名称
