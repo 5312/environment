@@ -1,0 +1,37 @@
+// 弹性盒子
+.flex {
+    display: flex;
+    &_h_start {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    // 横项排列
+    &_h_between {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: space-between;
+        align-items: center;
+    }
+    // 竖
+    &_s_between {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+
+.text_overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.unit {
+    font-size: 24px;
+}

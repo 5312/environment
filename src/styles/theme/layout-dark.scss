@@ -1,0 +1,19 @@
+/* 第二主题 */
+
+
+/* 继承科技蓝 */
+
+@import "./blue-dark.scss";
+// header
+.ele-admin-layout {
+    &>.ele-admin-header {
+        background-color: $--color-white;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: space-evenly;
+    }
+}

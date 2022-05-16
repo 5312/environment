@@ -1,0 +1,51 @@
+/** 酱紫主题 */
+
+$--color-primary: #9266f9;
+$--table-striped-row-background-color: $--color-primary;
+$--background-color-base: $--color-primary;
+
+/* 字体颜色 */
+
+$--color-white: #ffffff;
+$--color-black: #051d3f;
+
+/* 边框色 */
+
+$--border-color-base: #ddd;
+.el-table__body tr.current-row>td {
+    background-color: $--color-primary !important;
+}
+
+
+/* tree */
+
+.el-tree-node.is-current>.el-tree-node__content {
+    background-color: $--color-primary !important;
+}
+
+// table 表格斑马行
+$--table-striped-row-background-color: #fafafa;
+.el-table__body {
+    & tr.el-table__row--striped {
+        td {
+            background: $--table-striped-row-background-color !important;
+        }
+    }
+}
+
+
+/* treeselect */
+
+.vue-treeselect__menu-container div {
+    background: $--color-white !important;
+}
+
+.vue-treeselect .vue-treeselect__single-value {
+    color: $--color-black !important;
+}
+
+.vue-treeselect .vue-treeselect__control {
+    border: 1px solid $--border-color-base !important;
+}
+
+@import "../eleadmin/index";

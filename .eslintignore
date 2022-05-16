@@ -1,0 +1,6 @@
+/node_modules/
+/src/utils/log.min.js
+/src/components/vue-baidu-map
+/src/components/EleIconPicker
+/dist/
+.vscode/
