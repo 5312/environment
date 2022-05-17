@@ -27,7 +27,7 @@ import { mapGetters } from "vuex"
 import EleSidebarItem from "./SidebarItem"
 import NProgress from "nprogress"
 
-import menusJson from './menus'
+// import menusJson from './menus'
 export default {
   name: "EleSidebar",
   components: { EleSidebarItem },
@@ -40,6 +40,8 @@ export default {
     ...mapGetters(['layout']),
     /* 菜单数据 */
     menus () {
+      let useMenu = this.user.menus && this.user.menus.length
+      let menusJson = useMenu ? this.user.menus : this.$router.options.routes.filter(d => !d.meta || !d.meta.hide)
       if (!isNaN(this.layout.navIndex)) {
         return menusJson[this.layout.navIndex].children
       }

@@ -40,10 +40,10 @@ const route404 = {
     path: "",
     component: EnrviLayout,
     /*  {
-          EleSidebar: EleSidebar,
-          default: () =>
-              import ("@/views/common/exception/404")
-      }, */
+                  EleSidebar: EleSidebar,
+                  default: () =>
+                      import ("@/views/common/exception/404")
+              }, */
     meta: { hide: true },
     children: [{
         path: "*",
@@ -82,14 +82,12 @@ router.beforeEach(async(to, from, next) => {
                 // 去除已注册的路由
                 let array = route.children;
                 let obj = {};
-
                 let a = array.reduce((cur, next) => {
                     obj[next.path] ? "" : (obj[next.path] = true && cur.push(next));
                     return cur;
                 }, []);
                 route.children = a;
                 for (let i = route.children.length - 1; i >= 0; i--) {
-                    //console.log(router.resolve(route.children[i].path))
                     if (router.resolve(route.children[i].path).resolved.matched.length) {
                         route.children.splice(i, 1);
                     }

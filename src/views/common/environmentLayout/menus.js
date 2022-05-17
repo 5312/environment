@@ -443,7 +443,7 @@ export default [{
                         path: "/environment/basics/friendly/drill",
                         meta: {
                             hide: 0,
-                            icon: "el-icon-edit",
+                            icon: "el-icon-paperclip",
                             title: "环保演练管理"
                         }
                     }

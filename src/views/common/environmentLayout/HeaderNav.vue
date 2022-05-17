@@ -29,7 +29,7 @@ import { mapGetters, mapActions } from "vuex"
 import EleSidebarItem from "./SidebarItem"
 import NProgress from "nprogress"
 
-import menusJson from './menus.js'
+// import menusJson from './menus.js'
 export default {
   name: "EleHeaderNav",
   components: { EleSidebarItem },
@@ -44,12 +44,17 @@ export default {
 
     /* 菜单数据 */
     menus () {
-      let arr = menusJson.map(d => {
-        const obj = Object.assign({}, d)
-        obj.children = []
-        return obj
-      })
-      return arr
+      let useMenu = this.user.menus && this.user.menus.length
+      let menus = useMenu ? this.user.menus : this.$router.options.routes.filter(d => !d.meta || !d.meta.hide)
+      return menus.map(d => Object.assign({}, d, {
+        /*path: null, */children: null
+      }))
+      /*  let arr = menusJson.map(d => {
+         const obj = Object.assign({}, d)
+         obj.children = []
+         return obj
+       })
+       return arr */
     },
     /* 当前选中项 */
     active () {
@@ -91,7 +96,8 @@ export default {
         }
       } else {
         this.navIndex(index)
-        this.$router.push(menusJson[index].redirect)
+        /* 点击顶部菜单重定向 */
+        // this.$router.push(menusJson[index].redirect)
       }
     },
     /* 刷新 */
