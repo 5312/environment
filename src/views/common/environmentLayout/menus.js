@@ -446,6 +446,22 @@ export default [{
                             icon: "el-icon-paperclip",
                             title: "环保演练管理"
                         }
+                    },
+                    {
+                        path: "/environment/basics/friendly/work",
+                        meta: {
+                            hide: 0,
+                            icon: "el-icon-paperclip",
+                            title: "重点工作管理"
+                        },
+                        children: [{
+                            path: "/environment/basics/friendly/work",
+                            meta: {
+                                hide: 0,
+                                icon: "el-icon-paperclip",
+                                title: "重点工作管理下发"
+                            }
+                        }]
                     }
                 ]
             }
