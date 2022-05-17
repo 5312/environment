@@ -5,7 +5,9 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import store from "@/store";
 import setting from "@/config/setting";
-import EleLayout from "@/views/common/layout/Layout";
+//import EleLayout from "@/views/common/layout/Layout";
+import EleSidebar from "@/views/common/environmentLayout/Sidebar";
+
 import EnrviLayout from "@/views/common/environmentLayout/EnrviLayout";
 import NProgress from "nprogress";
 // 侧边栏
@@ -36,12 +38,20 @@ const routes = [{
 // 404路由在动态路由后面加
 const route404 = {
     path: "",
-    component: EleLayout,
+    component: EnrviLayout,
+    /*  {
+          EleSidebar: EleSidebar,
+          default: () =>
+              import ("@/views/common/exception/404")
+      }, */
     meta: { hide: true },
     children: [{
         path: "*",
-        component: () =>
-            import ("@/views/common/exception/404"),
+        components: {
+            EleSidebar: EleSidebar,
+            default: () =>
+                import ("@/views/common/exception/404")
+        },
         meta: { hide: true, title: "404" }
     }]
 };
