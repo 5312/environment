@@ -70,7 +70,16 @@ router.beforeEach(async(to, from, next) => {
             if (route && route.children) {
                 route.component = EnrviLayout;
                 // 去除已注册的路由
+                let array = route.children;
+                let obj = {};
+
+                let a = array.reduce((cur, next) => {
+                    obj[next.path] ? "" : (obj[next.path] = true && cur.push(next));
+                    return cur;
+                }, []);
+                route.children = a;
                 for (let i = route.children.length - 1; i >= 0; i--) {
+                    //console.log(router.resolve(route.children[i].path))
                     if (router.resolve(route.children[i].path).resolved.matched.length) {
                         route.children.splice(i, 1);
                     }

@@ -427,8 +427,16 @@ export default [{
                         path: "/environment/basics/friendly/ziliao",
                         meta: {
                             hide: 0,
-                            icon: "el-icon-set-up",
+                            icon: "el-icon-folder-opened",
                             title: "环保资料管理"
+                        }
+                    },
+                    {
+                        path: "/environment/basics/friendly/training",
+                        meta: {
+                            hide: 0,
+                            icon: "el-icon-edit",
+                            title: "环保培训管理"
                         }
                     }
                 ]
