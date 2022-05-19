@@ -255,7 +255,6 @@ export default {
         title: {
           text: 'Basic Radar Chart'
         },
-
         radar: {
           // shape: 'circle',
           indicator: [
