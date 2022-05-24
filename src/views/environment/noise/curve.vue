@@ -2,7 +2,7 @@
   <div class="ele-body">
     <el-card>
       <div slot="header" class="title">
-        <span>多测点PM10小时曲线对比</span>
+        <span>多测点噪声小时曲线对比</span>
       </div>
       <ele-chart
         ref="chartss"
@@ -22,7 +22,7 @@ export default {
       const str = '五号路灯杆'
       const y = []
       for (let i = 0; i < 20; ++i) {
-        data.push(Math.round(Math.random() * 2000))
+        data.push(0)
         y.push(str + i)
       }
       return {

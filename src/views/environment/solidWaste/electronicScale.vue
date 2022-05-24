@@ -2,13 +2,7 @@
   <div class="ele-body">
     <el-card>
       <el-form ref="form" :model="form" :inline="true" label-width="80px">
-        <el-form-item label="开始时间">
-          <el-input v-model="form.name"></el-input>
-        </el-form-item>
-        <el-form-item label="结束时间">
-          <el-input v-model="form.name"></el-input>
-        </el-form-item>
-        <el-form-item label="点位">
+        <el-form-item label="选择月份">
           <el-input v-model="form.name"></el-input>
         </el-form-item>
         <el-button type="primary">查询</el-button>
@@ -27,10 +21,11 @@
           align="center"
           fixed="left"
         />
-        <el-table-column label="点位" prop="name" />
-        <el-table-column label="类型" prop="name" />
-        <el-table-column label="报警值" prop="name" />
-        <el-table-column label="阈值" prop="name" />
+        <el-table-column label="统计时间" prop="time" />
+        <el-table-column label="危废代码" prop="code" />
+        <el-table-column label="危废名称" prop="name" />
+        <el-table-column label="重量" prop="name" />
+        <el-table-column label="操作" prop="name" />
       </ele-data-table>
     </el-card>
   </div>

@@ -1,20 +1,17 @@
 <template>
   <div class="ele-body">
     <el-card>
-      <div slot="header" class="title">
-        <span>多测点PM10小时曲线对比</span>
-      </div>
       <ele-data-table
         ref="table"
         :data="table"
         :choose.sync="choose"
-        height="calc(100vh - 340px)"
+        height="calc(100vh - 210px)"
         highlight-current-row
         v-loading="table_load"
       >
-        <el-table-column label="监测对象" prop="name" />
-        <el-table-column label="PM10" prop="name" />
-        <el-table-column label="时间" prop="name" />
+        <el-table-column label="监测对象" prop="obj" />
+        <el-table-column label="噪声(dB)" prop="db" />
+        <el-table-column label="时间" prop="time" />
       </ele-data-table>
     </el-card>
   </div>
@@ -23,7 +20,11 @@
 export default {
   data () {
     return {
-      table: [],
+      table: [{
+        obj: '八号路灯杆',
+        db: '0',
+        time: '2021-11-11 10:11:11',
+      }],
       choose: [],
       table_load: false
     }

@@ -27,10 +27,10 @@
           align="center"
           fixed="left"
         />
-        <el-table-column label="点位" prop="name" />
-        <el-table-column label="类型" prop="name" />
-        <el-table-column label="报警值" prop="name" />
-        <el-table-column label="阈值" prop="name" />
+        <el-table-column label="点位" prop="point" />
+        <el-table-column label="类型" prop="type" />
+        <el-table-column label="报警值" prop="call" />
+        <el-table-column label="阈值" prop="th" />
       </ele-data-table>
     </el-card>
   </div>
@@ -39,7 +39,27 @@
 export default {
   data () {
     return {
-      tables: [],
+      tables: [{
+        point: '九号路灯杆',
+        type: '噪声',
+        call: '64.12',
+        th: '60',
+      }, {
+        point: '九号路灯杆',
+        type: '噪声',
+        call: '64.12',
+        th: '60',
+      }, {
+        point: '九号路灯杆',
+        type: '噪声',
+        call: '64.12',
+        th: '60',
+      }, {
+        point: '九号路灯杆',
+        type: '噪声',
+        call: '64.12',
+        th: '60',
+      }],
       choose: [], // 表格选中数据
       table_load: false,
       /* form */

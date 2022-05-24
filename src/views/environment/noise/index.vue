@@ -6,55 +6,34 @@
           <el-card>
             <!--  -->
             <div slot="header" class="title">
-              <span>矿区大气监测总览</span>
+              <span>矿区噪声总览</span>
             </div>
             <!-- 内容部分 -->
             <div class="center">
               <div class="body-header">
                 <div class="flex flex_h_between">
                   <div>
-                    <div class="top">PM2.5</div>
-                    <div>4.00</div>
+                    <div class="top">厂区东</div>
+                    <div>21.2dB</div>
                   </div>
                   <div>
-                    <div class="top">pm10</div>
-                    <div>4.00</div>
+                    <div class="top">厂区南</div>
+                    <div>21.2dB</div>
                   </div>
                   <div>
-                    <div class="top">温度</div>
-                    <div>-3.20℃</div>
+                    <div class="top">厂区西</div>
+                    <div>21.2dB</div>
                   </div>
                   <div>
-                    <div class="top">湿度</div>
-                    <div>39.60RH</div>
-                  </div>
-                  <div>
-                    <div class="top">风速</div>
-                    <div>0.20m/s</div>
-                  </div>
-                  <div>
-                    <div class="top">大气压</div>
-                    <div>0.00Pa</div>
+                    <div class="top">厂区北</div>
+                    <div>21.2dB</div>
                   </div>
                 </div>
               </div>
               <el-row :gutter="10" class="pm-row">
-                <el-col :span="12">
+                <el-col :span="24">
                   <div>
-                    <div class="zhuangtai">PM2.5状态</div>
-                    <div class="flex flex_h_between line">
-                      <div>0-50 <span class="red">优</span></div>
-                      <div>101-150 <span class="yellow">中</span></div>
-                    </div>
-                    <div class="flex flex_h_between line">
-                      <div>51-100 <span class="green">良</span></div>
-                      <div>151-200 <span class="blue">差</span></div>
-                    </div>
-                  </div>
-                </el-col>
-                <el-col :span="12">
-                  <div>
-                    <div class="zhuangtai">PM10状态</div>
+                    <div class="zhuangtai">噪声状态</div>
                     <div class="flex flex_h_between line">
                       <div>0-50 <span class="red">优</span></div>
                       <div>101-150 <span class="yellow">中</span></div>
@@ -70,15 +49,28 @@
           </el-card>
           <el-card>
             <div slot="header" class="title">
-              <span>PM2.5</span>
+              <span>重点设备状态</span>
             </div>
-            <div>
-              <ele-chart :option="Pm2" style="height: 160px" />
+            <div class="center">
+              <div class="body-header">
+                <div class="flex flex_h_between wraptag">
+                  <div>点位</div>
+                  <div>报警值</div>
+                  <div>阈值</div>
+                </div>
+              </div>
+              <div class="body">
+                <div class="flex flex_h_between wraptag">
+                  <div>九号路灯杆</div>
+                  <div>64</div>
+                  <div>60</div>
+                </div>
+              </div>
             </div>
           </el-card>
           <el-card>
             <div slot="header" class="title">
-              <span>大气趋势</span>
+              <span>厂区监测噪声趋势</span>
             </div>
             <div>
               <ele-chart :option="Daqi" style="height: 160px" />
@@ -90,15 +82,15 @@
         <div class="wrap_card wrap-center">
           <el-card>
             <div slot="header" class="title">
-              <span>PM10</span>
+              <span>噪声数据分析</span>
             </div>
             <div>
-              <ele-chart :option="Pm2" style="height: 292px" />
+              <ele-chart :option="Noise" style="height: 292px" />
             </div>
           </el-card>
           <el-card>
             <div slot="header" class="title">
-              <span>年度目标</span>
+              <span>噪声数据对比</span>
             </div>
             <el-row :gutter="5">
               <el-col :span="12">
@@ -121,54 +113,45 @@
         <div class="wrap_card">
           <el-card>
             <div slot="header" class="title">
-              <span>温度湿度</span>
-            </div>
-            <!-- 折线图 -->
-            <div>
-              <ele-chart :option="Line" style="height: 160px" />
-            </div>
-          </el-card>
-          <el-card>
-            <div slot="header" class="title">
-              <span>报警列表</span>
+              <span>阈值警告</span>
             </div>
             <div class="center">
               <div class="body-header">
                 <div class="flex flex_h_between wraptag">
-                  <div>报警类型</div>
-                  <div>报警地点</div>
+                  <div>点位</div>
                   <div>报警值</div>
-                  <div>报警时间</div>
+                  <div>阈值</div>
                 </div>
               </div>
               <div class="body">
                 <div class="flex flex_h_between wraptag">
-                  <div>报警类型</div>
-                  <div>报警地点</div>
-                  <div>报警值</div>
-                  <div>报警时间</div>
-                </div>
-                <div class="flex flex_h_between wraptag">
-                  <div>报警类型</div>
-                  <div>报警地点</div>
-                  <div>报警值</div>
-                  <div>报警时间</div>
-                </div>
-                <div class="flex flex_h_between wraptag">
-                  <div>报警类型</div>
-                  <div>报警地点</div>
-                  <div>报警值</div>
-                  <div>报警时间</div>
+                  <div>九号路灯杆</div>
+                  <div>64</div>
+                  <div>60</div>
                 </div>
               </div>
             </div>
           </el-card>
           <el-card>
             <div slot="header" class="title">
-              <span>气压</span>
+              <span>智慧路灯监测数据</span>
+            </div>
+            <div class="center">
+              <div class="body-header">
+                <div class="flex flex_h_between wraptag">
+                  <div>设备ID</div>
+                  <div>设备名称</div>
+                  <div>监测结果</div>
+                </div>
+              </div>
+            </div>
+          </el-card>
+          <el-card>
+            <div slot="header" class="title">
+              <span>设备噪声监控趋势</span>
             </div>
             <div>
-              <ele-chart :option="Gauge" style="height: 160px" />
+              <ele-chart :option="Line" style="height: 160px" />
             </div>
           </el-card>
         </div>
@@ -186,12 +169,12 @@ export default {
   },
   computed: {
     /* pm2.5 / pm10 */
-    Pm2 () {
+    Noise () {
       return {
         xAxis: [
           {
             type: "category",
-            data: ['0.00'],
+            data: ['0.00', '1.00'],
             axisLabel: {
               color: '#fff'
             },
@@ -214,6 +197,9 @@ export default {
             type: "bar",
             data: [{
               name: '0.00',
+              value: 15
+            }, {
+              name: '1.00',
               value: 15
             }],
             itemStyle: {
@@ -332,57 +318,6 @@ export default {
         ]
       }
     },
-    /* 气压 */
-    Gauge () {
-      return {
-        series: [
-          {
-            radius: "100%",
-            name: '气压',
-            type: 'gauge',
-            progress: {
-              show: true
-            },
-            axisLabel: {
-              distance: 10,/* 标签与刻度线的距离。 */
-              color: '#fff'
-            },
-            axisLine: {
-              lineStyle: {
-                width: 10
-              }
-            },
-            axisTick: {
-              show: true,
-              length: "5%",
-              distance: 1
-            },
-            anchor: { /* 指针中心点 */
-              show: true,
-              showAbove: true,
-              size: 10,
-              itemStyle: {
-                borderWidth: 8
-              }
-            },
-            detail: {
-              valueAnimation: true,
-              formatter: '{value}K Pa',
-              color: 'rgb(0, 246, 247)',
-              fontSize: 14,
-              offsetCenter: ["0%", "63%"]
-            },
-            data: [
-              {
-                value: 50,
-                name: '123'
-              }
-            ],
-
-          }
-        ]
-      }
-    }
   },
 
 }

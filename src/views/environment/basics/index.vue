@@ -26,7 +26,7 @@
               <span>企业用水</span>
             </div>
             <div>
-              <ele-chart :option="Daqi" style="height: 160px" />
+              <ele-chart :option="Company" style="height: 160px" />
             </div>
           </el-card>
         </div>
@@ -38,7 +38,7 @@
               <span>大气监测</span>
             </div>
             <div>
-              <ele-chart :option="Swirl" style="height: 292px" />
+              <ele-chart :option="Atmospheric" style="height: 292px" />
             </div>
           </el-card>
           <el-card>
@@ -46,7 +46,7 @@
               <span>噪声监测</span>
             </div>
             <div>
-              <ele-chart :option="Year_zhong" style="height: 160px" />
+              <ele-chart :option="Noise" style="height: 160px" />
             </div>
           </el-card>
         </div>
@@ -59,7 +59,7 @@
             </div>
             <!-- 折线图 -->
             <div>
-              <ele-chart :option="Line" style="height: 292px" />
+              <ele-chart :option="Bar" style="height: 292px" />
             </div>
           </el-card>
           <el-card>
@@ -67,7 +67,7 @@
               <span>危险废物</span>
             </div>
             <div>
-              <ele-chart :option="Gauge" style="height: 292px" />
+              <ele-chart :option="Danger" style="height: 292px" />
             </div>
           </el-card>
         </div>
@@ -103,7 +103,8 @@ export default {
         ]
       }
     },
-    Swirl () {
+
+    Atmospheric () {
       return {
         xAxis: [
           {
@@ -140,83 +141,130 @@ export default {
         ],
       }
     },
-    Daqi () {
+    Swirl () {
       return {
-        xAxis: [
-          {
-            type: "category",
-            data: ['0.00'],
-            axisLabel: {
-              color: '#fff'
-            },
-          },
-        ],
-        yAxis: [
-          {
-            type: "value",
-            axisLabel: {
-              color: '#fff'
-            },
-            splitLine: {
-              show: false
-            }
-          },
-        ],
+        tooltip: {
+          trigger: 'axis'
+        },
+        xAxis: {
+          type: 'category',
+          boundaryGap: false,
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+          type: 'value',
+          axisLabel: {
+            formatter: '{value} °C'
+          }
+        },
         series: [
           {
-            type: 'scatter',
-            data: [{
-              name: '0.00',
-              value: 15
-            }, {
-              name: '0.00',
-              value: 13
-            }],
-            itemStyle: {
-              color: 'rgb(255, 168, 0)'
+            name: 'Highest',
+            type: 'line',
+            data: [10, 11, 13, 11, 12, 12, 9],
+            markPoint: {
+              data: [
+                { type: 'max', name: 'Max' },
+                { type: 'min', name: 'Min' }
+              ]
+            },
+            markLine: {
+              data: [{ type: 'average', name: 'Avg' }]
+            }
+          },
+          {
+            name: 'Lowest',
+            type: 'line',
+            data: [1, -2, 2, 5, 3, 2, 0],
+            markPoint: {
+              data: [{ name: '周最低', value: -2, xAxis: 1, yAxis: -1.5 }]
+            },
+            markLine: {
+              data: [
+                { type: 'average', name: 'Avg' },
+                [
+                  {
+                    symbol: 'none',
+                    x: '90%',
+                    yAxis: 'max'
+                  },
+                  {
+                    symbol: 'circle',
+                    label: {
+                      position: 'start',
+                      formatter: 'Max'
+                    },
+                    type: 'max',
+                    name: '最高点'
+                  }
+                ]
+              ]
             }
           }
-        ],
+        ]
       }
     },
-    /* 重污染天数 */
-    Year_zhong () {
+    Company () {
       return {
+        xAxis: {
+          type: 'category',
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+          type: 'value'
+        },
         series: [
           {
-            type: 'pie',
-            radius: [40, 60],
-            data: [{ value: 1048, name: 'Search Engine' },],
-            itemStyle: {
-              color: 'rgb(23, 54, 87)'
-            },
-            label: {
-              show: false
-            },
-          },
-        ],
+            data: [120, 200, 150, 80, 70, 110, 130],
+            type: 'bar',
+            showBackground: true,
+            backgroundStyle: {
+              color: 'rgba(180, 180, 180, 0.2)'
+            }
+          }
+        ]
       }
     },
+
     /* 优良天数 */
-    Year_you () {
+    Noise () {
       return {
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'shadow'
+          }
+        },
+        legend: {},
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true
+        },
+        xAxis: {
+          type: 'value',
+          boundaryGap: [0, 0.01]
+        },
+        yAxis: {
+          type: 'category',
+        },
         series: [
           {
-            type: 'pie',
-            radius: [40, 60],
-            data: [{ value: 1048, name: 'Search Engine' },],
-            itemStyle: {
-              color: 'rgb(255, 168, 0)'
-            },
-            label: {
-              show: false
-            },
+            name: '2011',
+            type: 'bar',
+            data: [18203, 23489, 29034, 104970, 131744, 630230]
+          },
+          {
+            name: '2012',
+            type: 'bar',
+            data: [19325, 23438, 31000, 121594, 134141, 681807]
           }
         ]
       }
     },
     /* 温度,湿度 */
-    Line () {
+    Bar () {
       return {
         legend: { right: 0, data: ['温度', '湿度'] },
         xAxis: {
@@ -233,24 +281,17 @@ export default {
         series: [
           {
             name: '湿度',
-            type: 'line',
+            type: 'bar',
             smooth: 0.6,// 光滑
             symbol: 'none',/* 点 */
             data: [10, 10, 10, 10, 10, 10, 6],
 
-          },
-          {
-            name: '温度',
-            type: 'line',
-            smooth: 0.6,// 光滑
-            symbol: 'none',/* 点 */
-            data: [1, 1, 1, 1, 1, 1, 3],
           }
         ]
       }
     },
     /* 气压 */
-    Gauge () {
+    Danger () {
       return {
         title: {
           text: 'Basic Radar Chart'

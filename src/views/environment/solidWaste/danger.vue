@@ -8,9 +8,6 @@
         <el-form-item label="结束时间">
           <el-input v-model="form.name"></el-input>
         </el-form-item>
-        <el-form-item label="点位">
-          <el-input v-model="form.name"></el-input>
-        </el-form-item>
         <el-button type="primary">查询</el-button>
       </el-form>
       <ele-data-table
@@ -27,10 +24,16 @@
           align="center"
           fixed="left"
         />
-        <el-table-column label="点位" prop="name" />
-        <el-table-column label="类型" prop="name" />
-        <el-table-column label="报警值" prop="name" />
-        <el-table-column label="阈值" prop="name" />
+        <el-table-column label="年月" prop="name" />
+        <el-table-column label="危废代码" prop="name" />
+        <el-table-column label="类别" prop="name" />
+        <el-table-column label="产生量" prop="name" />
+        <el-table-column label="转移量" prop="name" />
+        <el-table-column label="回收率" prop="name" />
+        <el-table-column label="备注" prop="name" />
+        <el-table-column label="填报时间" prop="name" />
+        <el-table-column label="填报人" prop="name" />
+        <el-table-column label="操作" prop="name" />
       </ele-data-table>
     </el-card>
   </div>
