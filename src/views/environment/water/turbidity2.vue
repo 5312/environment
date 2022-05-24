@@ -4,7 +4,7 @@
       <ele-chart
         ref="chartss"
         :option="Curve"
-        style="height: calc(100vh - 181px)"
+        style="height: calc(100vh - 171px)"
     /></el-card>
   </div>
 </template>
@@ -14,17 +14,17 @@ export default {
   components: { EleChart },
   computed: {
     Curve () {
-
       return {
         xAxis: {
           type: 'category',
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
         },
         yAxis: {
           type: 'value'
         },
         series: [
           {
-            data: [],
+            data: [820, 932, 901, 934, 1290, 1330, 1320],
             type: 'line',
             smooth: true
           }

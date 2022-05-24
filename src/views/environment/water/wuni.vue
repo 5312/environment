@@ -3,7 +3,7 @@
     <EnvHeader />
     <!-- 顶部 切换栏 -->
     <div class="body">
-      <img class="img" :src="require('@/assets/zhihui.png')" alt="加载失败" />
+      <img class="img" :src="require('@/assets/wuni.png')" alt="加载失败" />
     </div>
   </div>
 </template>
