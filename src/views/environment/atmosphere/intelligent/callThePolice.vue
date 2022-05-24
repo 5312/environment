@@ -27,10 +27,10 @@
           align="center"
           fixed="left"
         />
-        <el-table-column label="点位" prop="name" />
-        <el-table-column label="类型" prop="name" />
-        <el-table-column label="报警值" prop="name" />
-        <el-table-column label="阈值" prop="name" />
+        <el-table-column label="点位" prop="dianwei" />
+        <el-table-column label="类型" prop="type" />
+        <el-table-column label="报警值" prop="baojing" />
+        <el-table-column label="阈值" prop="yuzhi" />
       </ele-data-table>
     </el-card>
   </div>
@@ -39,7 +39,22 @@
 export default {
   data () {
     return {
-      tables: [],
+      tables: [{
+        dianwei: '北门消防楼',
+        type: 'PM2.5|PM10',
+        baojing: '5.67|153.24',
+        yuzhi: '150|150'
+      }, {
+        dianwei: '北门消防楼',
+        type: 'PM2.5|PM10',
+        baojing: '5.67|153.24',
+        yuzhi: '150|150'
+      }, {
+        dianwei: '北门消防楼',
+        type: 'PM2.5|PM10',
+        baojing: '5.67|153.24',
+        yuzhi: '150|150'
+      }],
       choose: [], // 表格选中数据
       table_load: false,
       /* form */

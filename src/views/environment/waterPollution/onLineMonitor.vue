@@ -13,11 +13,11 @@
                 highlight-current-row
                 v-loading="table_load"
               >
-                <el-table-column label="时间" prop="name" />
-                <el-table-column label="PH值" prop="name" />
-                <el-table-column label="悬浮物(ss)(mg/l)" prop="name" />
-                <el-table-column label="COD(mg/l)" prop="name" />
-                <el-table-column label="污水流量(l/s)" prop="name" />
+                <el-table-column label="时间" prop="time" />
+                <el-table-column label="PH值" prop="ph" />
+                <el-table-column label="悬浮物(ss)(mg/l)" prop="ss" />
+                <el-table-column label="COD(mg/l)" prop="mg" />
+                <el-table-column label="污水流量(l/s)" prop="l" />
               </ele-data-table>
             </el-tab-pane>
             <el-tab-pane label="图形模式" name="charts">
@@ -41,7 +41,25 @@ export default {
   components: { EleChart },
   data () {
     return {
-      table: [],
+      table: [{
+        time: '2021',
+        ph: '7.80',
+        ss: '1.04',
+        mg: '0.31',
+        l: '0.17',
+      }, {
+        time: '2021',
+        ph: '7.80',
+        ss: '1.04',
+        mg: '0.31',
+        l: '0.17',
+      }, {
+        time: '2021',
+        ph: '7.80',
+        ss: '1.04',
+        mg: '0.31',
+        l: '0.17',
+      }],
       choose: [],
       table_load: false,
       activeName: 'table',

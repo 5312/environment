@@ -1,18 +1,6 @@
 <template>
   <div class="ele-body">
     <el-card>
-      <el-form ref="form" :model="form" :inline="true" label-width="80px">
-        <el-form-item label="开始时间">
-          <el-input v-model="form.name"></el-input>
-        </el-form-item>
-        <el-form-item label="结束时间">
-          <el-input v-model="form.name"></el-input>
-        </el-form-item>
-        <el-form-item label="点位">
-          <el-input v-model="form.name"></el-input>
-        </el-form-item>
-        <el-button type="primary">查询</el-button>
-      </el-form>
       <ele-data-table
         ref="table"
         :data="tables"
@@ -27,10 +15,11 @@
           align="center"
           fixed="left"
         />
-        <el-table-column label="点位" prop="name" />
-        <el-table-column label="类型" prop="name" />
-        <el-table-column label="报警值" prop="name" />
-        <el-table-column label="阈值" prop="name" />
+        <el-table-column label="监测指标" prop="index" />
+        <el-table-column label="报警开始时间" prop="star" />
+        <el-table-column label="报警结束时间" prop="end" />
+        <el-table-column label="报警数值" prop="data" />
+        <el-table-column label="阈值" prop="th" />
       </ele-data-table>
     </el-card>
   </div>
@@ -39,11 +28,27 @@
 export default {
   data () {
     return {
-      tables: [],
+      tables: [{
+        index: 'PH值',
+        star: '2021-11-11',
+        end: '2021-11-11',
+        data: '7.2030129',
+        th: "1-10"
+      }, {
+        index: 'PH值',
+        star: '2021-11-11',
+        end: '2021-11-11',
+        data: '7.2030129',
+        th: "1-10"
+      }, {
+        index: 'PH值',
+        star: '2021-11-11',
+        end: '2021-11-11',
+        data: '7.2030129',
+        th: "1-10"
+      }],
       choose: [], // 表格选中数据
       table_load: false,
-      /* form */
-      form: {}
     }
   }
 }

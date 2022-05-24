@@ -34,7 +34,6 @@
         <el-col :span="6">
           <el-input placeholder="输入关键字进行过滤" v-model="filterText">
           </el-input>
-
           <el-tree
             class="filter-tree"
             :data="data"
@@ -54,13 +53,13 @@
             v-loading="table_load"
           >
             <el-table-column label="点位名称" prop="name" />
-            <el-table-column label="PM10" prop="name" />
-            <el-table-column label="PM2.5" prop="name" />
-            <el-table-column label="温度" prop="name" />
-            <el-table-column label="湿度" prop="name" />
-            <el-table-column label="风速" prop="name" />
-            <el-table-column label="风向" prop="name" />
-            <el-table-column label="时间" prop="name" />
+            <el-table-column label="PM10" prop="pm10" />
+            <el-table-column label="PM2.5" prop="pm2" />
+            <el-table-column label="温度" prop="wendu" />
+            <el-table-column label="湿度" prop="shidu" />
+            <el-table-column label="风速" prop="fengsu" />
+            <el-table-column label="风向" prop="fengxiang" />
+            <el-table-column label="时间" prop="time" />
           </ele-data-table>
         </el-col>
       </el-row>
@@ -73,11 +72,48 @@ export default {
   data () {
     return {
       form: {},
-      table: [],
+      table: [{
+        name: '地销仓库车辆出口',
+        pm10: '57.32',
+        pm2: '23.40',
+        wendu: '-2.31',
+        shidu: '67.09',
+        fengsu: '0.80',
+        fengxiang: "0.0",
+        time: '2021-11-11'
+      }, {
+        name: '地销仓库车辆出口',
+        pm10: '57.32',
+        pm2: '23.40',
+        wendu: '-2.31',
+        shidu: '67.09',
+        fengsu: '0.80',
+        fengxiang: "0.0",
+        time: '2021-11-11'
+      }, {
+        name: '地销仓库车辆出口',
+        pm10: '57.32',
+        pm2: '23.40',
+        wendu: '-2.31',
+        shidu: '67.09',
+        fengsu: '0.80',
+        fengxiang: "0.0",
+        time: '2021-11-11'
+      }],
       choose: [],
       table_load: false,
       /* tree */
-      data: [],
+      data: [{
+        label: '全部监测点位名称',
+        children: [
+          {
+            label: '地销仓库车辆出口'
+          },
+          {
+            label: '洗煤厂办公楼'
+          }
+        ]
+      }],
       defaultProps: {
         children: 'children',
         label: 'label'

@@ -27,14 +27,10 @@ export default {
       load: false,
       choose: [], // 表格选中数据
       table: [
-        { name: '烟尘折算', yu: '100000mg mg/m³', bao: '10000000 mg/m³' },
-        { name: '烟气流速', yu: '100000 m/s', bao: '10000000 m/s' },
-        { name: '烟气湿度', yu: '100000%', bao: '10000000%' },
-        { name: '二氧化硫折算', yu: '100000 mg/m³', bao: '100000 mg/m³' },
-        { name: '氮氧化物折算', yu: '100000 mg/m³', bao: '100000 mg/m³' },
-        { name: '二氧化硫', yu: '100000 mg/m³', bao: '100000 mg/m³' },
-
-
+        { name: '污水流量', yu: '100000mg L/s', bao: '10000000 L/s' },
+        { name: 'COD', yu: '100000 mg/L', bao: '10000000 mg/L' },
+        { name: 'PH值', yu: '100000', bao: '10000000' },
+        { name: '悬浮物', yu: '100000 mg/L', bao: '100000 mg/L' },
       ]
     }
   }
