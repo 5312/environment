@@ -2,13 +2,7 @@
   <div class="ele-body">
     <el-card>
       <el-form ref="form" :model="form" :inline="true" label-width="80px">
-        <el-form-item label="开始时间">
-          <el-input v-model="form.name"></el-input>
-        </el-form-item>
-        <el-form-item label="结束时间">
-          <el-input v-model="form.name"></el-input>
-        </el-form-item>
-        <el-form-item label="点位">
+        <el-form-item label="选择日期">
           <el-input v-model="form.name"></el-input>
         </el-form-item>
         <el-button type="primary">查询</el-button>
@@ -27,10 +21,17 @@
           align="center"
           fixed="left"
         />
-        <el-table-column label="点位" prop="name" />
-        <el-table-column label="类型" prop="name" />
-        <el-table-column label="报警值" prop="name" />
-        <el-table-column label="阈值" prop="name" />
+        <el-table-column label="序号" type="index" />
+        <el-table-column label="报表标题" prop="title" />
+        <el-table-column label="数据时间" prop="datatime" />
+        <el-table-column label="创建人" prop="name" />
+        <el-table-column label="更新时间" prop="update" />
+        <el-table-column label="创建时间" prop="create" />
+        <el-table-column label="操作">
+          <template slot-scope="">
+            <el-button size="mini" type="danger">打开</el-button>
+          </template>
+        </el-table-column>
       </ele-data-table>
     </el-card>
   </div>
@@ -39,7 +40,13 @@
 export default {
   data () {
     return {
-      tables: [],
+      tables: [
+        { title: '7月份-生产过程CO2排放情况', datatime: '2021-07', name: 'admin', update: '2021-07', create: '2021-07' },
+        { title: '7月份-生产过程CO2排放情况', datatime: '2021-07', name: 'admin', update: '2021-07', create: '2021-07' },
+        { title: '7月份-生产过程CO2排放情况', datatime: '2021-07', name: 'admin', update: '2021-07', create: '2021-07' },
+        { title: '7月份-生产过程CO2排放情况', datatime: '2021-07', name: 'admin', update: '2021-07', create: '2021-07' },
+        { title: '7月份-生产过程CO2排放情况', datatime: '2021-07', name: 'admin', update: '2021-07', create: '2021-07' },
+      ],
       choose: [], // 表格选中数据
       table_load: false,
       /* form */

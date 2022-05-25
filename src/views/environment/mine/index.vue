@@ -8,7 +8,8 @@
               <span>矿山治理情况</span>
             </div>
             <div>
-              <ele-chart :option="mine" style="height: 292px" />
+              <!-- <div id="3dpie" style="height: 292px"></div> -->
+              <highcharts :options="chartOptions"></highcharts>
             </div>
           </el-card>
           <el-card>
@@ -16,7 +17,7 @@
               <span>矿山植被覆盖</span>
             </div>
             <div>
-              <ele-chart :option="mine" style="height: 292px" />
+              <ele-chart :option="mine" />
             </div>
           </el-card>
         </div>
@@ -30,7 +31,7 @@
             </div>
             <!-- 内容部分 -->
             <div>
-              <ele-chart :option="green" style="height: 160px" />
+              <ele-chart :option="green" />
             </div>
           </el-card>
           <el-card>
@@ -38,7 +39,7 @@
               <span>碳排放情况</span>
             </div>
             <div>
-              <ele-chart :option="tan" style="height: 160px" />
+              <ele-chart :option="tan" />
             </div>
           </el-card>
           <el-card>
@@ -46,7 +47,7 @@
               <span>生态治理情况</span>
             </div>
             <div>
-              <ele-chart :option="sheng" style="height: 160px" />
+              <ele-chart :option="sheng" />
             </div>
           </el-card>
         </div>
@@ -57,18 +58,143 @@
 <script>
 import EleChart from "@/components/EleChart"
 import * as echarts from 'echarts'
+/* highcharts */
+import Highcharts from 'highcharts'
+
+import Highcharts3D from 'highcharts/highcharts-3d'
+
+import { Chart } from 'highcharts-vue'
+Highcharts3D(Highcharts)
+
 export default {
-  components: { EleChart },
+  components: { EleChart, highcharts: Chart },
   data () {
     return {
+      chartOptions: {
+        chart: {
+          backgroundColor: {
+            linearGradient: [0, 0, 500, 500],
+            stops: [
+              [0, 'rgb(2, 17, 50)'],
+              [1, 'rgb(2, 17, 50)']
+            ]
+          },
+          type: 'pie',
+          options3d: {
+            enabled: true,
+            alpha: 45,
+            beta: 0
+          }
+        },
+        title: {
+          text: ''
+        },
+        plotOptions: {
+          pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            depth: 35,
+            dataLabels: {
+              enabled: true,
+              format: '{point.name}'
+            }
+          }
+        },
+        series: [{
+          type: 'pie',
+          name: '',
+          data: [
+            {
+              name: '尚未治理',
+              y: 307,
+              sliced: true,
+              selected: true
+            },
+            ['已完成治理', 809.66],
+          ]
+        }]
+        /*  series: [{
+           data: [1, 2, 3] // sample data
+         }] */
+      }
     }
   },
   computed: {
     mine () {
-      return {}
+      return {
+      }
     },
     green () {
-      return {}
+      return {
+        legend: { left: '1%', data: ['实际得分', '标准分'] },
+        dataset: [
+          {
+            source: [
+              ['product', '2012', '2013', '2014', '2015', '2016', '2017'],
+              ['实际得分', 56.5, 82.1, 88.7, 70.1, 53.4, 85.1],
+              ['标准分', 51.1, 51.4, 55.1, 53.3, 73.8, 68.7],
+            ]
+          },
+          {
+            source: [
+              ['product', 'b', 's'],
+              ['矿区环境', 10, 8],
+              ['资源开发方式', 10, 8],
+              ['资源综合再利用', 10, 8],
+              ['节能减排', 10, 8],
+            ]
+          }
+        ],
+        grid: { left: '50%' },
+        xAxis: {
+          type: 'value',
+          show: false,
+          gridIndex: 0
+        },
+        yAxis: {
+          type: 'category',
+          show: true,
+          axisTick: {
+            show: false
+          },
+          axisLine: {
+            show: false
+          }
+        },
+        // xAxis: { type: 'category' },
+        // yAxis: { gridIndex: 0 },
+        series: [
+          {
+            type: 'bar',
+            emphasis: { focus: 'series' },
+            datasetIndex: 1
+          },
+          {
+            type: 'bar',
+            emphasis: { focus: 'series' },
+            datasetIndex: 1
+          },
+          {
+            type: 'pie',
+            id: 'pie',
+            radius: ['30%', '40%'],
+            center: ['10%', '50%'],
+            datasetIndex: 0,
+            emphasis: {
+              focus: 'self'
+            },
+            label: {
+              show: false,
+              position: 'center'
+            },
+            encode: {
+              itemName: 'product',
+              value: '2012',
+              tooltip: '2012'
+            }
+          }
+        ]
+      }
     },
     tan () {
       return {
@@ -190,6 +316,12 @@ $text-color: #07d3dd;
     justify-content: space-between;
     height: calc(100vh - 150px);
     .el-card {
+      .el-card__body > div {
+        height: 100%;
+        div {
+          height: 100%;
+        }
+      }
       height: calc(100% / 3);
       &__header {
         border-color: transparent;
@@ -201,62 +333,12 @@ $text-color: #07d3dd;
       }
       &__body {
         height: calc(100% - 52px);
-        .center {
-          height: 100%;
-          overflow-y: auto;
-          overflow-x: hidden;
-          .body-header {
-            padding: 10px 0;
-            text-align: center;
-            .top {
-              margin-bottom: 5px;
-            }
-            .wraptag > div {
-              padding: 10px;
-              background: rgb(22, 106, 150);
-            }
-          }
-          .body {
-            .wraptag {
-              margin: 10px 0;
-              & > div {
-                padding: 10px;
-                background: rgb(22, 106, 150);
-              }
-            }
-          }
-          .pm-row {
-            height: calc(100% - 63px);
-            overflow: hidden;
-            .el-col {
-              height: 100%;
-              & > div {
-                height: 100%;
-                text-align: center;
-                background: radial-gradient(rgb(11, 30, 60), rgb(11, 72, 113));
-                .zhuangtai {
-                  padding: 5px;
-                  font-size: 14px;
-                }
-                .line {
-                  box-sizing: border-box;
-                  padding: 8px 0;
-                  white-space: nowrap;
-                  div {
-                    margin: 0 5px;
-                  }
-                }
-              }
-            }
-          }
-        }
       }
     }
   }
   // card 头部线条
   .wrap_card /deep/.el-card__header {
     margin: 0 30px;
-    // border-color: transparent;
     border-bottom: 2px solid rgba(255, 255, 255, 0.05);
   }
   .wrap-center {
