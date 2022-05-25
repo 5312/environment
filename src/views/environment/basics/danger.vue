@@ -5,7 +5,7 @@
         <el-form-item label="选择日期">
           <el-input v-model="form.name"></el-input>
         </el-form-item>
-        <el-button type="primary">查询</el-button>
+        <el-button type="primary">导出</el-button>
       </el-form>
       <ele-data-table
         ref="table"
@@ -15,19 +15,21 @@
         highlight-current-row
         v-loading="table_load"
       >
-        <el-table-column
-          type="selection"
-          width="45"
-          align="center"
-          fixed="left"
-        />
-        <el-table-column label="序号" prop="name" />
-        <el-table-column label="报表标题" prop="name" />
-        <el-table-column label="数据时间" prop="name" />
-        <el-table-column label="创建人" prop="name" />
-        <el-table-column label="更新时间" prop="name" />
-        <el-table-column label="创建时间" prop="name" />
-        <el-table-column label="操作" prop="name" />
+        <el-table-column label="单位" prop="dept" />
+        <el-table-column label="危废代码" prop="code" />
+        <el-table-column label="名称" prop="name" />
+        <el-table-column label="回收限值" prop="back" />
+        <el-table-column label="本月" align="center">
+          <el-table-column label="生产量" prop="get" />
+          <el-table-column label="转移量" prop="move" />
+        </el-table-column>
+        <el-table-column label="年度累计" align="center">
+          <el-table-column label="生产量" prop="get" />
+          <el-table-column label="转移量" prop="move" />
+          <el-table-column label="贮存量" prop="move" />
+          <el-table-column label="回收率" prop="move" />
+        </el-table-column>
+        <el-table-column label="备注" prop="remark" />
       </ele-data-table>
     </el-card>
   </div>

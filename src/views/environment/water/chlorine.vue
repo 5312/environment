@@ -14,19 +14,21 @@ export default {
   components: { EleChart },
   computed: {
     Curve () {
-
       return {
+        legend: {},
         xAxis: {
           type: 'category',
+          data: ['11:50:36', '11:50:367', '11:50:38', '11:50:39', '11:50:40', '11:50:41', '11:50:42']
         },
         yAxis: {
-          type: 'value'
+          type: 'value',
+          data: [-5, -4, -3, -2, -1, 0]
         },
         series: [
           {
-            data: [],
+            data: [-5, -5, -5, -5, -5, -5, -5],
             type: 'line',
-            smooth: true
+            name: '余氯'
           }
         ]
       }

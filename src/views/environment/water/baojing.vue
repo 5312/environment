@@ -1,18 +1,6 @@
 <template>
   <div class="ele-body">
     <el-card>
-      <el-form ref="form" :model="form" :inline="true" label-width="80px">
-        <el-form-item label="开始时间">
-          <el-input v-model="form.name"></el-input>
-        </el-form-item>
-        <el-form-item label="结束时间">
-          <el-input v-model="form.name"></el-input>
-        </el-form-item>
-        <el-form-item label="点位">
-          <el-input v-model="form.name"></el-input>
-        </el-form-item>
-        <el-button type="primary">查询</el-button>
-      </el-form>
       <ele-data-table
         ref="table"
         :data="tables"
@@ -27,10 +15,13 @@
           align="center"
           fixed="left"
         />
-        <el-table-column label="点位" prop="name" />
-        <el-table-column label="类型" prop="name" />
-        <el-table-column label="报警值" prop="name" />
-        <el-table-column label="阈值" prop="name" />
+        <el-table-column label="开始时间" prop="star" />
+        <el-table-column label="最后时间" prop="end" />
+        <el-table-column label="节点" prop="leaf" />
+        <el-table-column label="标签名" prop="label" />
+        <el-table-column label="状态" prop="status" />
+        <el-table-column label="值" prop="params" />
+        <el-table-column label="描述" prop="remark" />
       </ele-data-table>
     </el-card>
   </div>
@@ -39,7 +30,15 @@
 export default {
   data () {
     return {
-      tables: [],
+      tables: [
+        { star: '2021-07-22', end: '2021-07-22', leaf: 'F1X', label: 'BPCZ2', status: 'OPEN', params: 'OPEN', remark: '2#变频器' },
+        { star: '2021-07-22', end: '2021-07-22', leaf: 'F1X', label: 'BPCZ2', status: 'OPEN', params: 'OPEN', remark: '2#变频器' },
+        { star: '2021-07-22', end: '2021-07-22', leaf: 'F1X', label: 'BPCZ2', status: 'OPEN', params: 'OPEN', remark: '2#变频器' },
+        { star: '2021-07-22', end: '2021-07-22', leaf: 'F1X', label: 'BPCZ2', status: 'OPEN', params: 'OPEN', remark: '2#变频器' },
+        { star: '2021-07-22', end: '2021-07-22', leaf: 'F1X', label: 'BPCZ2', status: 'OPEN', params: 'OPEN', remark: '2#变频器' },
+        { star: '2021-07-22', end: '2021-07-22', leaf: 'F1X', label: 'BPCZ2', status: 'OPEN', params: 'OPEN', remark: '2#变频器' },
+        { star: '2021-07-22', end: '2021-07-22', leaf: 'F1X', label: 'BPCZ2', status: 'OPEN', params: 'OPEN', remark: '2#变频器' },
+      ],
       choose: [], // 表格选中数据
       table_load: false,
       /* form */

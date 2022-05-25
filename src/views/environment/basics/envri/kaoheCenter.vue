@@ -2,14 +2,8 @@
   <div class="ele-body">
     <el-card>
       <el-form ref="form" :model="form" :inline="true" label-width="80px">
-        <el-form-item label="开始时间">
-          <el-input v-model="form.name"></el-input>
-        </el-form-item>
-        <el-form-item label="结束时间">
-          <el-input v-model="form.name"></el-input>
-        </el-form-item>
-        <el-form-item label="点位">
-          <el-input v-model="form.name"></el-input>
+        <el-form-item>
+          <el-input v-model="form.name" placeholder="请输入查询内容"></el-input>
         </el-form-item>
         <el-button type="primary">查询</el-button>
       </el-form>
@@ -21,16 +15,18 @@
         highlight-current-row
         v-loading="table_load"
       >
-        <el-table-column
-          type="selection"
-          width="45"
-          align="center"
-          fixed="left"
-        />
-        <el-table-column label="点位" prop="name" />
-        <el-table-column label="类型" prop="name" />
-        <el-table-column label="报警值" prop="name" />
-        <el-table-column label="阈值" prop="name" />
+        <el-table-column label="考核项目" prop="item" />
+        <el-table-column label="考核内容" prop="center" />
+        <el-table-column label="标准分" prop="fen" />
+        <el-table-column label="评分标准" prop="s" />
+        <el-table-column label="责任部门" prop="dept" />
+        <el-table-column label="下发单位" prop="getdown" />
+        <el-table-column label="操作">
+          <template slot-scope="">
+            <el-button size="mini" type="danger">编辑</el-button>
+            <el-button size="mini" type="danger">下载</el-button>
+          </template>
+        </el-table-column>
       </ele-data-table>
     </el-card>
   </div>
@@ -39,7 +35,79 @@
 export default {
   data () {
     return {
-      tables: [],
+      tables: [{
+        item: '一,组织机构和制度建设100分',
+        center: '1.有健全的环保组织机构,',
+        fen: 20,
+        s: '查文件,未成立领导小组或',
+        dept: '机电部',
+        getdown: '生态环保部',
+
+      }, {
+        item: '一,组织机构和制度建设100分',
+        center: '1.有健全的环保组织机构,',
+        fen: 20,
+        s: '查文件,未成立领导小组或',
+        dept: '机电部',
+        getdown: '生态环保部',
+
+      }, {
+        item: '一,组织机构和制度建设100分',
+        center: '1.有健全的环保组织机构,',
+        fen: 20,
+        s: '查文件,未成立领导小组或',
+        dept: '机电部',
+        getdown: '生态环保部',
+
+      }, {
+        item: '一,组织机构和制度建设100分',
+        center: '1.有健全的环保组织机构,',
+        fen: 20,
+        s: '查文件,未成立领导小组或',
+        dept: '机电部',
+        getdown: '生态环保部',
+
+      }, {
+        item: '一,组织机构和制度建设100分',
+        center: '1.有健全的环保组织机构,',
+        fen: 20,
+        s: '查文件,未成立领导小组或',
+        dept: '机电部',
+        getdown: '生态环保部',
+
+      }, {
+        item: '一,组织机构和制度建设100分',
+        center: '1.有健全的环保组织机构,',
+        fen: 20,
+        s: '查文件,未成立领导小组或',
+        dept: '机电部',
+        getdown: '生态环保部',
+
+      }, {
+        item: '一,组织机构和制度建设100分',
+        center: '1.有健全的环保组织机构,',
+        fen: 20,
+        s: '查文件,未成立领导小组或',
+        dept: '机电部',
+        getdown: '生态环保部',
+
+      }, {
+        item: '一,组织机构和制度建设100分',
+        center: '1.有健全的环保组织机构,',
+        fen: 20,
+        s: '查文件,未成立领导小组或',
+        dept: '机电部',
+        getdown: '生态环保部',
+
+      }, {
+        item: '一,组织机构和制度建设100分',
+        center: '1.有健全的环保组织机构,',
+        fen: 20,
+        s: '查文件,未成立领导小组或',
+        dept: '机电部',
+        getdown: '生态环保部',
+
+      }],
       choose: [], // 表格选中数据
       table_load: false,
       /* form */

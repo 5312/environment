@@ -3,14 +3,14 @@
     <el-row :gutter="20">
       <el-col :span="12">
         <el-card>
-          <div slot="header">进水参数</div>
+          <div slot="header">悬浮物(156.82)</div>
           <ele-chart
             :option="waterIn"
             style="height: calc(100vh - 630px)"
           ></ele-chart>
         </el-card>
         <el-card>
-          <div slot="header">出水参数</div>
+          <div slot="header">悬浮物(156.82)</div>
           <ele-chart
             :option="waterIn"
             style="height: calc(100vh - 630px)"
@@ -19,7 +19,7 @@
       </el-col>
       <el-col :span="12">
         <el-card>
-          <div slot="header">出水参数</div>
+          <div slot="header">悬浮物(156.82)</div>
 
           <ele-chart
             :option="waterIn"
@@ -27,7 +27,7 @@
           ></ele-chart
         ></el-card>
         <el-card>
-          <div slot="header">回用水参数</div>
+          <div slot="header">悬浮物(156.82)</div>
 
           <ele-chart
             :option="waterIn"
@@ -48,7 +48,6 @@ export default {
   computed: {
     waterIn () {
       return {
-        legend: {},
         xAxis: {
           type: 'category',
           data: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00']

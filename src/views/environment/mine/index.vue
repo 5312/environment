@@ -1,139 +1,52 @@
 <template >
   <div class="ele-body">
     <el-row :gutter="20">
-      <el-col :span="7">
+      <el-col :span="15">
+        <div class="wrap_card wrap-center">
+          <el-card>
+            <div slot="header" class="title">
+              <span>矿山治理情况</span>
+            </div>
+            <div>
+              <ele-chart :option="mine" style="height: 292px" />
+            </div>
+          </el-card>
+          <el-card>
+            <div slot="header" class="title">
+              <span>矿山植被覆盖</span>
+            </div>
+            <div>
+              <ele-chart :option="mine" style="height: 292px" />
+            </div>
+          </el-card>
+        </div>
+      </el-col>
+      <el-col :span="9">
         <div class="wrap_card">
           <el-card>
             <!--  -->
             <div slot="header" class="title">
-              <span>二盘区水质</span>
+              <span>绿色矿山评估情况</span>
             </div>
             <!-- 内容部分 -->
-            <div class="center">
-              <div class="body-header">
-                <div class="flex flex_h_between">
-                  <div>
-                    <div class="top">PM2.5</div>
-                    <div>4.00</div>
-                  </div>
-                  <div>
-                    <div class="top">pm10</div>
-                    <div>4.00</div>
-                  </div>
-                  <div>
-                    <div class="top">温度</div>
-                    <div>-3.20℃</div>
-                  </div>
-                  <div>
-                    <div class="top">湿度</div>
-                    <div>39.60RH</div>
-                  </div>
-                  <div>
-                    <div class="top">风速</div>
-                    <div>0.20m/s</div>
-                  </div>
-                  <div>
-                    <div class="top">大气压</div>
-                    <div>0.00Pa</div>
-                  </div>
-                </div>
-              </div>
-              <el-row :gutter="10" class="pm-row">
-                <el-col :span="12">
-                  <div>
-                    <div class="zhuangtai">PM2.5状态</div>
-                    <div class="flex flex_h_between line">
-                      <div>0-50 <span class="red">优</span></div>
-                      <div>101-150 <span class="yellow">中</span></div>
-                    </div>
-                    <div class="flex flex_h_between line">
-                      <div>51-100 <span class="green">良</span></div>
-                      <div>151-200 <span class="blue">差</span></div>
-                    </div>
-                  </div>
-                </el-col>
-                <el-col :span="12">
-                  <div>
-                    <div class="zhuangtai">PM10状态</div>
-                    <div class="flex flex_h_between line">
-                      <div>0-50 <span class="red">优</span></div>
-                      <div>101-150 <span class="yellow">中</span></div>
-                    </div>
-                    <div class="flex flex_h_between line">
-                      <div>51-100 <span class="green">良</span></div>
-                      <div>151-200 <span class="blue">差</span></div>
-                    </div>
-                  </div>
-                </el-col>
-              </el-row>
+            <div>
+              <ele-chart :option="green" style="height: 160px" />
             </div>
           </el-card>
           <el-card>
             <div slot="header" class="title">
-              <span>高效旋流水质</span>
+              <span>碳排放情况</span>
             </div>
             <div>
-              <ele-chart :option="Pm2" style="height: 160px" />
+              <ele-chart :option="tan" style="height: 160px" />
             </div>
           </el-card>
           <el-card>
             <div slot="header" class="title">
-              <span>企业用水</span>
+              <span>生态治理情况</span>
             </div>
             <div>
-              <ele-chart :option="Daqi" style="height: 160px" />
-            </div>
-          </el-card>
-        </div>
-      </el-col>
-      <el-col :span="10">
-        <div class="wrap_card wrap-center">
-          <el-card>
-            <div slot="header" class="title">
-              <span>大气监测</span>
-            </div>
-            <div>
-              <ele-chart :option="Pm2" style="height: 292px" />
-            </div>
-          </el-card>
-          <el-card>
-            <div slot="header" class="title">
-              <span>噪声监测</span>
-            </div>
-            <el-row :gutter="5">
-              <el-col :span="12">
-                <div>
-                  <div class="ele-text-center">重污染天数</div>
-                  <ele-chart :option="Year_zhong" style="height: 292px" />
-                </div>
-              </el-col>
-              <el-col :span="12">
-                <div>
-                  <div class="ele-text-center">优良天数</div>
-                  <ele-chart :option="Year_you" style="height: 292px" />
-                </div>
-              </el-col>
-            </el-row>
-          </el-card>
-        </div>
-      </el-col>
-      <el-col :span="7">
-        <div class="wrap_card wrap-center">
-          <el-card>
-            <div slot="header" class="title">
-              <span>矸石销量</span>
-            </div>
-            <!-- 折线图 -->
-            <div>
-              <ele-chart :option="Line" style="height: 292px" />
-            </div>
-          </el-card>
-          <el-card>
-            <div slot="header" class="title">
-              <span>危险废物</span>
-            </div>
-            <div>
-              <ele-chart :option="Gauge" style="height: 292px" />
+              <ele-chart :option="sheng" style="height: 160px" />
             </div>
           </el-card>
         </div>
@@ -143,6 +56,7 @@
 </template>
 <script>
 import EleChart from "@/components/EleChart"
+import * as echarts from 'echarts'
 export default {
   components: { EleChart },
   data () {
@@ -150,201 +64,110 @@ export default {
     }
   },
   computed: {
-    /* pm2.5 / pm10 */
-    Pm2 () {
-      return {
-        xAxis: [
-          {
-            type: "category",
-            data: ['0.00'],
-            axisLabel: {
-              color: '#fff'
-            },
-          },
-        ],
-        yAxis: [
-          {
-            type: "value",
-            axisLabel: {
-              color: '#fff'
-            },
-            splitLine: {
-              show: false
-            }
-          },
-        ],
-        series: [
-          {
-            barWidth: 15,
-            type: "bar",
-            data: [{
-              name: '0.00',
-              value: 15
-            }],
-            itemStyle: {
-              color: 'rgb(7, 130, 135)'
-            }
-          }
-        ],
-      }
+    mine () {
+      return {}
     },
-    Daqi () {
-      return {
-        xAxis: [
-          {
-            type: "category",
-            data: ['0.00'],
-            axisLabel: {
-              color: '#fff'
-            },
-          },
-        ],
-        yAxis: [
-          {
-            type: "value",
-            axisLabel: {
-              color: '#fff'
-            },
-            splitLine: {
-              show: false
-            }
-          },
-        ],
-        series: [
-          {
-            type: 'scatter',
-            data: [{
-              name: '0.00',
-              value: 15
-            }, {
-              name: '0.00',
-              value: 13
-            }],
-            itemStyle: {
-              color: 'rgb(255, 168, 0)'
-            }
-          }
-        ],
-      }
+    green () {
+      return {}
     },
-    /* 重污染天数 */
-    Year_zhong () {
+    tan () {
       return {
-        series: [
-          {
-            type: 'pie',
-            radius: [40, 60],
-            data: [{ value: 1048, name: 'Search Engine' },],
-            itemStyle: {
-              color: 'rgb(23, 54, 87)'
-            },
-            label: {
-              show: false
-            },
-          },
-        ],
-      }
-    },
-    /* 优良天数 */
-    Year_you () {
-      return {
-        series: [
-          {
-            type: 'pie',
-            radius: [40, 60],
-            data: [{ value: 1048, name: 'Search Engine' },],
-            itemStyle: {
-              color: 'rgb(255, 168, 0)'
-            },
-            label: {
-              show: false
-            },
-          }
-        ]
-      }
-    },
-    /* 温度,湿度 */
-    Line () {
-      return {
-        legend: { right: 0, data: ['温度', '湿度'] },
         xAxis: {
           type: 'category',
-          data: ['00:00', '01:03', '03:00', '04:03', '06:00', '07:03', '08:00']
+          data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021']
         },
         yAxis: {
-          type: 'value',
-          axisLabel: {
-            formatter: '{value}'
-          },
-          splitLine: { show: false }
+          type: 'value'
         },
         series: [
           {
-            name: '湿度',
-            type: 'line',
-            smooth: 0.6,// 光滑
-            symbol: 'none',/* 点 */
-            data: [10, 10, 10, 10, 10, 10, 6],
-
-          },
-          {
-            name: '温度',
-            type: 'line',
-            smooth: 0.6,// 光滑
-            symbol: 'none',/* 点 */
-            data: [1, 1, 1, 1, 1, 1, 3],
+            data: [120, 200, 150, 80, 70, 110, 130, 20, 20, 212, 90, 100],
+            type: 'bar',
+            showBackground: true,
+            backgroundStyle: {
+              color: 'rgba(180, 180, 180, 0.2)'
+            }
           }
         ]
       }
     },
-    /* 气压 */
-    Gauge () {
+    sheng () {
       return {
+        color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
+        legend: {},
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true
+        },
+        xAxis: [
+          {
+            type: 'category',
+            boundaryGap: false,
+            data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021']
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value'
+          }
+        ],
         series: [
           {
-            radius: "100%",
-            name: '气压',
-            type: 'gauge',
-            progress: {
-              show: true
+            name: '生态治理面积',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+              width: 0
             },
-            axisLabel: {
-              distance: 10,/* 标签与刻度线的距离。 */
-              color: '#fff'
+            showSymbol: false,
+            areaStyle: {
+              opacity: 0.8,
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                {
+                  offset: 0,
+                  color: 'rgb(128, 255, 165)'
+                },
+                {
+                  offset: 1,
+                  color: 'rgb(1, 191, 236)'
+                }
+              ])
             },
-            axisLine: {
-              lineStyle: {
-                width: 10
-              }
+            emphasis: {
+              focus: 'series'
             },
-            axisTick: {
-              show: true,
-              length: "5%",
-              distance: 1
+            data: [140, 232, 101, 264, 90, 340, 250, 100, 200, 90, 10, 80]
+          },
+          {
+            name: '生态环境投入',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+              width: 0
             },
-            anchor: { /* 指针中心点 */
-              show: true,
-              showAbove: true,
-              size: 10,
-              itemStyle: {
-                borderWidth: 8
-              }
+            showSymbol: false,
+            areaStyle: {
+              opacity: 0.8,
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                {
+                  offset: 0,
+                  color: '#093065'
+                },
+                {
+                  offset: 1,
+                  color: '#0B224C'
+                }
+              ])
             },
-            detail: {
-              valueAnimation: true,
-              formatter: '{value}K Pa',
-              color: 'rgb(0, 246, 247)',
-              fontSize: 14,
-              offsetCenter: ["0%", "63%"]
+            emphasis: {
+              focus: 'series'
             },
-            data: [
-              {
-                value: 50,
-                name: '123'
-              }
-            ],
-
-          }
+            data: [140, 232, 101, 264, 90, 340, 250, 100, 200, 90, 10, 80]
+          },
         ]
       }
     }

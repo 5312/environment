@@ -15,18 +15,40 @@ export default {
   computed: {
     Curve () {
       return {
+        legend: {},
         xAxis: {
           type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+          data: ['11:50:36', '11:50:367', '11:50:38', '11:50:39', '11:50:40', '11:50:41', '11:50:42']
         },
         yAxis: {
-          type: 'value'
+          type: 'value',
+          data: [-5, -4, -3, -2, -1, 0]
         },
         series: [
           {
-            data: [820, 932, 901, 934, 1290, 1330, 1320],
+            data: [-5, -5, -5, -5, -5, -5, -5],
             type: 'line',
-            smooth: true
+            name: 'NDY3污泥浊度'
+          }, {
+            data: [0, 0, 0, 0, 0, 0, 0],
+            type: 'line',
+            name: 'NDY4污泥浊度'
+          }, {
+            data: [0, 0, 0, 0, 0, 0, 0],
+            type: 'line',
+            name: 'NDY5污泥浊度'
+          }, {
+            data: [0, 0, 0, 0, 0, 0, 0],
+            type: 'line',
+            name: 'NDY6污泥浊度'
+          }, {
+            data: [0, 0, 0, 0, 0, 0, 0],
+            type: 'line',
+            name: 'NDY7污泥浊度'
+          }, {
+            data: [0, 0, 0, 0, 0, 0, 0],
+            type: 'line',
+            name: 'NDY8污泥浊度'
           }
         ]
       }

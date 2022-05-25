@@ -1,6 +1,11 @@
 <template>
   <div class="ele-body">
     <el-card>
+      <el-form ref="form" :model="form" :inline="true" label-width="80px">
+        <el-form-item label="选择时间">
+          <el-input v-model="form.name"></el-input>
+        </el-form-item>
+      </el-form>
       <ele-data-table
         ref="table"
         :data="tables"
@@ -9,17 +14,43 @@
         highlight-current-row
         v-loading="table_load"
       >
-        <el-table-column
-          type="selection"
-          width="45"
-          align="center"
-          fixed="left"
-        />
-        <el-table-column label="监测指标" prop="name" />
-        <el-table-column label="报警开始时间" prop="name" />
-        <el-table-column label="报警结束时间" prop="name" />
-        <el-table-column label="报警数值" prop="name" />
-        <el-table-column label="阈值" prop="name" />
+        <el-table-column label="时间" prop="name" />
+        <el-table-column label="调节池进水量" align="center">
+          <el-table-column
+            label="辅运队,洗煤厂,雨水收集池进水量"
+            align="center"
+          ></el-table-column>
+          <el-table-column label="一盘区水仓" align="center"></el-table-column>
+          <el-table-column
+            label="二盘区水仓1#排水系统2#管路"
+            align="center"
+          ></el-table-column>
+          <el-table-column
+            label="二盘区水仓1#排水系统1#管路"
+            align="center"
+          ></el-table-column>
+        </el-table-column>
+        <el-table-column label="处理水量">
+          <el-table-column label="高密度迷宫斜板净水器">
+            <el-table-column label="1#"> </el-table-column>
+            <el-table-column label="2#"> </el-table-column>
+          </el-table-column>
+          <el-table-column label="高效旋流净水器">
+            <el-table-column label="1#"> </el-table-column>
+            <el-table-column label="2#"> </el-table-column>
+            <el-table-column label="2#"> </el-table-column>
+          </el-table-column>
+        </el-table-column>
+        <el-table-column label="出水量">
+          <el-table-column label="回用量(绿化)"> </el-table-column>
+          <el-table-column label="外排量(水质在线监测站)"> </el-table-column>
+        </el-table-column>
+        <el-table-column label="内循环量">
+          <el-table-column label="集水池(综合时间)"> </el-table-column>
+          <el-table-column label="1#滤液箱"> </el-table-column>
+          <el-table-column label="2#滤液箱"> </el-table-column>
+          <el-table-column label="净化器反冲洗"> </el-table-column>
+        </el-table-column>
       </ele-data-table>
     </el-card>
   </div>
@@ -31,6 +62,7 @@ export default {
       tables: [],
       choose: [], // 表格选中数据
       table_load: false,
+      form: {}
     }
   }
 }

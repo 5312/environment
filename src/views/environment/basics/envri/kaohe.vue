@@ -8,7 +8,7 @@
         <el-form-item label="结束时间">
           <el-input v-model="form.name"></el-input>
         </el-form-item>
-        <el-form-item label="点位">
+        <el-form-item>
           <el-input v-model="form.name"></el-input>
         </el-form-item>
         <el-button type="primary">查询</el-button>
@@ -21,16 +21,17 @@
         highlight-current-row
         v-loading="table_load"
       >
-        <el-table-column
-          type="selection"
-          width="45"
-          align="center"
-          fixed="left"
-        />
-        <el-table-column label="点位" prop="name" />
-        <el-table-column label="类型" prop="name" />
-        <el-table-column label="报警值" prop="name" />
-        <el-table-column label="阈值" prop="name" />
+        <el-table-column label="标题" prop="title" />
+        <el-table-column label="考核开始时间" prop="star" />
+        <el-table-column label="考核结束时间" prop="end" />
+        <el-table-column label="创建人" prop="name" />
+        <el-table-column label="创建时间" prop="create" />
+        <el-table-column label="考核进度" prop="kao" />
+        <el-table-column label="操作">
+          <template slot-scope="">
+            <el-button size="mini" type="danger">查看</el-button>
+          </template>
+        </el-table-column>
       </ele-data-table>
     </el-card>
   </div>
@@ -39,7 +40,77 @@
 export default {
   data () {
     return {
-      tables: [],
+      tables: [{
+        title: "第三季度基础考核表",
+        star: '2021-08-01',
+        end: '2021-08-01',
+        name: 'admin',
+        create: '2021-08-01',
+        kao: '已完成'
+      }, {
+        title: "第三季度基础考核表",
+        star: '2021-08-01',
+        end: '2021-08-01',
+        name: 'admin',
+        create: '2021-08-01',
+        kao: '已完成'
+      }, {
+        title: "第三季度基础考核表",
+        star: '2021-08-01',
+        end: '2021-08-01',
+        name: 'admin',
+        create: '2021-08-01',
+        kao: '已完成'
+      }, {
+        title: "第三季度基础考核表",
+        star: '2021-08-01',
+        end: '2021-08-01',
+        name: 'admin',
+        create: '2021-08-01',
+        kao: '已完成'
+      }, {
+        title: "第三季度基础考核表",
+        star: '2021-08-01',
+        end: '2021-08-01',
+        name: 'admin',
+        create: '2021-08-01',
+        kao: '已完成'
+      }, {
+        title: "第三季度基础考核表",
+        star: '2021-08-01',
+        end: '2021-08-01',
+        name: 'admin',
+        create: '2021-08-01',
+        kao: '已完成'
+      }, {
+        title: "第三季度基础考核表",
+        star: '2021-08-01',
+        end: '2021-08-01',
+        name: 'admin',
+        create: '2021-08-01',
+        kao: '已完成'
+      }, {
+        title: "第三季度基础考核表",
+        star: '2021-08-01',
+        end: '2021-08-01',
+        name: 'admin',
+        create: '2021-08-01',
+        kao: '已完成'
+      }, {
+        title: "第三季度基础考核表",
+        star: '2021-08-01',
+        end: '2021-08-01',
+        name: 'admin',
+        create: '2021-08-01',
+        kao: '已完成'
+      }, {
+        title: "第三季度基础考核表",
+        star: '2021-08-01',
+        end: '2021-08-01',
+        name: 'admin',
+        create: '2021-08-01',
+        kao: '已完成'
+      },],
       choose: [], // 表格选中数据
       table_load: false,
       /* form */

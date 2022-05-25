@@ -21,13 +21,17 @@
           align="center"
           fixed="left"
         />
-        <el-table-column label="序号" prop="name" />
-        <el-table-column label="报表标题" prop="name" />
-        <el-table-column label="数据时间" prop="name" />
+        <el-table-column label="序号" type="index" />
+        <el-table-column label="报表标题" prop="title" />
+        <el-table-column label="数据时间" prop="time" />
         <el-table-column label="创建人" prop="name" />
-        <el-table-column label="更新时间" prop="name" />
-        <el-table-column label="创建时间" prop="name" />
-        <el-table-column label="操作" prop="name" />
+        <el-table-column label="更新时间" prop="updatetime" />
+        <el-table-column label="创建时间" prop="createtime" />
+        <el-table-column label="操作">
+          <template slot-scope="">
+            <el-button size="mini" type="danger">打开</el-button>
+          </template>
+        </el-table-column>
       </ele-data-table>
     </el-card>
   </div>
@@ -36,7 +40,25 @@
 export default {
   data () {
     return {
-      tables: [],
+      tables: [{
+        title: '2月分-污水处理设施运行',
+        time: '2021-02',
+        name: 'admin',
+        updatetime: '2021-02',
+        createtime: '2021-02'
+      }, {
+        title: '3月分-污水处理设施运行',
+        time: '2021-03',
+        name: 'admin',
+        updatetime: '2021-03',
+        createtime: '2021-03'
+      }, {
+        title: '6月分-污水处理设施运行',
+        time: '2021-06',
+        name: 'admin',
+        updatetime: '2021-06',
+        createtime: '2021-06'
+      }],
       choose: [], // 表格选中数据
       table_load: false,
       /* form */
