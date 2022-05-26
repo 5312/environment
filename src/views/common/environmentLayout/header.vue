@@ -5,6 +5,7 @@
   >
     <!-- 左侧功能区 -->
     <div class="top_color_bar-left">
+      <div id="he-plugin-simple"></div>
       <el-menu
         v-if="showLeft"
         mode="horizontal"
@@ -22,18 +23,13 @@
     <div class="ele-admin-logo">
       <img src="@/assets/logo.png" alt="logo" /><span>{{ $setting.name }}</span>
     </div>
-    <div class="top_color_bar-right">
-      <!-- <i
-        class="el-icon-sort cursor skew_text transfrom_x"
-        @click="EleLayout"
-      ></i> -->
 
+    <div class="top_color_bar-right">
       <!-- 右侧功能区 -->
       <ele-header-right />
     </div>
   </div>
 </template>
-
 <script>
 import { mapGetters, mapActions } from "vuex"
 
@@ -58,7 +54,38 @@ export default {
       return this.theme.layoutStyle !== 1 || this.theme.screenWidth < 768 // 小屏幕强制显示
     }
   },
+  created () {
+    this.$nextTick(() => {
+      window.WIDGET = {
+        "CONFIG": {
+          "modules": "2",
+          "background": "5",
+          "tmpColor": "FFFFFF",
+          "tmpSize": "16",
+          "cityColor": "FFFFFF",
+          "citySize": "16",
+          "aqiColor": "FFFFFF",
+          "aqiSize": "16",
+          "weatherIconSize": "39",
+          "alertIconSize": "18",
+          "padding": "10px 10px 10px 10px",
+          "shadow": "0",
+          "language": "auto",
+          "fixed": "false",
+          "vertical": "top",
+          "horizontal": "left",
+          "key": "91a36b0a90574edc8f8e02aca29f225e"
+        }
+      }
+      var script = document.createElement('script')
+      script.type = 'text/javascript'
+      script.src = 'https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0'
+      document.getElementsByTagName('head')[0].appendChild(script)
+
+    })
+  },
   mounted () {
+
     if (console.warning) console.warning('main ---> ' + this.layout.mainTheme)
     if (!this.layout.mainTheme) {
 
@@ -124,13 +151,13 @@ export default {
 }
 
 .ele-admin-header {
-  justify-content: space-between;
+  justify-content: space-between !important;
   overflow: hidden;
   .top_color_bar {
-    width: 30%;
-    height: 30px;
-    line-height: 30px;
-    padding-left: 20px;
+    width: 35%;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 20px;
     display: flex;
     flex-direction: row;
     align-content: center;
@@ -138,23 +165,32 @@ export default {
     align-items: center;
     &-left {
       @extend .top_color_bar;
-      transform: skewX(309deg);
-      background: linear-gradient(to right, #051d3f, #425269);
-      // background: linear-gradient(to right, #9266f9, #f2f6fc);
-      .skew_text,
-      ul {
-        transform: skewX(-309deg);
+      justify-content: space-between;
+      #he-plugin-simple {
+        margin-left: 18px;
+        background: url("~@/assets/header/Topbg_bottom.png") 100% 100% / 100%
+          5px no-repeat;
       }
+      // transform: skewX(309deg);
+      // background: linear-gradient(to right, #051d3f, #425269);
+      background: url("~@/assets/header/Topbg_left.png") 100% 54% / 100% 30px
+        no-repeat;
+
+      /*   .skew_text,
+      ul {
+         transform: skewX(-309deg);
+      } */
     }
     &-right {
       @extend .top_color_bar;
-      transform: skewX(-309deg);
-      background: linear-gradient(to left, #051d3f, #425269);
-      // background: linear-gradient(to left, #9266f9, #f2f6fc);
-      .skew_text,
+      // transform: skewX(-309deg);
+      background: url("~@/assets/header/Topbg_right.png") 100% 54% / 100% 30px
+        no-repeat;
+      // background: linear-gradient(to left, #051d3f, #425269);
+      /* .skew_text,
       ul {
         transform: skewX(309deg);
-      }
+      } */
     }
   }
 }

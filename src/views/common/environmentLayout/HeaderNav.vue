@@ -4,6 +4,7 @@
     <el-menu
       :default-active="active"
       mode="horizontal"
+      active-text-color="#000"
       @select="onMenuSelect"
       @mousewheel.native="onMousewheel"
       :class="[
@@ -61,14 +62,12 @@ export default {
       if (this.activeNo) {
         return ""
       }
-      return String(this.layout.navIndex || '/oneOfpicture/index')
+      return String(this.layout.navIndex || '/environment/oneOfpicture/index')
     },
   },
   mounted () {
-    // this.onMenuSelect(this.layout.navIndex) /* 会导致刷新 问题 */
   },
   methods: {
-
     ...mapActions({
       navIndex: 'layout/setNavIndex'
     }),
@@ -137,13 +136,15 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+$menu_off: 30px;
 .margin-top-header {
   position: relative !important;
-  padding: 0 40px;
-  .is-active {
-    background: rgb(255, 174, 94) !important;
-    border-bottom: 2px solid rgb(255, 174, 94) !important;
-  }
+  padding: 0 50px;
+  padding-top: 10px;
+  background: url("~@/assets/header/menu_leftbg.png") 1% 80% / 15px 35px
+      no-repeat,
+    url("~@/assets/header/menu_leftbg.png") 99% 80% / 15px 35px no-repeat;
+
   .el-menu {
     display: flex;
     flex-direction: row;
@@ -151,9 +152,28 @@ export default {
     align-content: center;
     justify-content: space-between;
     align-items: center;
-  }
-  .el-menu-item {
-    font-size: 16px;
+    padding-bottom: 20px;
+    background: url("~@/assets/header/menu_BottomLine.png") 100% 90% / 112px 2px;
+    background-repeat: repeat-x;
+    &.el-menu--horizontal > .el-menu-item {
+      font-size: 16px;
+      font-weight: 700;
+      color: #000;
+      background: url("~@/assets/header/menu_off.png") 100% 100% / 100% 100%
+        no-repeat;
+      width: 221px;
+      text-align: center;
+      height: $menu_off;
+      line-height: $menu_off;
+      &:hover {
+        color: #000;
+      }
+      &.is-active {
+        color: #000;
+        background: url("~@/assets/header/menu_on.png") 100% 100% / 100% 100%
+          no-repeat;
+      }
+    }
   }
 }
 </style>

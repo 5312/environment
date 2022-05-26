@@ -149,13 +149,14 @@ export default {
         xAxis: {
           type: 'category',
           boundaryGap: false,
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         },
         yAxis: {
           type: 'value',
           axisLabel: {
-            formatter: '{value} °C'
-          }
+            formatter: '{value} °C',
+          },
+
         },
         series: [
           {
@@ -266,7 +267,7 @@ export default {
     /* 温度,湿度 */
     Bar () {
       return {
-        legend: { right: 0, data: ['温度', '湿度'] },
+        legend: { right: 0, data: ['湿度'] },
         xAxis: {
           type: 'category',
           data: ['00:00', '01:03', '03:00', '04:03', '06:00', '07:03', '08:00']

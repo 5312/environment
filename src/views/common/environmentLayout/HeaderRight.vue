@@ -107,3 +107,9 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.el-menu.el-menu--horizontal > .el-submenu {
+  background: url("~@/assets/header/Topbg_bottom.png") 50% 100% / 70% 5px
+    no-repeat;
+}
+</style>
