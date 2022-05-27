@@ -185,6 +185,7 @@ export default {
     }
   },
   computed: {
+
     /* pm2.5 / pm10 */
     Pm2 () {
       return {

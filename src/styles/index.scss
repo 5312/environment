@@ -35,3 +35,12 @@
 .unit {
     font-size: 24px;
 }
+
+.el-card.is-always-shadow {
+    border: 1px solid #1753A5;
+    background: url("~@/assets/header/corner1.png") 0% 0% / 16px 16px no-repeat, url("~@/assets/header/corner2.png") 100% 0% / 16px 16px no-repeat, url("~@/assets/header/corner3.png") 0% 100% / 16px 16px no-repeat, url("~@/assets/header/corner4.png") 100% 100% / 16px 16px no-repeat;
+    .el-card__header {
+        background: url("~@/assets/header/titlebg.png") 50% 55% no-repeat;
+        background-size: 350px 12px;
+    }
+}
