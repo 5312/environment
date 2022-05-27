@@ -51,7 +51,8 @@
               <span>综合利用量</span>
               <span>100吨</span>
             </div>
-            <div class="table" v-for="(x, y) in rightTable" :key="y">
+            <!--  v-for="(x, y) in rightTable" :key="y" -->
+            <div class="table">
               <div class="col">
                 <div class="vertical">生活区</div>
               </div>
@@ -63,6 +64,51 @@
                   <div>2# 污泥浓度:3388.17mg/L</div>
                   <div>1# 溶解氧:6.28mg/L</div>
                   <div>2# 溶解氧:1.17mg/L</div>
+                </div>
+              </div>
+            </div>
+            <div class="table">
+              <div class="col">
+                <div class="vertical">工业区</div>
+              </div>
+              <div class="col">
+                <div>好氧池</div>
+                <!--田字格 -->
+                <div class="field">
+                  <div>1# 污泥浓度:3388.17mg/L</div>
+                  <div>2# 污泥浓度:3388.17mg/L</div>
+                  <div>1# 溶解氧:6.28mg/L</div>
+                  <div>2# 溶解氧:1.17mg/L</div>
+                </div>
+              </div>
+            </div>
+            <div class="table">
+              <div class="col">
+                <div class="vertical">二盘区</div>
+              </div>
+              <div class="col">
+                <!-- <div>好氧池</div> -->
+                <!--田字格 -->
+                <div class="field">
+                  <div>进水参数</div>
+                  <div></div>
+                  <div>进水浊度:25.00NTU</div>
+                  <div>进水浊度:25.00NTU</div>
+                </div>
+              </div>
+            </div>
+            <div class="table">
+              <div class="col">
+                <div class="vertical">高效旋流</div>
+              </div>
+              <div class="col">
+                <!-- <div>好氧池</div> -->
+                <!--田字格 -->
+                <div class="field">
+                  <div>进水参数</div>
+                  <div></div>
+                  <div>进水浊度:25.00NTU</div>
+                  <div>进水浊度:25.00NTU</div>
                 </div>
               </div>
             </div>

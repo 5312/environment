@@ -16,8 +16,13 @@
             <div slot="header" class="title">
               <span>矿山植被覆盖</span>
             </div>
-            <div>
-              <ele-chart :option="mine" />
+            <div class="mine">
+              <img
+                class="img"
+                :src="require('@/assets/mine.png')"
+                alt="加载失败"
+              />
+              <!-- <ele-chart :option="mine" /> -->
             </div>
           </el-card>
         </div>
@@ -347,17 +352,7 @@ $text-color: #07d3dd;
     }
   }
 }
-
-.red {
-  color: #f56c6c;
-}
-.yellow {
-  color: #e6a23c;
-}
-.green {
-  color: #67c23a;
-}
-.blue {
-  color: #409eff;
+.mine > .img {
+  width: 100%;
 }
 </style>
