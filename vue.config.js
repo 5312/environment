@@ -1,6 +1,22 @@
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 // const webpack = require("webpack");
 module.exports = {
+    devServer: {
+        open: true,
+        // host: "localhost",
+        // port: "8080",
+        proxy: {
+            "/api": {
+                // target: "http://ceshi.ydeshui.com/"
+                // 这里可以写你自己的后端接口地址，如：
+                target: "http://192.168.3.101:8089",
+                changeOrigin: true,
+                pathRewrite: {
+                    "^/api": ""
+                }
+            }
+        }
+    },
     css: {
         loaderOptions: {}
     },

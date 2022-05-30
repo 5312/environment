@@ -2,7 +2,7 @@
  * 项目统一配置
  */
 
-let baseUrl = process.env.VUE_APP_API_BASE_URL;
+let baseUrl = "/api"; //process.env.VUE_APP_API_BASE_URL;
 
 export default {
     version: "1.0",
