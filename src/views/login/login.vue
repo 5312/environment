@@ -19,7 +19,7 @@
       <!-- <div class="stration"></div> -->
 
       <div class="stration">
-        <p class="str-login">管理员登录</p>
+        <p class="str-login">环境监测系统</p>
         <div class="user">
           <el-form-item prop="username">
             <el-input
