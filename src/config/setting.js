@@ -6,7 +6,7 @@ let baseUrl = "/api";
 
 export default {
     version: "1.0",
-    name: "环境在线监测系统", // 项目名称
+    name: "大佛寺煤矿环境在线监测系统", // 项目名称
     baseURL: baseUrl,
     whiteList: ["/login", "/forget"], // 路由白名单(不需要登录的)
     keepAliveList: [], // 需要缓存的组件名称

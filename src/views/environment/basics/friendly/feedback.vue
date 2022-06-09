@@ -49,28 +49,28 @@ export default {
   data () {
     return {
       tables: [{
-        yh_w: '张家峁/机电部',
+        yh_w: '大佛寺/机电部',
         address: '1',
         dept: '',
         time: "2021-11-13",
         status: '已反馈',
 
       }, {
-        yh_w: '张家峁/机电部',
+        yh_w: '大佛寺/机电部',
         address: '1',
         dept: '',
         time: "2021-11-13",
         status: '已反馈',
 
       }, {
-        yh_w: '张家峁/机电部',
+        yh_w: '大佛寺/机电部',
         address: '1',
         dept: '',
         time: "2021-11-13",
         status: '已反馈',
 
       }, {
-        yh_w: '张家峁/机电部',
+        yh_w: '大佛寺/机电部',
         address: '1',
         dept: '',
         time: "2021-11-13",
