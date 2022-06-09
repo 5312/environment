@@ -6,7 +6,7 @@
     ]"
   >
     <div class="hb">
-      <img src="~@/assets/login_logo.png" id="logo" />
+      <!-- <img src="~@/assets/login_logo.png" id="logo" /> -->
     </div>
     <el-form
       ref="loginForm"
@@ -80,8 +80,7 @@
       </div> -->
     </el-form>
     <div class="login-copyright">
-      Copyright 2010-2020 陕西煤业化工集团有限责任公司 版权所有 All Rights
-      Reserved.
+      Copyright 2010-2020 大佛寺煤矿 版权所有 All Rights Reserved.
     </div>
   </div>
 </template>
@@ -215,7 +214,8 @@ export default {
   padding: 50px 20px;
   position: relative;
   box-sizing: border-box;
-  background-image: url("~@/assets/login_bg.jpg");
+  background-image: url("~@/assets/login_bg.png");
+  /* background-image: url("~@/assets/login_bg.jpg"); */
   background-repeat: no-repeat;
   height: 100vh;
   background-size: 100% 100%;
