@@ -3,9 +3,8 @@
  */
 import Vue from "vue";
 // import 有时拦截不了
-// import "@/api/mock/mockAxios";
 
-require("@/api/mock/mockAxios");
+// require("@/api/mock/mockAxios");
 import "./axios";
 import setting from "./setting";
 import util from "@/utils/util";

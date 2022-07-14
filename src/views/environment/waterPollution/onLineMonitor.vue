@@ -42,19 +42,19 @@ export default {
   data () {
     return {
       table: [{
-        time: '2021',
+        time: '2022',
         ph: '7.80',
         ss: '1.04',
         mg: '0.31',
         l: '0.17',
       }, {
-        time: '2021',
+        time: '2022',
         ph: '7.80',
         ss: '1.04',
         mg: '0.31',
         l: '0.17',
       }, {
-        time: '2021',
+        time: '2022',
         ph: '7.80',
         ss: '1.04',
         mg: '0.31',
@@ -72,7 +72,6 @@ export default {
           trigger: 'axis'
         },
         legend: {
-          data: ['烟尘折算', '二氧化硫折算', '氮氧化物折算', '氮二氧化硫', '氧气含量']
         },
         grid: {
           top: '5%',
@@ -89,55 +88,49 @@ export default {
         xAxis: {
           type: 'category',
           boundaryGap: false,
-          data: ['2022-01-01', '2022-01-01', '2022-01-01', '2022-01-01', '2022-01-01', '2022-01-01', '2022-01-01']
+          data: ['2022', '2022', '2022']
         },
         yAxis: {
           type: 'value'
         },
-        dataZoom: [
-          {
-            type: 'slider',
-            xAxisIndex: 0,
-            filterMode: 'filter'
-          },
+        // dataZoom: [
+        //   {
+        //     type: 'slider',
+        //     xAxisIndex: 0,
+        //     filterMode: 'filter'
+        //   },
 
-          {
-            type: 'inside',
-            xAxisIndex: 0,
-            filterMode: 'filter'
-          }
-        ],
+        //   {
+        //     type: 'inside',
+        //     xAxisIndex: 0,
+        //     filterMode: 'filter'
+        //   }
+        // ],
         series: [
           {
-            name: '烟尘折算',
+            name: 'PH值',
             type: 'line',
             stack: 'Total',
-            data: [120, 132, 101, 134, 90, 230, 210]
+            data: [7.80, 7.80, 7.80]
           },
           {
-            name: '二氧化硫折算',
+            name: '悬浮物',
             type: 'line',
             stack: 'Total',
             data: [220, 182, 191, 234, 290, 330, 310]
           },
           {
-            name: '氮氧化物折算',
+            name: 'COD',
             type: 'line',
             stack: 'Total',
-            data: [150, 232, 201, 154, 190, 330, 410]
+            data: [1.04, 1.04, 1.04]
           },
           {
-            name: '氮二氧化硫',
+            name: '污水流量',
             type: 'line',
             stack: 'Total',
-            data: [320, 332, 301, 334, 390, 330, 320]
+            data: [0.17, 0.17, 0.17]
           },
-          {
-            name: '氧气含量',
-            type: 'line',
-            stack: 'Total',
-            data: [820, 932, 901, 934, 1290, 1330, 1320]
-          }
         ]
       }
     }
