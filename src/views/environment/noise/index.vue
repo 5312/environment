@@ -1,4 +1,4 @@
-<template >
+<template>
   <div class="ele-body">
     <el-row :gutter="20">
       <el-col :span="7">
@@ -52,20 +52,34 @@
               <span>重点设备状态</span>
             </div>
             <div class="center">
-              <div class="body-header">
+              <table class="data_table">
+                <thead>
+                  <th>设备ID</th>
+                  <th>设备名称</th>
+                  <th>状态</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>无数据</td>
+                    <td>无数据</td>
+                    <td>无数据</td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- <div class="body-header">
                 <div class="flex flex_h_between wraptag">
-                  <div>点位</div>
-                  <div>报警值</div>
-                  <div>阈值</div>
+                  <div>设备ID</div>
+                  <div>设备名称</div>
+                  <div>状态</div>
                 </div>
               </div>
               <div class="body">
                 <div class="flex flex_h_between wraptag">
-                  <div>九号路灯杆</div>
-                  <div>64</div>
-                  <div>60</div>
+                  <div>无数据</div>
+                  <div>无数据</div>
+                  <div>无数据</div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </el-card>
           <el-card>
@@ -73,7 +87,7 @@
               <span>厂区监测噪声趋势</span>
             </div>
             <div>
-              <ele-chart :option="Daqi" style="height: 160px" />
+              <ele-chart :option="Changqu" style="height: 160px" />
             </div>
           </el-card>
         </div>
@@ -116,7 +130,21 @@
               <span>阈值警告</span>
             </div>
             <div class="center">
-              <div class="body-header">
+              <table class="data_table">
+                <thead>
+                  <th>点位</th>
+                  <th>报警值</th>
+                  <th>阈值</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>九号路灯杆</td>
+                    <td>64</td>
+                    <td>60</td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- <div class="body-header">
                 <div class="flex flex_h_between wraptag">
                   <div>点位</div>
                   <div>报警值</div>
@@ -129,7 +157,7 @@
                   <div>64</div>
                   <div>60</div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </el-card>
           <el-card>
@@ -160,137 +188,141 @@
   </div>
 </template>
 <script>
-import EleChart from "@/components/EleChart"
+import EleChart from '@/components/EleChart'
 export default {
   components: { EleChart },
-  data () {
-    return {
-    }
+  data() {
+    return {}
   },
   computed: {
     /* pm2.5 / pm10 */
-    Noise () {
+    Noise() {
       return {
         xAxis: [
           {
-            type: "category",
+            type: 'category',
             data: ['0.00', '1.00'],
             axisLabel: {
               color: '#fff'
-            },
-          },
+            }
+          }
         ],
         yAxis: [
           {
-            type: "value",
+            type: 'value',
             axisLabel: {
               color: '#fff'
             },
             splitLine: {
               show: false
             }
-          },
+          }
         ],
         series: [
           {
             barWidth: 15,
-            type: "bar",
-            data: [{
-              name: '0.00',
-              value: 15
-            }, {
-              name: '1.00',
-              value: 15
-            }],
+            type: 'bar',
+            data: [
+              {
+                name: '0.00',
+                value: 15
+              },
+              {
+                name: '1.00',
+                value: 15
+              }
+            ],
             itemStyle: {
               color: 'rgb(7, 130, 135)'
             }
           }
-        ],
+        ]
       }
     },
-    Daqi () {
+    Changqu() {
       return {
+        legend: { right: 0 },
         xAxis: [
           {
-            type: "category",
-            data: ['0.00'],
+            type: 'category',
+            data: ['0.10', '8.09'],
             axisLabel: {
               color: '#fff'
-            },
-          },
+            }
+          }
         ],
         yAxis: [
           {
-            type: "value",
+            type: 'value',
             axisLabel: {
               color: '#fff'
             },
             splitLine: {
               show: false
             }
-          },
+          }
         ],
         series: [
           {
             type: 'scatter',
-            data: [{
-              name: '0.00',
-              value: 15
-            }, {
-              name: '0.00',
-              value: 13
-            }],
+            name: '噪声',
+            data: [
+              { name: 0.14, value: 40 },
+              {
+                name: '8.09',
+                value: 40
+              }
+            ],
             itemStyle: {
               color: 'rgb(255, 168, 0)'
             }
           }
-        ],
+        ]
       }
     },
     /* 重污染天数 */
-    Year_zhong () {
+    Year_zhong() {
       return {
         series: [
           {
             type: 'pie',
             radius: [40, 60],
-            data: [{ value: 1048, name: 'Search Engine' },],
+            data: [{ value: 1048, name: 'Search Engine' }],
             itemStyle: {
               color: 'rgb(23, 54, 87)'
             },
             label: {
               show: false
-            },
-          },
-        ],
+            }
+          }
+        ]
       }
     },
     /* 优良天数 */
-    Year_you () {
+    Year_you() {
       return {
         series: [
           {
             type: 'pie',
             radius: [40, 60],
-            data: [{ value: 1048, name: 'Search Engine' },],
+            data: [{ value: 1048, name: 'Search Engine' }],
             itemStyle: {
               color: 'rgb(255, 168, 0)'
             },
             label: {
               show: false
-            },
+            }
           }
         ]
       }
     },
     /* 温度,湿度 */
-    Line () {
+    Line() {
       return {
-        legend: { right: 0, data: ['温度', '湿度'] },
+        legend: { right: 0 },
         xAxis: {
           type: 'category',
-          data: ['00:00', '01:03', '03:00', '04:03', '06:00', '07:03', '08:00']
+          data: ['00:14', '01:03', '03:00', '04:03', '06:00', '07:03', '08:00']
         },
         yAxis: {
           type: 'value',
@@ -299,27 +331,22 @@ export default {
           },
           splitLine: { show: false }
         },
-        series: [
-          {
-            name: '湿度',
-            type: 'line',
-            smooth: 0.6,// 光滑
-            symbol: 'none',/* 点 */
-            data: [10, 10, 10, 10, 10, 10, 6],
-
-          },
-          {
-            name: '温度',
-            type: 'line',
-            smooth: 0.6,// 光滑
-            symbol: 'none',/* 点 */
-            data: [1, 1, 1, 1, 1, 1, 3],
-          }
-        ]
+        dataset: {
+          // 提供一份数据。
+          source: [
+            ['product', '二号路灯杆', '三号路灯杆', '四号路灯杆'],
+            ['00:14', 43.3, 85.8, 1, 2],
+            ['01:03', 83.1, 73.4, 1, 2],
+            ['03:00', 86.4, 65.2, 1, 2],
+            ['04:03', 72.4, 53.92, 3, 2],
+            ['07:03', 72.4, 53.9, 6, 2],
+            ['08:00', 72.4, 53.9, 6, 2]
+          ]
+        },
+        series: [{ type: 'line' }, { type: 'line' }]
       }
-    },
-  },
-
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -352,6 +379,18 @@ $text-color: #07d3dd;
           height: 100%;
           overflow-y: auto;
           overflow-x: hidden;
+          .data_table {
+            width: 100%;
+            th,
+            td {
+              padding: 10px;
+              background: rgb(22, 106, 150);
+            }
+            td {
+              background-color: #173c6f;
+              text-align: center;
+            }
+          }
           .body-header {
             padding: 10px 0;
             text-align: center;
