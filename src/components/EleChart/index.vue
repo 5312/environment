@@ -5,13 +5,14 @@
 
 <script>
 import * as echarts from 'echarts'
+import 'echarts-liquidfill'
 // 按需引入
 // import * as echarts from 'echarts/lib/echarts'
 // import echarts from "echarts";
-import EleCharTheme from "./EleChartTheme"
+import EleCharTheme from './EleChartTheme'
 
 export default {
-  name: "EleChart",
+  name: 'EleChart',
   props: {
     option: Object, // echarts配置
     isConnect: {
@@ -22,21 +23,21 @@ export default {
       type: Array
     }
   },
-  data () {
+  data() {
     return {
       chart: null, // echarts实例,
       charts: {}
     }
   },
   computed: {
-    screenWidth () {
+    screenWidth() {
       try {
         return this.$store.state.theme.screenWidth
       } catch (e) {
         return null
       }
     },
-    collapse () {
+    collapse() {
       try {
         return this.$store.state.theme.collapse
       } catch (e) {
@@ -45,45 +46,45 @@ export default {
     }
   },
   watch: {
-    option () {
+    option() {
       this.setOption()
     },
-    screenWidth () {
+    screenWidth() {
       this.resize()
     },
-    collapse () {
+    collapse() {
       setTimeout(() => {
         this.resize()
       }, 360)
     },
-    connectCharts (val) {
+    connectCharts(val) {
       echarts.connect(val)
     }
   },
-  mounted () {
+  mounted() {
     this.init()
   },
   methods: {
     /* 初始化echarts实例 */
-    init () {
+    init() {
       this.chart = echarts.init(this.$refs.chart, EleCharTheme)
       this.setOption()
-      this.$emit("done", this.chart, this.isConnect)
+      this.$emit('done', this.chart, this.isConnect)
     },
     /* 绘制图表 */
-    setOption (option) {
+    setOption(option) {
       if (!this.chart) {
         return
       }
       this.chart.setOption(option || this.option, true)
     },
     /* 重置尺寸 */
-    resize () {
+    resize() {
       if (!this.chart) {
         return
       }
       this.chart.resize()
     }
   }
-};
+}
 </script>

@@ -4,20 +4,25 @@
       <div slot="header" class="title">
         <span>多测点噪声小时曲线对比</span>
       </div>
-      <ele-chart
-        ref="chartss"
-        :option="Curve"
-        style="height: calc(100vh - 291px)"
-    /></el-card>
+      <ele-chart ref="chartss" :option="Curve" style="height: calc(100vh - 350px)" />
+      <div class="flex levelType">
+        <div>离线</div>
+        <div>优</div>
+        <div>良</div>
+        <div>轻度</div>
+        <div>中度</div>
+        <div>重度</div>
+      </div></el-card
+    >
   </div>
 </template>
 <script>
 import * as echarts from 'echarts'
-import EleChart from "@/components/EleChart"
+import EleChart from '@/components/EleChart'
 export default {
   components: { EleChart },
   computed: {
-    Curve () {
+    Curve() {
       const data = []
       const str = '五号路灯杆'
       const y = []
@@ -63,16 +68,15 @@ export default {
                 { offset: 0, color: 'rgb(4, 120, 251)' },
                 { offset: 1, color: 'rgb(73, 223, 237)' }
               ])
-            },
+            }
           }
         ],
         legend: {
           show: true
-        },
+        }
       }
     }
-  },
-
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -84,6 +88,11 @@ $text-color: #07d3dd;
     font-size: 18px;
     text-align: center;
     color: $text-color;
+  }
+}
+.levelType {
+  div {
+    padding: 10px 20px;
   }
 }
 </style>

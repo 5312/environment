@@ -1,4 +1,4 @@
-<template >
+<template>
   <div class="ele-body">
     <el-row :gutter="20">
       <el-col :span="7">
@@ -177,130 +177,184 @@
   </div>
 </template>
 <script>
-import EleChart from "@/components/EleChart"
+import EleChart from '@/components/EleChart'
 export default {
   components: { EleChart },
-  data () {
-    return {
-    }
+  data() {
+    return {}
   },
   computed: {
-
     /* pm2.5 / pm10 */
-    Pm2 () {
+    Pm2() {
       return {
         xAxis: [
           {
-            type: "category",
+            type: 'category',
             data: ['0.00'],
             axisLabel: {
               color: '#fff'
-            },
-          },
+            }
+          }
         ],
         yAxis: [
           {
-            type: "value",
+            type: 'value',
             axisLabel: {
               color: '#fff'
             },
             splitLine: {
               show: false
             }
-          },
+          }
         ],
         series: [
           {
             barWidth: 15,
-            type: "bar",
-            data: [{
-              name: '0.00',
-              value: 15
-            }],
+            type: 'bar',
+            data: [
+              {
+                name: '0.00',
+                value: 15
+              }
+            ],
             itemStyle: {
               color: 'rgb(7, 130, 135)'
             }
           }
-        ],
+        ]
       }
     },
-    Daqi () {
+    Daqi() {
       return {
         xAxis: [
           {
-            type: "category",
+            type: 'category',
             data: ['0.00'],
             axisLabel: {
               color: '#fff'
-            },
-          },
+            }
+          }
         ],
         yAxis: [
           {
-            type: "value",
+            type: 'value',
             axisLabel: {
               color: '#fff'
             },
             splitLine: {
               show: false
             }
-          },
+          }
         ],
         series: [
           {
             type: 'scatter',
-            data: [{
-              name: '0.00',
-              value: 15
-            }, {
-              name: '0.00',
-              value: 13
-            }],
+            data: [
+              {
+                name: '0.00',
+                value: 15
+              },
+              {
+                name: '0.00',
+                value: 13
+              }
+            ],
             itemStyle: {
               color: 'rgb(255, 168, 0)'
             }
           }
-        ],
+        ]
       }
     },
     /* 重污染天数 */
-    Year_zhong () {
+    Year_zhong() {
       return {
+        color: ['rgb(23, 54, 87)', '#00E1FF'],
+        legend: {
+          orient: 'vertical',
+          left: 'left',
+          bottom: 0
+        },
         series: [
           {
             type: 'pie',
-            radius: [40, 60],
-            data: [{ value: 1048, name: 'Search Engine' },],
+            radius: ['40%', '60%'],
+            data: [
+              { value: 65, name: '剩余天数 65 ' },
+              { value: 0, name: '污染天数 0' }
+            ],
             itemStyle: {
-              color: 'rgb(23, 54, 87)'
+              borderRadius: 10,
+              borderColor: '#fff',
+              borderWidth: 2
             },
             label: {
               show: false
-            },
+            }
           },
-        ],
+          {
+            type: 'pie',
+            radius: ['30%', '35%'],
+            data: [{ value: 65, name: '2021年目标 65' }],
+            itemStyle: {
+              color: '#619EB8',
+              borderRadius: 10,
+              borderColor: '#fff',
+              borderWidth: 2
+            },
+            label: {
+              show: false
+            }
+          }
+        ]
       }
     },
     /* 优良天数 */
-    Year_you () {
+    Year_you() {
       return {
+        color: ['rgb(23, 54, 87)', '#FFAE5E'],
+        legend: {
+          orient: 'vertical',
+          left: 'left',
+          bottom: 0
+        },
         series: [
           {
             type: 'pie',
-            radius: [40, 60],
-            data: [{ value: 1048, name: 'Search Engine' },],
+            radius: ['40%', '60%'],
             itemStyle: {
-              color: 'rgb(255, 168, 0)'
+              borderRadius: 10,
+              borderColor: '#fff',
+              borderWidth: 2
             },
+            data: [
+              { value: 76, name: '剩余天数 76' },
+              { value: 289, name: '优良天数 289' }
+            ],
             label: {
               show: false
+            }
+          },
+          {
+            type: 'pie',
+            radius: ['30%', '35%'],
+            data: [{ value: 365, name: '2021年目标 365' }],
+            itemStyle: {
+              color: '#9A8071',
+              borderRadius: 10,
+              borderColor: '#fff',
+              borderWidth: 2
             },
+
+            label: {
+              show: false
+            }
           }
         ]
       }
     },
     /* 温度,湿度 */
-    Line () {
+    Line() {
       return {
         legend: { right: 0, data: ['温度', '湿度'] },
         xAxis: {
@@ -318,34 +372,33 @@ export default {
           {
             name: '湿度',
             type: 'line',
-            smooth: 0.6,// 光滑
-            symbol: 'none',/* 点 */
-            data: [10, 10, 10, 10, 10, 10, 6],
-
+            smooth: 0.6, // 光滑
+            symbol: 'none' /* 点 */,
+            data: [10, 10, 10, 10, 10, 10, 6]
           },
           {
             name: '温度',
             type: 'line',
-            smooth: 0.6,// 光滑
-            symbol: 'none',/* 点 */
-            data: [1, 1, 1, 1, 1, 1, 3],
+            smooth: 0.6, // 光滑
+            symbol: 'none' /* 点 */,
+            data: [1, 1, 1, 1, 1, 1, 3]
           }
         ]
       }
     },
     /* 气压 */
-    Gauge () {
+    Gauge() {
       return {
         series: [
           {
-            radius: "100%",
+            radius: '100%',
             name: '气压',
             type: 'gauge',
             progress: {
               show: true
             },
             axisLabel: {
-              distance: 10,/* 标签与刻度线的距离。 */
+              distance: 10 /* 标签与刻度线的距离。 */,
               color: '#fff'
             },
             axisLine: {
@@ -355,10 +408,11 @@ export default {
             },
             axisTick: {
               show: true,
-              length: "5%",
+              length: '5%',
               distance: 1
             },
-            anchor: { /* 指针中心点 */
+            anchor: {
+              /* 指针中心点 */
               show: true,
               showAbove: true,
               size: 10,
@@ -371,21 +425,19 @@ export default {
               formatter: '{value}K Pa',
               color: 'rgb(0, 246, 247)',
               fontSize: 14,
-              offsetCenter: ["0%", "63%"]
+              offsetCenter: ['0%', '63%']
             },
             data: [
               {
                 value: 50,
                 name: '123'
               }
-            ],
-
+            ]
           }
         ]
       }
     }
-  },
-
+  }
 }
 </script>
 <style lang="scss" scoped>

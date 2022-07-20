@@ -1,4 +1,4 @@
-<template >
+<template>
   <div class="ele-body">
     <el-row :gutter="20">
       <el-col :span="7">
@@ -8,6 +8,11 @@
               <span>处理水量</span>
             </div>
             <div class="card-body">
+              <el-button-group>
+                <el-button type="primary" size="mini">日</el-button>
+                <el-button size="mini">月</el-button>
+                <el-button size="mini">年</el-button>
+              </el-button-group>
               <ele-chart :option="watterCount" style="height: 100%" />
             </div>
           </el-card>
@@ -36,7 +41,28 @@
               <span>回用率(单位:天)</span>
             </div>
             <div class="card-body">
-              <ele-chart :option="recycleRate" style="height: 100%" />
+              <el-row>
+                <el-col :span="12">
+                  <div>工业区矿井污水处理站</div>
+                  <ele-chart :option="recycleRate" style="height: 150px" />
+                </el-col>
+                <el-col :span="12">
+                  <div>二盘区矿井污水处理站</div>
+                  <ele-chart :option="recycleRate" style="height: 150px" />
+                </el-col>
+              </el-row>
+              <el-row>
+                <el-col :span="12">
+                  <div>生后区生活污水处理站</div>
+
+                  <ele-chart :option="recycleRate" style="height: 150px" />
+                </el-col>
+                <el-col :span="12">
+                  <div>工业区生活污水处理站</div>
+
+                  <ele-chart :option="recycleRate" style="height: 150px" />
+                </el-col>
+              </el-row>
             </div>
           </el-card>
         </div>
@@ -87,7 +113,6 @@
                 <div class="vertical">二盘区</div>
               </div>
               <div class="col">
-                <!-- <div>好氧池</div> -->
                 <!--田字格 -->
                 <div class="field">
                   <div>进水参数</div>
@@ -102,7 +127,6 @@
                 <div class="vertical">高效旋流</div>
               </div>
               <div class="col">
-                <!-- <div>好氧池</div> -->
                 <!--田字格 -->
                 <div class="field">
                   <div>进水参数</div>
@@ -119,223 +143,178 @@
   </div>
 </template>
 <script>
-import EleChart from "@/components/EleChart"
+import EleChart from '@/components/EleChart'
 export default {
   components: { EleChart },
-  data () {
+  data() {
     return {
       rightTable: [{}, {}, {}, {}]
     }
   },
+
   computed: {
-    watterCount () {
+    watterCount() {
       return {
         legend: {},
         dataset: {
           // 提供一份数据。
           source: [
             ['product', '生活区污水', '二盘曲', '工业区生活污水'],
-            ['Matcha Latte', 43.3, 85.8, 93.7],
-            ['Milk Tea', 83.1, 73.4, 55.1],
-            ['Cheese Cocoa', 86.4, 65.2, 82.5],
-            ['Walnut Brownie', 72.4, 53.9, 39.1]
+            ['00:00', 43.3, 85.8, 93.7],
+            ['02:00', 83.1, 73.4, 55.1],
+            ['04:00', 86.4, 65.2, 82.5],
+            ['06:00', 72.4, 53.9, 39.1]
           ]
         },
         xAxis: [
           {
-            type: "category",
-            show: false,
+            type: 'category',
+            show: true,
             axisLabel: { color: '#fff' },
-            axisTick: { show: false },
-          },
+            axisTick: { show: false }
+          }
         ],
         yAxis: [
           {
-            type: "value",
+            type: 'value',
             axisLabel: {
               color: '#fff'
             },
             splitLine: {
               show: false
             }
-          },
+          }
         ],
         series: [
           { type: 'line', smooth: true },
           { type: 'line', smooth: true },
           { type: 'line', smooth: true }
-        ],
-      }
-    },
-    mine () {
-      return {
-        xAxis: [
-          {
-            type: "category",
-            data: ['0.00'],
-            axisLabel: {
-              color: '#fff'
-            },
-          },
-        ],
-        yAxis: [
-          {
-            type: "value",
-            axisLabel: {
-              color: '#fff'
-            },
-            splitLine: {
-              show: false
-            }
-          },
-        ],
-        series: [
-          {
-            type: 'bar',
-            data: [{
-              name: '0.00',
-              value: 15
-            }, {
-              name: '0.00',
-              value: 13
-            }],
-            itemStyle: {
-              color: 'rgb(255, 168, 0)'
-            }
-          }
-        ],
-      }
-    },
-    innerLoop () {
-      return {
-        legend: {},
-        dataset: {
-          // 提供一份数据。
-          source: [
-            ['product', '生活区污水', '二盘曲', '工业区生活污水'],
-            ['Matcha Latte', 43.3, 85.8, 93.7],
-            ['Milk Tea', 83.1, 73.4, 55.1],
-            ['Cheese Cocoa', 86.4, 65.2, 82.5],
-            ['Walnut Brownie', 72.4, 53.9, 39.1]
-          ]
-        },
-        xAxis: [
-          {
-            type: "category",
-            show: false,
-            axisLabel: { color: '#fff' },
-            axisTick: { show: false },
-          },
-        ],
-        yAxis: [
-          {
-            type: "value",
-            axisLabel: {
-              color: '#fff'
-            },
-            splitLine: {
-              show: false
-            }
-          },
-        ],
-        series: [
-          { type: 'line', smooth: true },
-          { type: 'line', smooth: true },
-          { type: 'line', smooth: true }
-        ],
-      }
-    },
-    recycleRate () {
-      return {
-        dataset: [
-          {
-            // 这个 dataset 的 index 是 `0`。
-            source: [
-              ['Product', 'Sales', 'Price', 'Year'],
-              ['Cake', 123, 32, 2011],
-              ['Cereal', 231, 14, 2011],
-              ['Tofu', 235, 5, 2011],
-              ['Dumpling', 341, 25, 2011],
-              ['Biscuit', 122, 29, 2011],
-              ['Cake', 143, 30, 2012],
-              ['Cereal', 201, 19, 2012],
-              ['Tofu', 255, 7, 2012],
-              ['Dumpling', 241, 27, 2012],
-              ['Biscuit', 102, 34, 2012],
-              ['Cake', 153, 28, 2013],
-              ['Cereal', 181, 21, 2013],
-              ['Tofu', 395, 4, 2013],
-              ['Dumpling', 281, 31, 2013],
-              ['Biscuit', 92, 39, 2013],
-              ['Cake', 223, 29, 2014],
-              ['Cereal', 211, 17, 2014],
-              ['Tofu', 345, 3, 2014],
-              ['Dumpling', 211, 35, 2014],
-              ['Biscuit', 72, 24, 2014]
-            ]
-            // id: 'a'
-          },
-          {
-            // 这个 dataset 的 index 是 `1`。
-            // 这个 `transform` 配置，表示，此 dataset 的数据，来自于此 transform 的结果。
-            transform: {
-              type: 'filter',
-              config: { dimension: 'Year', value: 2011 }
-            }
-            // 我们还可以设置这些可选的属性： `fromDatasetIndex` 或 `fromDatasetId`。
-            // 这些属性，指定了，transform 的输入，来自于哪个 dataset。例如，
-            // `fromDatasetIndex: 0` 表示输入来自于 index 为 `0` 的 dataset 。又例如，
-            // `fromDatasetId: 'a'` 表示输入来自于 `id: 'a'` 的 dataset。
-            // 当这些属性都不指定时，默认认为，输入来自于 index 为 `0` 的 dataset 。
-          },
-          {
-            // 这个 dataset 的 index 是 `2`。
-            // 同样，这里因为 `fromDatasetIndex` 和 `fromDatasetId` 都没有被指定，
-            // 那么输入默认来自于 index 为 `0` 的 dataset 。
-            transform: {
-              // 这个类型为 "filter" 的 transform 能够遍历并筛选出满足条件的数据项。
-              type: 'filter',
-              // 每个 transform 如果需要有配置参数的话，都须配置在 `config` 里。
-              // 在这个 "filter" transform 中，`config` 用于指定筛选条件。
-              // 下面这个筛选条件是：选出维度（ dimension ）'Year' 中值为 2012 的所有
-              // 数据项。
-              config: { dimension: 'Year', value: 2012 }
-            }
-          },
-          {
-            // 这个 dataset 的 index 是 `3`。
-            transform: {
-              type: 'filter',
-              config: { dimension: 'Year', value: 2013 }
-            }
-          }
-        ],
-        series: [
-          {
-            type: 'pie',
-            radius: 50,
-            center: ['25%', '50%'],
-            // 这个饼图系列，引用了 index 为 `1` 的 dataset 。也就是，引用了上述
-            // 2011 年那个 "filter" transform 的结果。
-            datasetIndex: 1
-          },
-          {
-            type: 'pie',
-            radius: 50,
-            center: ['50%', '50%'],
-            datasetIndex: 2
-          },
-          {
-            type: 'pie',
-            radius: 50,
-            center: ['75%', '50%'],
-            datasetIndex: 3
-          }
         ]
       }
     },
-
-  },
+    mine() {
+      return {
+        xAxis: [
+          {
+            type: 'category'
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value',
+            axisLabel: {
+              color: '#fff'
+            },
+            splitLine: {
+              show: false
+            }
+          }
+        ],
+        dataset: {
+          source: [
+            ['product', '井下生产,消尘'],
+            ['井下生产,消尘', 43.3],
+            ['冲厕,绿化,搅拌站', 83.1],
+            ['洗煤厂,装车', 86.4]
+          ]
+        },
+        series: [{ type: 'bar' }]
+      }
+    },
+    innerLoop() {
+      return {
+        legend: {},
+        dataset: {
+          // 提供一份数据。
+          source: [
+            ['product', '生活区污水', '二盘曲', '工业区生活污水'],
+            ['00:00', 43.3, 85.8, 93.7],
+            ['02:00', 83.1, 73.4, 55.1],
+            ['04:00', 86.4, 65.2, 82.5],
+            ['06:00', 72.4, 53.9, 39.1]
+          ]
+        },
+        xAxis: [
+          {
+            type: 'category',
+            show: true,
+            axisLabel: { color: '#fff' },
+            axisTick: { show: false }
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value',
+            axisLabel: {
+              color: '#fff'
+            },
+            splitLine: {
+              show: false
+            }
+          }
+        ],
+        series: [
+          { type: 'line', smooth: true },
+          { type: 'line', smooth: true },
+          { type: 'line', smooth: true }
+        ]
+      }
+    },
+    recycleRate() {
+      return {
+        series: [
+          {
+            type: 'liquidFill',
+            radius: '80%',
+            center: ['50%', '50%'],
+            left: 'center',
+            top: 'middle',
+            color: [
+              {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: 'rgba(9,152,200,0.6)'
+                  },
+                  {
+                    offset: 1,
+                    color: '#0ABC98'
+                  }
+                ],
+                globalCoord: false
+              }
+            ],
+            data: [0.3, 0.3], // data个数代表波浪数
+            backgroundStyle: {
+              borderWidth: 1,
+              color: '#3D4A73'
+            },
+            label: {
+              normal: {
+                textStyle: {
+                  fontSize: 18,
+                  color: ' rgba(255,255,255,0.60)'
+                }
+              }
+            },
+            outline: {
+              show: false,
+              borderDistance: 0,
+              itemStyle: {
+                borderWidth: 2,
+                borderColor: '#112165'
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>

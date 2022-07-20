@@ -139,25 +139,11 @@
                 <tbody>
                   <tr>
                     <td>九号路灯杆</td>
-                    <td>64</td>
+                    <td>64.90</td>
                     <td>60</td>
                   </tr>
                 </tbody>
               </table>
-              <!-- <div class="body-header">
-                <div class="flex flex_h_between wraptag">
-                  <div>点位</div>
-                  <div>报警值</div>
-                  <div>阈值</div>
-                </div>
-              </div>
-              <div class="body">
-                <div class="flex flex_h_between wraptag">
-                  <div>九号路灯杆</div>
-                  <div>64</div>
-                  <div>60</div>
-                </div>
-              </div> -->
             </div>
           </el-card>
           <el-card>
@@ -283,13 +269,38 @@ export default {
     /* 重污染天数 */
     Year_zhong() {
       return {
+        color: ['rgb(23, 54, 87)', '#00E1FF'],
+        legend: {
+          orient: 'vertical',
+          left: 'left',
+          bottom: 0
+        },
         series: [
           {
             type: 'pie',
-            radius: [40, 60],
-            data: [{ value: 1048, name: 'Search Engine' }],
+            radius: ['40%', '60%'],
+            data: [
+              { value: 65, name: '剩余天数 65 ' },
+              { value: 0, name: '污染天数 0' }
+            ],
             itemStyle: {
-              color: 'rgb(23, 54, 87)'
+              borderRadius: 10,
+              borderColor: '#fff',
+              borderWidth: 2
+            },
+            label: {
+              show: false
+            }
+          },
+          {
+            type: 'pie',
+            radius: ['30%', '35%'],
+            data: [{ value: 65, name: '2021年目标 65' }],
+            itemStyle: {
+              color: '#619EB8',
+              borderRadius: 10,
+              borderColor: '#fff',
+              borderWidth: 2
             },
             label: {
               show: false
@@ -301,14 +312,40 @@ export default {
     /* 优良天数 */
     Year_you() {
       return {
+        color: ['rgb(23, 54, 87)', '#FFAE5E'],
+        legend: {
+          orient: 'vertical',
+          left: 'left',
+          bottom: 0
+        },
         series: [
           {
             type: 'pie',
-            radius: [40, 60],
-            data: [{ value: 1048, name: 'Search Engine' }],
+            radius: ['40%', '60%'],
             itemStyle: {
-              color: 'rgb(255, 168, 0)'
+              borderRadius: 10,
+              borderColor: '#fff',
+              borderWidth: 2
             },
+            data: [
+              { value: 76, name: '剩余天数 76' },
+              { value: 289, name: '优良天数 289' }
+            ],
+            label: {
+              show: false
+            }
+          },
+          {
+            type: 'pie',
+            radius: ['30%', '35%'],
+            data: [{ value: 365, name: '2021年目标 365' }],
+            itemStyle: {
+              color: '#9A8071',
+              borderRadius: 10,
+              borderColor: '#fff',
+              borderWidth: 2
+            },
+
             label: {
               show: false
             }
@@ -334,16 +371,22 @@ export default {
         dataset: {
           // 提供一份数据。
           source: [
-            ['product', '二号路灯杆', '三号路灯杆', '四号路灯杆'],
-            ['00:14', 43.3, 85.8, 1, 2],
-            ['01:03', 83.1, 73.4, 1, 2],
-            ['03:00', 86.4, 65.2, 1, 2],
-            ['04:03', 72.4, 53.92, 3, 2],
-            ['07:03', 72.4, 53.9, 6, 2],
-            ['08:00', 72.4, 53.9, 6, 2]
+            ['product', '二号路灯杆', '三号路灯杆', '四号路灯杆', '九号路灯杆', '六号路灯杆'],
+            ['00:14', 43.3, 85.8, 133, 4, 5],
+            ['01:03', 83.1, 73.4, 10, 33, 6],
+            ['03:00', 86.4, 65.2, 11, 55, 8],
+            ['04:03', 72.4, 53.92, 33, 34, 6],
+            ['07:03', 72.4, 53.9, 61, 14, 9],
+            ['08:00', 72.4, 53.9, 62, 2, 33]
           ]
         },
-        series: [{ type: 'line' }, { type: 'line' }]
+        series: [
+          { type: 'line', showSymbol: false, smooth: true },
+          { type: 'line', showSymbol: false, smooth: true },
+          { type: 'line', showSymbol: false, smooth: true },
+          { type: 'line', showSymbol: false, smooth: true },
+          { type: 'line', showSymbol: false, smooth: true }
+        ]
       }
     }
   }
