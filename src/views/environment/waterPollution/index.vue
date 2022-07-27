@@ -143,13 +143,13 @@
   </div>
 </template>
 <script>
-import EleChart from '@/components/EleChart'
+import EleChart from "@/components/EleChart";
 export default {
   components: { EleChart },
   data() {
     return {
-      rightTable: [{}, {}, {}, {}]
-    }
+      rightTable: [{}, {}, {}, {}],
+    };
   },
 
   computed: {
@@ -159,67 +159,67 @@ export default {
         dataset: {
           // 提供一份数据。
           source: [
-            ['product', '生活区污水', '二盘曲', '工业区生活污水'],
-            ['00:00', 43.3, 85.8, 93.7],
-            ['02:00', 83.1, 73.4, 55.1],
-            ['04:00', 86.4, 65.2, 82.5],
-            ['06:00', 72.4, 53.9, 39.1]
-          ]
+            ["product", "生活区污水", "二盘曲", "工业区生活污水"],
+            ["00:00", 43.3, 85.8, 93.7],
+            ["02:00", 83.1, 73.4, 55.1],
+            ["04:00", 86.4, 65.2, 82.5],
+            ["06:00", 72.4, 53.9, 39.1],
+          ],
         },
         xAxis: [
           {
-            type: 'category',
+            type: "category",
             show: true,
-            axisLabel: { color: '#fff' },
-            axisTick: { show: false }
-          }
+            axisLabel: { color: "#fff" },
+            axisTick: { show: false },
+          },
         ],
         yAxis: [
           {
-            type: 'value',
+            type: "value",
             axisLabel: {
-              color: '#fff'
+              color: "#fff",
             },
             splitLine: {
-              show: false
-            }
-          }
+              show: false,
+            },
+          },
         ],
         series: [
-          { type: 'line', smooth: true },
-          { type: 'line', smooth: true },
-          { type: 'line', smooth: true }
-        ]
-      }
+          { type: "line", smooth: true },
+          { type: "line", smooth: true },
+          { type: "line", smooth: true },
+        ],
+      };
     },
     mine() {
       return {
         xAxis: [
           {
-            type: 'category'
-          }
+            type: "category",
+          },
         ],
         yAxis: [
           {
-            type: 'value',
+            type: "value",
             axisLabel: {
-              color: '#fff'
+              color: "#fff",
             },
             splitLine: {
-              show: false
-            }
-          }
+              show: false,
+            },
+          },
         ],
         dataset: {
           source: [
-            ['product', '井下生产,消尘'],
-            ['井下生产,消尘', 43.3],
-            ['冲厕,绿化,搅拌站', 83.1],
-            ['洗煤厂,装车', 86.4]
-          ]
+            ["product", "井下生产,消尘"],
+            ["井下生产,消尘", 43.3],
+            ["冲厕,绿化,搅拌站", 83.1],
+            ["洗煤厂,装车", 86.4],
+          ],
         },
-        series: [{ type: 'bar' }]
-      }
+        series: [{ type: "bar" }],
+      };
     },
     innerLoop() {
       return {
@@ -227,51 +227,51 @@ export default {
         dataset: {
           // 提供一份数据。
           source: [
-            ['product', '生活区污水', '二盘曲', '工业区生活污水'],
-            ['00:00', 43.3, 85.8, 93.7],
-            ['02:00', 83.1, 73.4, 55.1],
-            ['04:00', 86.4, 65.2, 82.5],
-            ['06:00', 72.4, 53.9, 39.1]
-          ]
+            ["product", "生活区污水", "二盘曲", "工业区生活污水"],
+            ["00:00", 43.3, 85.8, 93.7],
+            ["02:00", 83.1, 73.4, 55.1],
+            ["04:00", 86.4, 65.2, 82.5],
+            ["06:00", 72.4, 53.9, 39.1],
+          ],
         },
         xAxis: [
           {
-            type: 'category',
+            type: "category",
             show: true,
-            axisLabel: { color: '#fff' },
-            axisTick: { show: false }
-          }
+            axisLabel: { color: "#fff" },
+            axisTick: { show: false },
+          },
         ],
         yAxis: [
           {
-            type: 'value',
+            type: "value",
             axisLabel: {
-              color: '#fff'
+              color: "#fff",
             },
             splitLine: {
-              show: false
-            }
-          }
+              show: false,
+            },
+          },
         ],
         series: [
-          { type: 'line', smooth: true },
-          { type: 'line', smooth: true },
-          { type: 'line', smooth: true }
-        ]
-      }
+          { type: "line", smooth: true },
+          { type: "line", smooth: true },
+          { type: "line", smooth: true },
+        ],
+      };
     },
     recycleRate() {
       return {
         series: [
           {
-            type: 'liquidFill',
-            radius: '80%',
-            center: ['50%', '50%'],
-            left: 'center',
-            top: 'middle',
+            type: "liquidFill",
+            radius: "80%",
+            center: ["50%", "50%"],
+            left: "center",
+            top: "middle",
             color: [
               {
-                type: 'linear',
+                type: "linear",
                 x: 0,
                 y: 0,
                 x2: 0,
@@ -279,47 +279,47 @@ export default {
                 colorStops: [
                   {
                     offset: 0,
-                    color: 'rgba(9,152,200,0.6)'
+                    color: "rgba(9,152,200,0.6)",
                   },
                   {
                     offset: 1,
-                    color: '#0ABC98'
-                  }
+                    color: "#0ABC98",
+                  },
                 ],
-                globalCoord: false
-              }
+                globalCoord: false,
+              },
             ],
             data: [0.3, 0.3], // data个数代表波浪数
             backgroundStyle: {
               borderWidth: 1,
-              color: '#3D4A73'
+              color: "#3D4A73",
             },
             label: {
               normal: {
                 textStyle: {
                   fontSize: 18,
-                  color: ' rgba(255,255,255,0.60)'
-                }
-              }
+                  color: " rgba(255,255,255,0.60)",
+                },
+              },
             },
             outline: {
               show: false,
               borderDistance: 0,
               itemStyle: {
                 borderWidth: 2,
-                borderColor: '#112165'
-              }
-            }
-          }
-        ]
-      }
-    }
-  }
-}
+                borderColor: "#112165",
+              },
+            },
+          },
+        ],
+      };
+    },
+  },
+};
 </script>
 <style lang="scss" scoped>
 $text-color: #07d3dd;
-.wrap_card:deep.el-card__body {
+.wrap_card :deep .el-card__body {
   height: calc(100% - 82px);
 }
 .ele-body {
