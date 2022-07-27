@@ -394,7 +394,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 $text-color: #07d3dd;
-.wrap_card /deep/ .el-card__body {
+.wrap_card:deep.el-card__body {
   height: calc(100% - 82px);
 }
 .ele-body {

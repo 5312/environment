@@ -1,4 +1,4 @@
-<template >
+<template>
   <div class="ele-body">
     <el-row :gutter="20">
       <el-col :span="15">
@@ -17,11 +17,7 @@
               <span>矿山植被覆盖</span>
             </div>
             <div class="mine">
-              <img
-                class="img"
-                :src="require('@/assets/mine.png')"
-                alt="加载失败"
-              />
+              <img class="img" :src="require('@/assets/mine.png')" alt="加载失败" />
               <!-- <ele-chart :option="mine" /> -->
             </div>
           </el-card>
@@ -61,7 +57,7 @@
   </div>
 </template>
 <script>
-import EleChart from "@/components/EleChart"
+import EleChart from '@/components/EleChart'
 import * as echarts from 'echarts'
 /* highcharts */
 import Highcharts from 'highcharts'
@@ -73,7 +69,7 @@ Highcharts3D(Highcharts)
 
 export default {
   components: { EleChart, highcharts: Chart },
-  data () {
+  data() {
     return {
       chartOptions: {
         chart: {
@@ -105,19 +101,21 @@ export default {
             }
           }
         },
-        series: [{
-          type: 'pie',
-          name: '',
-          data: [
-            {
-              name: '尚未治理',
-              y: 307,
-              sliced: true,
-              selected: true
-            },
-            ['已完成治理', 809.66],
-          ]
-        }]
+        series: [
+          {
+            type: 'pie',
+            name: '',
+            data: [
+              {
+                name: '尚未治理',
+                y: 307,
+                sliced: true,
+                selected: true
+              },
+              ['已完成治理', 809.66]
+            ]
+          }
+        ]
         /*  series: [{
            data: [1, 2, 3] // sample data
          }] */
@@ -125,11 +123,10 @@ export default {
     }
   },
   computed: {
-    mine () {
-      return {
-      }
+    mine() {
+      return {}
     },
-    green () {
+    green() {
       return {
         legend: { left: '1%', data: ['实际得分', '标准分'] },
         dataset: [
@@ -137,7 +134,7 @@ export default {
             source: [
               ['product', '2012', '2013', '2014', '2015', '2016', '2017'],
               ['实际得分', 56.5, 82.1, 88.7, 70.1, 53.4, 85.1],
-              ['标准分', 51.1, 51.4, 55.1, 53.3, 73.8, 68.7],
+              ['标准分', 51.1, 51.4, 55.1, 53.3, 73.8, 68.7]
             ]
           },
           {
@@ -146,7 +143,7 @@ export default {
               ['矿区环境', 10, 8],
               ['资源开发方式', 10, 8],
               ['资源综合再利用', 10, 8],
-              ['节能减排', 10, 8],
+              ['节能减排', 10, 8]
             ]
           }
         ],
@@ -201,11 +198,24 @@ export default {
         ]
       }
     },
-    tan () {
+    tan() {
       return {
         xAxis: {
           type: 'category',
-          data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021']
+          data: [
+            '2010',
+            '2011',
+            '2012',
+            '2013',
+            '2014',
+            '2015',
+            '2016',
+            '2017',
+            '2018',
+            '2019',
+            '2020',
+            '2021'
+          ]
         },
         yAxis: {
           type: 'value'
@@ -222,7 +232,7 @@ export default {
         ]
       }
     },
-    sheng () {
+    sheng() {
       return {
         color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
         legend: {},
@@ -236,7 +246,20 @@ export default {
           {
             type: 'category',
             boundaryGap: false,
-            data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021']
+            data: [
+              '2010',
+              '2011',
+              '2012',
+              '2013',
+              '2014',
+              '2015',
+              '2016',
+              '2017',
+              '2018',
+              '2019',
+              '2020',
+              '2021'
+            ]
           }
         ],
         yAxis: [
@@ -298,17 +321,16 @@ export default {
               focus: 'series'
             },
             data: [140, 232, 101, 264, 90, 340, 250, 100, 200, 90, 10, 80]
-          },
+          }
         ]
       }
     }
-  },
-
+  }
 }
 </script>
 <style lang="scss" scoped>
 $text-color: #07d3dd;
-.wrap_card /deep/ .el-card__body {
+.wrap_card:deep.el-card__body {
   height: calc(100% - 82px);
 }
 .ele-body {

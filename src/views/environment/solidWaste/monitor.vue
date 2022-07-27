@@ -3,11 +3,7 @@
     <el-row>
       <el-col :span="24">
         <el-card class="center">
-          <img
-            class="img"
-            :src="require('@/assets/shipin.png')"
-            alt="加载失败"
-          />
+          <img class="img" :src="require('@/assets/shipin.png')" alt="加载失败" />
         </el-card>
       </el-col>
     </el-row>
@@ -15,9 +11,8 @@
 </template>
 <script>
 export default {
-  data () {
-    return {
-    }
+  data() {
+    return {}
   }
 }
 </script>
@@ -38,7 +33,7 @@ $text-color: #07d3dd;
       }
     }
   }
-  .el-card /deep/ .el-card__body {
+  .el-card:deep.el-card__body {
     height: 100%;
   }
   .center {
@@ -49,7 +44,7 @@ $text-color: #07d3dd;
     .center {
       height: calc(100vh / 2 - 83px);
     }
-    .el-card /deep/ .el-card__body {
+    .el-card:deep.el-card__body {
       height: calc(100% - 83px);
     }
   }

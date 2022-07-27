@@ -128,7 +128,7 @@ $text-color: #07d3dd;
       }
     }
   }
-  .el-card /deep/ .el-card__body {
+  .el-card:deep.el-card__body {
     height: 100%;
   }
   .center {
@@ -139,7 +139,7 @@ $text-color: #07d3dd;
     .center {
       height: calc(100vh / 2 - 83px);
     }
-    .el-card /deep/ .el-card__body {
+    .el-card:deep.el-card__body {
       height: calc(100% - 83px);
     }
   }
