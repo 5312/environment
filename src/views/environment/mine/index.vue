@@ -17,7 +17,11 @@
               <span>矿山植被覆盖</span>
             </div>
             <div class="mine">
-              <img class="img" :src="require('@/assets/mine.png')" alt="加载失败" />
+              <img
+                class="img"
+                :src="require('@/assets/mine.png')"
+                alt="加载失败"
+              />
               <!-- <ele-chart :option="mine" /> -->
             </div>
           </el-card>
@@ -57,15 +61,15 @@
   </div>
 </template>
 <script>
-import EleChart from '@/components/EleChart'
-import * as echarts from 'echarts'
+import EleChart from "@/components/EleChart";
+import * as echarts from "echarts";
 /* highcharts */
-import Highcharts from 'highcharts'
+import Highcharts from "highcharts";
 
-import Highcharts3D from 'highcharts/highcharts-3d'
+import Highcharts3D from "highcharts/highcharts-3d";
 
-import { Chart } from 'highcharts-vue'
-Highcharts3D(Highcharts)
+import { Chart } from "highcharts-vue";
+Highcharts3D(Highcharts);
 
 export default {
   components: { EleChart, highcharts: Chart },
@@ -76,205 +80,205 @@ export default {
           backgroundColor: {
             linearGradient: [0, 0, 500, 500],
             stops: [
-              [0, 'rgb(2, 17, 50)'],
-              [1, 'rgb(2, 17, 50)']
-            ]
+              [0, "rgb(2, 17, 50)"],
+              [1, "rgb(2, 17, 50)"],
+            ],
           },
-          type: 'pie',
+          type: "pie",
           options3d: {
             enabled: true,
             alpha: 45,
-            beta: 0
-          }
+            beta: 0,
+          },
         },
         title: {
-          text: ''
+          text: "",
         },
         plotOptions: {
           pie: {
             allowPointSelect: true,
-            cursor: 'pointer',
+            cursor: "pointer",
             depth: 35,
             dataLabels: {
               enabled: true,
-              format: '{point.name}'
-            }
-          }
+              format: "{point.name}",
+            },
+          },
         },
         series: [
           {
-            type: 'pie',
-            name: '',
+            type: "pie",
+            name: "",
             data: [
               {
-                name: '尚未治理',
+                name: "尚未治理",
                 y: 307,
                 sliced: true,
-                selected: true
+                selected: true,
               },
-              ['已完成治理', 809.66]
-            ]
-          }
-        ]
+              ["已完成治理", 809.66],
+            ],
+          },
+        ],
         /*  series: [{
            data: [1, 2, 3] // sample data
          }] */
-      }
-    }
+      },
+    };
   },
   computed: {
     mine() {
-      return {}
+      return {};
     },
     green() {
       return {
-        legend: { left: '1%', data: ['实际得分', '标准分'] },
+        legend: { left: "1%", data: ["实际得分", "标准分"] },
         dataset: [
           {
             source: [
-              ['product', '2012', '2013', '2014', '2015', '2016', '2017'],
-              ['实际得分', 56.5, 82.1, 88.7, 70.1, 53.4, 85.1],
-              ['标准分', 51.1, 51.4, 55.1, 53.3, 73.8, 68.7]
-            ]
+              ["product", "2012", "2013", "2014", "2015", "2016", "2017"],
+              ["实际得分", 56.5, 82.1, 88.7, 70.1, 53.4, 85.1],
+              ["标准分", 51.1, 51.4, 55.1, 53.3, 73.8, 68.7],
+            ],
           },
           {
             source: [
-              ['product', 'b', 's'],
-              ['矿区环境', 10, 8],
-              ['资源开发方式', 10, 8],
-              ['资源综合再利用', 10, 8],
-              ['节能减排', 10, 8]
-            ]
-          }
+              ["product", "b", "s"],
+              ["矿区环境", 10, 8],
+              ["资源开发方式", 10, 8],
+              ["资源综合再利用", 10, 8],
+              ["节能减排", 10, 8],
+            ],
+          },
         ],
-        grid: { left: '50%' },
+        grid: { left: "50%" },
         xAxis: {
-          type: 'value',
+          type: "value",
           show: false,
-          gridIndex: 0
+          gridIndex: 0,
         },
         yAxis: {
-          type: 'category',
+          type: "category",
           show: true,
           axisTick: {
-            show: false
+            show: false,
           },
           axisLine: {
-            show: false
-          }
+            show: false,
+          },
         },
         // xAxis: { type: 'category' },
         // yAxis: { gridIndex: 0 },
         series: [
           {
-            type: 'bar',
-            emphasis: { focus: 'series' },
-            datasetIndex: 1
+            type: "bar",
+            emphasis: { focus: "series" },
+            datasetIndex: 1,
           },
           {
-            type: 'bar',
-            emphasis: { focus: 'series' },
-            datasetIndex: 1
+            type: "bar",
+            emphasis: { focus: "series" },
+            datasetIndex: 1,
           },
           {
-            type: 'pie',
-            id: 'pie',
-            radius: ['30%', '40%'],
-            center: ['10%', '50%'],
+            type: "pie",
+            id: "pie",
+            radius: ["30%", "40%"],
+            center: ["10%", "50%"],
             datasetIndex: 0,
             emphasis: {
-              focus: 'self'
+              focus: "self",
             },
             label: {
               show: false,
-              position: 'center'
+              position: "center",
             },
             encode: {
-              itemName: 'product',
-              value: '2012',
-              tooltip: '2012'
-            }
-          }
-        ]
-      }
+              itemName: "product",
+              value: "2012",
+              tooltip: "2012",
+            },
+          },
+        ],
+      };
     },
     tan() {
       return {
         xAxis: {
-          type: 'category',
+          type: "category",
           data: [
-            '2010',
-            '2011',
-            '2012',
-            '2013',
-            '2014',
-            '2015',
-            '2016',
-            '2017',
-            '2018',
-            '2019',
-            '2020',
-            '2021'
-          ]
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+          ],
         },
         yAxis: {
-          type: 'value'
+          type: "value",
         },
         series: [
           {
             data: [120, 200, 150, 80, 70, 110, 130, 20, 20, 212, 90, 100],
-            type: 'bar',
+            type: "bar",
             showBackground: true,
             backgroundStyle: {
-              color: 'rgba(180, 180, 180, 0.2)'
-            }
-          }
-        ]
-      }
+              color: "rgba(180, 180, 180, 0.2)",
+            },
+          },
+        ],
+      };
     },
     sheng() {
       return {
-        color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
+        color: ["#80FFA5", "#00DDFF", "#37A2FF", "#FF0087", "#FFBF00"],
         legend: {},
         grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true
+          left: "3%",
+          right: "4%",
+          bottom: "3%",
+          containLabel: true,
         },
         xAxis: [
           {
-            type: 'category',
+            type: "category",
             boundaryGap: false,
             data: [
-              '2010',
-              '2011',
-              '2012',
-              '2013',
-              '2014',
-              '2015',
-              '2016',
-              '2017',
-              '2018',
-              '2019',
-              '2020',
-              '2021'
-            ]
-          }
+              "2010",
+              "2011",
+              "2012",
+              "2013",
+              "2014",
+              "2015",
+              "2016",
+              "2017",
+              "2018",
+              "2019",
+              "2020",
+              "2021",
+            ],
+          },
         ],
         yAxis: [
           {
-            type: 'value'
-          }
+            type: "value",
+          },
         ],
         series: [
           {
-            name: '生态治理面积',
-            type: 'line',
-            stack: 'Total',
+            name: "生态治理面积",
+            type: "line",
+            stack: "Total",
             smooth: true,
             lineStyle: {
-              width: 0
+              width: 0,
             },
             showSymbol: false,
             areaStyle: {
@@ -282,26 +286,26 @@ export default {
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                 {
                   offset: 0,
-                  color: 'rgb(128, 255, 165)'
+                  color: "rgb(128, 255, 165)",
                 },
                 {
                   offset: 1,
-                  color: 'rgb(1, 191, 236)'
-                }
-              ])
+                  color: "rgb(1, 191, 236)",
+                },
+              ]),
             },
             emphasis: {
-              focus: 'series'
+              focus: "series",
             },
-            data: [140, 232, 101, 264, 90, 340, 250, 100, 200, 90, 10, 80]
+            data: [140, 232, 101, 264, 90, 340, 250, 100, 200, 90, 10, 80],
           },
           {
-            name: '生态环境投入',
-            type: 'line',
-            stack: 'Total',
+            name: "生态环境投入",
+            type: "line",
+            stack: "Total",
             smooth: true,
             lineStyle: {
-              width: 0
+              width: 0,
             },
             showSymbol: false,
             areaStyle: {
@@ -309,28 +313,28 @@ export default {
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                 {
                   offset: 0,
-                  color: '#093065'
+                  color: "#093065",
                 },
                 {
                   offset: 1,
-                  color: '#0B224C'
-                }
-              ])
+                  color: "#0B224C",
+                },
+              ]),
             },
             emphasis: {
-              focus: 'series'
+              focus: "series",
             },
-            data: [140, 232, 101, 264, 90, 340, 250, 100, 200, 90, 10, 80]
-          }
-        ]
-      }
-    }
-  }
-}
+            data: [140, 232, 101, 264, 90, 340, 250, 100, 200, 90, 10, 80],
+          },
+        ],
+      };
+    },
+  },
+};
 </script>
 <style lang="scss" scoped>
 $text-color: #07d3dd;
-.wrap_card:deep.el-card__body {
+.wrap_card:deep(.el-card__body) {
   height: calc(100% - 82px);
 }
 .ele-body {
@@ -364,7 +368,7 @@ $text-color: #07d3dd;
     }
   }
   // card 头部线条
-  .wrap_card /deep/.el-card__header {
+  .wrap_card :deep(.el-card__header) {
     margin: 0 30px;
     border-bottom: 2px solid rgba(255, 255, 255, 0.05);
   }
