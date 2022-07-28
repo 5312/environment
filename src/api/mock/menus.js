@@ -14,7 +14,7 @@ export default [
       hide: 0,
       title: "大气监测",
     },
-    redirect: "/environment/atmosphere/index",
+    redirect: "",
     children: [
       {
         path: "/environment/atmosphere/index",
@@ -143,7 +143,7 @@ export default [
       hide: 0,
       title: "水污染监测",
     },
-    redirect: "/environment/waterPollution/index",
+    redirect: "",
     children: [
       {
         path: "/environment/waterPollution/index",
