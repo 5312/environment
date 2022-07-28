@@ -2,7 +2,7 @@
   <div class="ele-body">
     <el-card shadow="never">
       <!-- 数据表格 -->
-      <ele-pro-table :datasource="url" :columns="columns"> </ele-pro-table>
+      <!-- <ele-pro-table :datasource="url" :columns="columns"> </ele-pro-table> -->
     </el-card>
   </div>
 </template>
@@ -14,7 +14,6 @@ export default {
     return {
       data: [],
       columns: columns,
-      url: "/basic/Items/GetList",
     };
   },
   methods: {},
