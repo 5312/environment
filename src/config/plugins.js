@@ -14,6 +14,7 @@ import "nprogress/nprogress.css";
 import VueClipboard from "vue-clipboard2"; // 剪切板
 // 扩展组件
 import EleDataTable from "@/components/EleDataTable"; // 数据表格
+import EleProTable from "@/components/ele-pro-table"; // 数据表格
 import EleIconPicker from "@/components/EleIconPicker"; // 图标选择器
 import EleAvatarList from "@/components/EleAvatarList"; // 头像列表
 import EleDot from "@/components/EleDot"; // 状态文字
@@ -41,6 +42,7 @@ NProgress.configure({ showSpinner: false });
 
 /* 全局注册常用组件 */
 Vue.component(EleDataTable.name, EleDataTable);
+Vue.component(EleProTable.name, EleProTable);
 Vue.component(EleIconPicker.name, EleIconPicker);
 Vue.component(EleAvatarList.name, EleAvatarList);
 Vue.component(EleDot.name, EleDot);

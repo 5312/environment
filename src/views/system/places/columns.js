@@ -6,4 +6,9 @@ export const columns = [
     align: "center",
     fixed: "left",
   },
+  {
+    label: "姓名",
+    width: 45,
+    align: "center",
+  },
 ];
