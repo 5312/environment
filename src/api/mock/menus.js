@@ -837,6 +837,15 @@ export default [
       title: "系统管理",
     },
     redirect: "",
-    children: [],
+    children: [
+      {
+        path: "/environment/mine/evaluation",
+        meta: {
+          hide: 0,
+          icon: "el-icon-set-up",
+          title: "基础数据",
+        },
+      },
+    ],
   },
 ];
