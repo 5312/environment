@@ -101,7 +101,6 @@ export default {
     /* 获取用户菜单路由 */
     getMenuRouters({ commit, state }) {
       return new Promise((resolve, reject) => {
-        // if (state.menus) return resolve(menusToRoute(state.menus));
         if (state.menus) return resolve(menusEnvironment(state.menus));
         if (!setting.menuUrl) {
           /* 缓存 */
@@ -114,7 +113,6 @@ export default {
             let menus = setting.parseMenu
               ? setting.parseMenu(res.data)
               : res.data.data;
-            // resolve(menusToRoute(menus));
             resolve(menusEnvironment(menus));
             /* 缓存 */
             commit("SET", { key: "menus", value: menus });
@@ -126,6 +124,7 @@ export default {
     },
   },
 };
+
 /* //! 菜单生成路由 */
 function menusEnvironment(menus) {
   let route = {

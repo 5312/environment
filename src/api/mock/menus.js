@@ -831,19 +831,35 @@ export default [
     ],
   },
   {
-    path: "/system/menu/index",
+    path: "/system/places/index",
     meta: {
       hide: 0,
       title: "系统管理",
     },
-    redirect: "",
+    redirect: "system/places/index",
     children: [
       {
-        path: "/environment/mine/evaluation",
+        path: "/system/menu/index",
+        meta: {
+          hide: 0,
+          icon: "el-icon-set-up",
+          title: "菜单管理",
+        },
+      },
+      {
+        path: "/system/basis/index",
         meta: {
           hide: 0,
           icon: "el-icon-set-up",
           title: "基础数据",
+        },
+      },
+      {
+        path: "/system/places/index",
+        meta: {
+          hide: 0,
+          icon: "el-icon-set-up",
+          title: "监测点管理",
         },
       },
     ],
