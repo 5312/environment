@@ -1,18 +1,18 @@
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 // const webpack = require("webpack");
 module.exports = {
-  devServer: {
-    open: true,
-    proxy: {
-      "/api": {
-        target: process.env.VUE_APP_API_BASE_URL, //;
-        changeOrigin: true,
-        pathRewrite: {
-          "^/api": "",
-        },
-      },
-    },
-  },
+  //   devServer: {
+  //     open: true,
+  //     proxy: {
+  //       "/api": {
+  //         target: process.env.VUE_APP_API_BASE_URL, //;
+  //         changeOrigin: true,
+  //         pathRewrite: {
+  //           "^/api": "",
+  //         },
+  //       },
+  //     },
+  //   },
   css: {
     loaderOptions: {},
   },
