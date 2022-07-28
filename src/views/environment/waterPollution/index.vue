@@ -418,7 +418,7 @@ $text-color: #07d3dd;
     }
   }
   // card 头部线条
-  .wrap_card /deep/.el-card__header {
+  .wrap_card :deep(.el-card__header) {
     margin: 0 30px;
     // border-color: transparent;
     border-bottom: 2px solid rgba(255, 255, 255, 0.05);

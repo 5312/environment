@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "./config/plugins";
+
 import VueLazyload from "vue-lazyload";
 import moment from "moment";
 moment.locale("zh-cn");

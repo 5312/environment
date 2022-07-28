@@ -44,7 +44,11 @@
               <span>大气监测</span>
             </div>
             <div class="h100">
-              <img class="img h100" :src="require('@/assets/大气监测.png')" alt="加载失败" />
+              <img
+                class="img h100"
+                :src="require('@/assets/大气监测.png')"
+                alt="加载失败"
+              />
               <!-- <ele-chart :option="Atmospheric" style="height: 292px" /> -->
             </div>
           </el-card>
@@ -83,11 +87,11 @@
   </div>
 </template>
 <script>
-import EleChart from '@/components/EleChart'
+import EleChart from "@/components/EleChart";
 export default {
   components: { EleChart },
   data() {
-    return { radio: 3 }
+    return { radio: 3 };
   },
   computed: {
     /*二盘区水质 */
@@ -96,47 +100,47 @@ export default {
         legend: {},
         dataset: {
           source: [
-            ['product', '进水浊度', '出水浊度', '出水浊度2'],
-            ['12:00', 10, 20, 30],
-            ['14:00', 10, 20, 30],
-            ['16:00', 10, 20, 30],
-            ['18:00', 10, 20, 30],
-            ['20:00', 10, 20, 30],
-            ['22:00', 10, 20, 30],
-            ['00:00', 10, 20, 30],
-            ['02:00', 10, 20, 30],
-            ['04:00', 10, 20, 30],
-            ['06:00', 10, 20, 30],
-            ['08:00', 10, 20, 30],
-            ['10:00', 10, 20, 30]
-          ]
+            ["product", "进水浊度", "出水浊度", "出水浊度2"],
+            ["12:00", 10, 20, 30],
+            ["14:00", 10, 20, 30],
+            ["16:00", 10, 20, 30],
+            ["18:00", 10, 20, 30],
+            ["20:00", 10, 20, 30],
+            ["22:00", 10, 20, 30],
+            ["00:00", 10, 20, 30],
+            ["02:00", 10, 20, 30],
+            ["04:00", 10, 20, 30],
+            ["06:00", 10, 20, 30],
+            ["08:00", 10, 20, 30],
+            ["10:00", 10, 20, 30],
+          ],
         },
         xAxis: {
-          type: 'category',
+          type: "category",
           data: [
-            '12:00',
-            '14:00',
-            '16:00',
-            '18:00',
-            '20:00',
-            '22:00',
-            '00:00',
-            '02:00',
-            '04:00',
-            '06:00',
-            '08:00',
-            '10:00'
-          ]
+            "12:00",
+            "14:00",
+            "16:00",
+            "18:00",
+            "20:00",
+            "22:00",
+            "00:00",
+            "02:00",
+            "04:00",
+            "06:00",
+            "08:00",
+            "10:00",
+          ],
         },
         yAxis: {
-          type: 'value'
+          type: "value",
         },
         series: [
-          { type: 'line', smooth: true },
-          { type: 'line', smooth: true },
-          { type: 'line', smooth: true }
-        ]
-      }
+          { type: "line", smooth: true },
+          { type: "line", smooth: true },
+          { type: "line", smooth: true },
+        ],
+      };
     },
     /* 高效旋流水质 */
     Swirl() {
@@ -144,141 +148,150 @@ export default {
         legend: {},
         dataset: {
           source: [
-            ['product', '进水浊度', '1#旋流器', '2#旋流器', '3#旋流器'],
-            ['12:00', 10, 20, 30, 40],
-            ['14:00', 10, 20, 30, 40],
-            ['16:00', 10, 20, 30, 40],
-            ['18:00', 10, 20, 30, 40],
-            ['20:00', 10, 20, 30, 40],
-            ['22:00', 10, 20, 30, 40],
-            ['00:00', 10, 20, 30, 40],
-            ['02:00', 10, 20, 30, 40],
-            ['04:00', 10, 20, 30, 40],
-            ['06:00', 10, 20, 30, 40],
-            ['08:00', 10, 20, 30, 40],
-            ['10:00', 10, 20, 30, 40]
-          ]
+            ["product", "进水浊度", "1#旋流器", "2#旋流器", "3#旋流器"],
+            ["12:00", 10, 20, 30, 40],
+            ["14:00", 10, 20, 30, 40],
+            ["16:00", 10, 20, 30, 40],
+            ["18:00", 10, 20, 30, 40],
+            ["20:00", 10, 20, 30, 40],
+            ["22:00", 10, 20, 30, 40],
+            ["00:00", 10, 20, 30, 40],
+            ["02:00", 10, 20, 30, 40],
+            ["04:00", 10, 20, 30, 40],
+            ["06:00", 10, 20, 30, 40],
+            ["08:00", 10, 20, 30, 40],
+            ["10:00", 10, 20, 30, 40],
+          ],
         },
         xAxis: {
-          type: 'category',
+          type: "category",
           boundaryGap: false,
           data: [
-            '12:00',
-            '14:00',
-            '16:00',
-            '18:00',
-            '20:00',
-            '22:00',
-            '00:00',
-            '02:00',
-            '04:00',
-            '06:00',
-            '08:00',
-            '10:00'
-          ]
+            "12:00",
+            "14:00",
+            "16:00",
+            "18:00",
+            "20:00",
+            "22:00",
+            "00:00",
+            "02:00",
+            "04:00",
+            "06:00",
+            "08:00",
+            "10:00",
+          ],
         },
         yAxis: {
-          type: 'value'
+          type: "value",
         },
         series: [
-          { name: '进水浊度', type: 'line' },
-          { name: '1#旋流器', type: 'line' },
-          { name: '2#旋流器', type: 'line' },
-          { name: '3#旋流器', type: 'line' }
-        ]
-      }
+          { name: "进水浊度", type: "line" },
+          { name: "1#旋流器", type: "line" },
+          { name: "2#旋流器", type: "line" },
+          { name: "3#旋流器", type: "line" },
+        ],
+      };
     },
     /* 企业用水 */
     Company() {
       return {
         title: {
-          subtext: '3百吨'
+          subtext: "3百吨",
         },
         xAxis: {
-          type: 'category',
-          data: ['12:00', '15:00', '18:00', '21:00', '00:00', '03:00', '06:00', '9:00']
+          type: "category",
+          data: [
+            "12:00",
+            "15:00",
+            "18:00",
+            "21:00",
+            "00:00",
+            "03:00",
+            "06:00",
+            "9:00",
+          ],
         },
         yAxis: {
-          type: 'value'
+          type: "value",
         },
         series: [
           {
             data: [120, 200, 150, 80, 70, 110, 130, 90],
-            type: 'bar',
+            type: "bar",
             showBackground: true,
             backgroundStyle: {
-              color: 'rgba(180, 180, 180, 0.2)'
-            }
-          }
-        ]
-      }
+              color: "rgba(180, 180, 180, 0.2)",
+            },
+          },
+        ],
+      };
     },
 
     /* 噪声监测 */
     Noise() {
       return {
         grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true
+          left: "3%",
+          right: "4%",
+          bottom: "3%",
+          containLabel: true,
         },
         xAxis: {
-          type: 'category'
+          type: "category",
         },
         yAxis: {
-          type: 'value'
+          type: "value",
         },
         dataset: {
           source: [
-            ['product', '48'],
-            ['08:00', 40],
-            ['09:00', 40],
-            ['10:00', 40],
-            ['11:00', 40],
-            ['12:00', 40],
-            ['13:00', 40]
-          ]
+            ["product", "48"],
+            ["08:00", 40],
+            ["09:00", 40],
+            ["10:00", 40],
+            ["11:00", 40],
+            ["12:00", 40],
+            ["13:00", 40],
+          ],
         },
         series: [
           {
-            name: '2011',
-            type: 'line'
-          }
-        ]
-      }
+            name: "2011",
+            type: "line",
+          },
+        ],
+      };
     },
     /* 矸石销量*/
     Bar() {
       return {
         legend: {},
         xAxis: {
-          type: 'category'
+          type: "category",
         },
         yAxis: {
-          type: 'value',
+          type: "value",
           axisLabel: {
-            formatter: '{value}万吨'
+            formatter: "{value}万吨",
           },
-          splitLine: { show: false }
+          splitLine: { show: false },
         },
         dataset: {
           source: [
-            ['procuct', '当前', '当月', '今年'],
-            ['2021.05', 100, 200, 1000],
-            ['2021.06', 3, 4, 6],
-            ['2021.07', 3, 4, 6],
-            ['2021.08', 3, 4, 6],
-            ['2021.09 ', 3, 4, 6]
-          ]
+            ["procuct", "当前", "当月", "今年"],
+            ["2021.05", 100, 200, 1000],
+            ["2021.06", 3, 4, 6],
+            ["2021.07", 3, 4, 6],
+            ["2021.08", 3, 4, 6],
+            ["2021.09 ", 3, 4, 6],
+          ],
         },
         series: [
           {
-            name: '湿度',
-            type: 'bar'
-          }
-        ]
-      }
+            name: "湿度",
+            type: "bar",
+          },
+        ],
+      };
     },
     /* 危险废物 */
     Danger() {
@@ -287,34 +300,34 @@ export default {
         radar: {
           // shape: 'circle',
           indicator: [
-            { name: '废容器', max: 1000 },
-            { name: '废油', max: 1000 },
-            { name: '废药剂', max: 1000 },
-            { name: '废电池', max: 1000 },
-            { name: '其他危废', max: 1000 }
-          ]
+            { name: "废容器", max: 1000 },
+            { name: "废油", max: 1000 },
+            { name: "废药剂", max: 1000 },
+            { name: "废电池", max: 1000 },
+            { name: "其他危废", max: 1000 },
+          ],
         },
         series: [
           {
-            name: 'ding',
-            type: 'radar',
+            name: "ding",
+            type: "radar",
             areaStyle: {},
             data: [
               {
                 value: [1000, 100, 100, 400, 100],
-                name: '出库量'
+                name: "出库量",
               },
               {
                 value: [1000, 200, 800, 400, 300],
-                name: '入库量'
-              }
-            ]
-          }
-        ]
-      }
-    }
-  }
-}
+                name: "入库量",
+              },
+            ],
+          },
+        ],
+      };
+    },
+  },
+};
 </script>
 <style lang="scss" scoped>
 $text-color: #07d3dd;
@@ -395,7 +408,7 @@ $text-color: #07d3dd;
     }
   }
   // card 头部线条
-  .wrap_card /deep/.el-card__header {
+  .wrap_card :deep(.el-card__header) {
     margin: 0 30px;
     // border-color: transparent;
     border-bottom: 2px solid rgba(255, 255, 255, 0.05);

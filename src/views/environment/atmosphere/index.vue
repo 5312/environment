@@ -177,11 +177,11 @@
   </div>
 </template>
 <script>
-import EleChart from '@/components/EleChart'
+import EleChart from "@/components/EleChart";
 export default {
   components: { EleChart },
   data() {
-    return {}
+    return {};
   },
   computed: {
     /* pm2.5 / pm10 */
@@ -189,227 +189,227 @@ export default {
       return {
         xAxis: [
           {
-            type: 'category',
-            data: ['0.00'],
+            type: "category",
+            data: ["0.00"],
             axisLabel: {
-              color: '#fff'
-            }
-          }
+              color: "#fff",
+            },
+          },
         ],
         yAxis: [
           {
-            type: 'value',
+            type: "value",
             axisLabel: {
-              color: '#fff'
+              color: "#fff",
             },
             splitLine: {
-              show: false
-            }
-          }
+              show: false,
+            },
+          },
         ],
         series: [
           {
             barWidth: 15,
-            type: 'bar',
+            type: "bar",
             data: [
               {
-                name: '0.00',
-                value: 15
-              }
+                name: "0.00",
+                value: 15,
+              },
             ],
             itemStyle: {
-              color: 'rgb(7, 130, 135)'
-            }
-          }
-        ]
-      }
+              color: "rgb(7, 130, 135)",
+            },
+          },
+        ],
+      };
     },
     Daqi() {
       return {
         xAxis: [
           {
-            type: 'category',
-            data: ['0.00'],
+            type: "category",
+            data: ["0.00"],
             axisLabel: {
-              color: '#fff'
-            }
-          }
+              color: "#fff",
+            },
+          },
         ],
         yAxis: [
           {
-            type: 'value',
+            type: "value",
             axisLabel: {
-              color: '#fff'
+              color: "#fff",
             },
             splitLine: {
-              show: false
-            }
-          }
+              show: false,
+            },
+          },
         ],
         series: [
           {
-            type: 'scatter',
+            type: "scatter",
             data: [
               {
-                name: '0.00',
-                value: 15
+                name: "0.00",
+                value: 15,
               },
               {
-                name: '0.00',
-                value: 13
-              }
+                name: "0.00",
+                value: 13,
+              },
             ],
             itemStyle: {
-              color: 'rgb(255, 168, 0)'
-            }
-          }
-        ]
-      }
+              color: "rgb(255, 168, 0)",
+            },
+          },
+        ],
+      };
     },
     /* 重污染天数 */
     Year_zhong() {
       return {
-        color: ['rgb(23, 54, 87)', '#00E1FF'],
+        color: ["rgb(23, 54, 87)", "#00E1FF"],
         legend: {
-          orient: 'vertical',
-          left: 'left',
-          bottom: 0
+          orient: "vertical",
+          left: "left",
+          bottom: 0,
         },
         series: [
           {
-            type: 'pie',
-            radius: ['40%', '60%'],
+            type: "pie",
+            radius: ["40%", "60%"],
             data: [
-              { value: 65, name: '剩余天数 65 ' },
-              { value: 0, name: '污染天数 0' }
+              { value: 65, name: "剩余天数 65 " },
+              { value: 0, name: "污染天数 0" },
             ],
             itemStyle: {
               borderRadius: 10,
-              borderColor: '#fff',
-              borderWidth: 2
+              borderColor: "#fff",
+              borderWidth: 2,
             },
             label: {
-              show: false
-            }
+              show: false,
+            },
           },
           {
-            type: 'pie',
-            radius: ['30%', '35%'],
-            data: [{ value: 65, name: '2021年目标 65' }],
+            type: "pie",
+            radius: ["30%", "35%"],
+            data: [{ value: 65, name: "2021年目标 65" }],
             itemStyle: {
-              color: '#619EB8',
+              color: "#619EB8",
               borderRadius: 10,
-              borderColor: '#fff',
-              borderWidth: 2
+              borderColor: "#fff",
+              borderWidth: 2,
             },
             label: {
-              show: false
-            }
-          }
-        ]
-      }
+              show: false,
+            },
+          },
+        ],
+      };
     },
     /* 优良天数 */
     Year_you() {
       return {
-        color: ['rgb(23, 54, 87)', '#FFAE5E'],
+        color: ["rgb(23, 54, 87)", "#FFAE5E"],
         legend: {
-          orient: 'vertical',
-          left: 'left',
-          bottom: 0
+          orient: "vertical",
+          left: "left",
+          bottom: 0,
         },
         series: [
           {
-            type: 'pie',
-            radius: ['40%', '60%'],
+            type: "pie",
+            radius: ["40%", "60%"],
             itemStyle: {
               borderRadius: 10,
-              borderColor: '#fff',
-              borderWidth: 2
+              borderColor: "#fff",
+              borderWidth: 2,
             },
             data: [
-              { value: 76, name: '剩余天数 76' },
-              { value: 289, name: '优良天数 289' }
+              { value: 76, name: "剩余天数 76" },
+              { value: 289, name: "优良天数 289" },
             ],
             label: {
-              show: false
-            }
+              show: false,
+            },
           },
           {
-            type: 'pie',
-            radius: ['30%', '35%'],
-            data: [{ value: 365, name: '2021年目标 365' }],
+            type: "pie",
+            radius: ["30%", "35%"],
+            data: [{ value: 365, name: "2021年目标 365" }],
             itemStyle: {
-              color: '#9A8071',
+              color: "#9A8071",
               borderRadius: 10,
-              borderColor: '#fff',
-              borderWidth: 2
+              borderColor: "#fff",
+              borderWidth: 2,
             },
 
             label: {
-              show: false
-            }
-          }
-        ]
-      }
+              show: false,
+            },
+          },
+        ],
+      };
     },
     /* 温度,湿度 */
     Line() {
       return {
-        legend: { right: 0, data: ['温度', '湿度'] },
+        legend: { right: 0, data: ["温度", "湿度"] },
         xAxis: {
-          type: 'category',
-          data: ['00:00', '01:03', '03:00', '04:03', '06:00', '07:03', '08:00']
+          type: "category",
+          data: ["00:00", "01:03", "03:00", "04:03", "06:00", "07:03", "08:00"],
         },
         yAxis: {
-          type: 'value',
+          type: "value",
           axisLabel: {
-            formatter: '{value}'
+            formatter: "{value}",
           },
-          splitLine: { show: false }
+          splitLine: { show: false },
         },
         series: [
           {
-            name: '湿度',
-            type: 'line',
+            name: "湿度",
+            type: "line",
             smooth: 0.6, // 光滑
-            symbol: 'none' /* 点 */,
-            data: [10, 10, 10, 10, 10, 10, 6]
+            symbol: "none" /* 点 */,
+            data: [10, 10, 10, 10, 10, 10, 6],
           },
           {
-            name: '温度',
-            type: 'line',
+            name: "温度",
+            type: "line",
             smooth: 0.6, // 光滑
-            symbol: 'none' /* 点 */,
-            data: [1, 1, 1, 1, 1, 1, 3]
-          }
-        ]
-      }
+            symbol: "none" /* 点 */,
+            data: [1, 1, 1, 1, 1, 1, 3],
+          },
+        ],
+      };
     },
     /* 气压 */
     Gauge() {
       return {
         series: [
           {
-            radius: '100%',
-            name: '气压',
-            type: 'gauge',
+            radius: "100%",
+            name: "气压",
+            type: "gauge",
             progress: {
-              show: true
+              show: true,
             },
             axisLabel: {
               distance: 10 /* 标签与刻度线的距离。 */,
-              color: '#fff'
+              color: "#fff",
             },
             axisLine: {
               lineStyle: {
-                width: 10
-              }
+                width: 10,
+              },
             },
             axisTick: {
               show: true,
-              length: '5%',
-              distance: 1
+              length: "5%",
+              distance: 1,
             },
             anchor: {
               /* 指针中心点 */
@@ -417,28 +417,28 @@ export default {
               showAbove: true,
               size: 10,
               itemStyle: {
-                borderWidth: 8
-              }
+                borderWidth: 8,
+              },
             },
             detail: {
               valueAnimation: true,
-              formatter: '{value}K Pa',
-              color: 'rgb(0, 246, 247)',
+              formatter: "{value}K Pa",
+              color: "rgb(0, 246, 247)",
               fontSize: 14,
-              offsetCenter: ['0%', '63%']
+              offsetCenter: ["0%", "63%"],
             },
             data: [
               {
                 value: 50,
-                name: '123'
-              }
-            ]
-          }
-        ]
-      }
-    }
-  }
-}
+                name: "123",
+              },
+            ],
+          },
+        ],
+      };
+    },
+  },
+};
 </script>
 <style lang="scss" scoped>
 $text-color: #07d3dd;
@@ -519,7 +519,7 @@ $text-color: #07d3dd;
     }
   }
   // card 头部线条
-  .wrap_card /deep/.el-card__header {
+  .wrap_card :deep(.el-card__header) {
     margin: 0 30px;
     // border-color: transparent;
     border-bottom: 2px solid rgba(255, 255, 255, 0.05);
