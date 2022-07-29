@@ -16,7 +16,8 @@ export default {
     // 自定义解析接口用户信息
     res.data.roles = res.data.roles.map((d) => d.roleCode);
     res.data.authorities = res.data.authorities.map((d) => d.authority);
-    return res;
+    console.log(res);
+    // return res
   },
   tokenHeaderName: "Authorization", // token传递的header名称
   xtokenname: "x-token",

@@ -5,4 +5,4 @@ const mock = {
   dealWithResponse: true,
 };
 export const RawDataAddnew = (params) =>
-  http.get("/basic/RawData/Addnew", { params: params, ...mock });
+  http.get("/basic/Places/Addnew", { params: params, ...mock });

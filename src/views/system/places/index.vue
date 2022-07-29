@@ -17,6 +17,16 @@
             fixed="left"
           />
           <el-table-column
+            v-for="(item, y) in columns"
+            :key="y"
+            type="index"
+            :index="index"
+            :label="item.label"
+            :prop="item.prop"
+            :width="item.width"
+            show-overflow-tooltip
+          ></el-table-column>
+          <!-- <el-table-column
             type="index"
             :index="index"
             label="编号"
@@ -24,7 +34,7 @@
             align="center"
             fixed="left"
             show-overflow-tooltip
-          />
+          /> -->
         </template>
       </ele-data-table>
     </el-card>
@@ -36,7 +46,18 @@ export default {
   name: "basis",
   data() {
     return {
-      table: { url: "/basic/Items/GetList", where: {} },
+      table: {
+        url: "/basic/Items/GetList",
+        where: {},
+        parseData: (res) => {
+          console.log(res);
+          return {
+            code: res.code,
+            data: res.data.items,
+            msg: "",
+          };
+        },
+      },
       columns: columns,
       choose: [],
     };
