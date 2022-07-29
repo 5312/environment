@@ -5,11 +5,11 @@
 export default {
   version: "1.0",
   name: "大佛寺煤矿环境在线监测系统", // 项目名称
-  baseURL: process.env.VUE_APP_API_BASE_URL,
+  baseURL: "/api",
   whiteList: ["/login", "/forget"], // 路由白名单(不需要登录的)
   keepAliveList: [], // 需要缓存的组件名称
-  menuUrl: "/api/index/getMenuList", // 菜单数据接口
-  userUrl: "/api/index/getUserInfo", // 用户信息接口
+  menuUrl: "/index/getMenuList", // 菜单数据接口
+  userUrl: "/index/getUserInfo", // 用户信息接口
   parseMenu: null, // 自定义解析接口菜单数据
   parseMenuItem: null, // 自定义解析接口菜单每一个数据格式
   parseUser: (res) => {

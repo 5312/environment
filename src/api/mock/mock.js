@@ -1,7 +1,7 @@
 import menu from "./menus";
 // 导入mockjs
 const Mock = require("mockjs");
-console.log(menu);
+
 //* 拦截该url，就可以返回menu
 Mock.mock("/api/index/getMenuList", {
   code: 0,
@@ -10,7 +10,7 @@ Mock.mock("/api/index/getMenuList", {
   success: true,
 });
 //! 验证码
-Mock.mock("/api/login/captcha", {
+Mock.mock("/login/captcha", {
   code: 0,
   data: {
     captcha:
@@ -21,7 +21,7 @@ Mock.mock("/api/login/captcha", {
   success: true,
 });
 // ! 登录
-Mock.mock("/api/login/login", {
+Mock.mock("/login/login", {
   code: 0,
   data: {
     access_token:
@@ -31,7 +31,7 @@ Mock.mock("/api/login/login", {
   success: true,
 });
 // ! 用户信息
-Mock.mock("/api/index/getUserInfo", {
+Mock.mock("/index/getUserInfo", {
   code: 0,
   msg: "",
   data: {
@@ -61,7 +61,7 @@ Mock.mock("/api/index/getUserInfo", {
 });
 
 // ! 退出登录
-Mock.mock("/api/login/logout", {
+Mock.mock("/login/logout", {
   code: 0,
   msg: "",
   data: 49,
