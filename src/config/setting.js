@@ -2,18 +2,16 @@
  * 项目统一配置
  */
 
-let baseUrl = "/api";
-
 export default {
   version: "1.0",
   name: "大佛寺煤矿环境在线监测系统", // 项目名称
-  baseURL: baseUrl,
+  baseURL: process.env.VUE_APP_API_BASE_URL,
   whiteList: ["/login", "/forget"], // 路由白名单(不需要登录的)
   keepAliveList: [], // 需要缓存的组件名称
   menuUrl: "/index/getMenuList", // 菜单数据接口
+  userUrl: "/index/getUserInfo", // 用户信息接口
   parseMenu: null, // 自定义解析接口菜单数据
   parseMenuItem: null, // 自定义解析接口菜单每一个数据格式
-  userUrl: "/index/getUserInfo", // 用户信息接口
   parseUser: (res) => {
     // 自定义解析接口用户信息
     res.data.roles = res.data.roles.map((d) => d.roleCode);

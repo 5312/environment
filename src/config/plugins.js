@@ -26,12 +26,6 @@ import ElementUI from "element-ui"; // ElementUI
 import "element-ui/lib/theme-chalk/display.css";
 import "@/styles/eleadmin/icon.scss"; // 图标
 import "@/styles/eleadmin/index.scss"; // 样式
-// ele-admin
-// ele-admin
-import EleAdmin from "ele-admin";
-import DialogDirective from "ele-admin/packages/dialog-directive";
-Vue.use(EleAdmin);
-Vue.use(DialogDirective);
 
 Vue.prototype.$util = util;
 Vue.prototype.$setting = setting;

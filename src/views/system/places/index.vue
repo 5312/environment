@@ -2,8 +2,31 @@
   <div class="ele-body">
     <el-card shadow="never">
       <!-- 数据表格 -->
-      <ele-pro-table class="eleprotable" :datasource="url" :columns="columns">
-      </ele-pro-table>
+      <ele-data-table
+        ref="table"
+        :config="table"
+        :choose.sync="choose"
+        height="calc(100vh - 315px)"
+        highlight-current-row
+      >
+        <template slot-scope="{ index }">
+          <el-table-column
+            type="selection"
+            width="45"
+            align="center"
+            fixed="left"
+          />
+          <el-table-column
+            type="index"
+            :index="index"
+            label="编号"
+            width="60"
+            align="center"
+            fixed="left"
+            show-overflow-tooltip
+          />
+        </template>
+      </ele-data-table>
     </el-card>
   </div>
 </template>
@@ -13,9 +36,9 @@ export default {
   name: "basis",
   data() {
     return {
-      data: [],
+      table: { url: "/basic/Items/GetList", where: {} },
       columns: columns,
-      url: "/basic/Items/GetList",
+      choose: [],
     };
   },
   methods: {},

@@ -11,7 +11,7 @@ import { MessageBox } from "element-ui";
 
 Vue.use(VueAxios, axios);
 
-axios.defaults.baseURL = setting.baseURL; // // process.env.VUE_APP_API_BASE_URL +
+axios.defaults.baseURL = setting.baseURL;
 axios.defaults.headers.common[setting.tokenHeaderName] = store.state.user.token;
 
 axios.defaults.headers.common[setting.xtokenname] = store.state.user.token;
