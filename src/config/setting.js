@@ -8,8 +8,8 @@ export default {
   baseURL: process.env.VUE_APP_API_BASE_URL,
   whiteList: ["/login", "/forget"], // 路由白名单(不需要登录的)
   keepAliveList: [], // 需要缓存的组件名称
-  menuUrl: "/index/getMenuList", // 菜单数据接口
-  userUrl: "/index/getUserInfo", // 用户信息接口
+  menuUrl: "/api/index/getMenuList", // 菜单数据接口
+  userUrl: "/api/index/getUserInfo", // 用户信息接口
   parseMenu: null, // 自定义解析接口菜单数据
   parseMenuItem: null, // 自定义解析接口菜单每一个数据格式
   parseUser: (res) => {
