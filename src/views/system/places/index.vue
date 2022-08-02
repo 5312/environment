@@ -1,13 +1,22 @@
 <template>
   <div class="ele-body">
     <el-card shadow="never">
+      <div class="ele-table-tool ele-table-tool-default">
+        <el-button
+          @click="showEdit = true"
+          type="primary"
+          icon="el-icon-plus"
+          class="ele-btn-icon"
+          size="small"
+          >添加
+        </el-button>
+      </div>
       <!-- 数据表格 -->
       <ele-data-table
         ref="table"
         :config="table"
         :choose.sync="choose"
         height="calc(100vh - 315px)"
-        highlight-current-row
       >
         <template slot-scope="{ index }">
           <el-table-column
@@ -17,40 +26,49 @@
             fixed="left"
           />
           <el-table-column
-            v-for="(item, y) in columns"
-            :key="y"
-            type="index"
-            :index="index"
-            :label="item.label"
-            :prop="item.prop"
-            :width="item.width"
-            show-overflow-tooltip
-          ></el-table-column>
-          <!-- <el-table-column
-            type="index"
-            :index="index"
-            label="编号"
-            width="60"
+            width="105"
             align="center"
-            fixed="left"
-            show-overflow-tooltip
-          /> -->
+            prop="name"
+            label="姓名"
+          />
+          <el-table-column
+            label="操作"
+            width="130px"
+            align="center"
+            :resizable="false"
+            fixed="right"
+          >
+            <template slot-scope="{ row }">
+              <el-button
+                type="primary"
+                icon="el-icon-edit"
+                @click="openEdit(row)"
+              >
+                修改
+              </el-button>
+            </template>
+          </el-table-column>
         </template>
       </ele-data-table>
     </el-card>
+    <edit :data="current" :visible.sync="showEdit" @done="reload"></edit>
   </div>
 </template>
 <script>
 import { columns } from "./columns";
+import edit from "./edit";
+
 export default {
   name: "basis",
+  components: {
+    edit,
+  },
   data() {
     return {
       table: {
         url: "/basic/Items/GetList",
         where: {},
         parseData: (res) => {
-          console.log(res);
           return {
             code: res.code,
             data: res.data.items,
@@ -60,9 +78,22 @@ export default {
       },
       columns: columns,
       choose: [],
+      /* edit */
+      showEdit: false,
+      // 当前编辑数据
+      current: null,
     };
   },
-  methods: {},
+  methods: {
+    reload() {
+      this.$refs.table.reload({ where: this.where });
+    },
+    /* 显示编辑 */
+    openEdit(row) {
+      this.current = row;
+      this.showEdit = true;
+    },
+  },
 };
 </script>
 <style>

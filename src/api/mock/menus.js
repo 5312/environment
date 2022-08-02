@@ -838,28 +838,28 @@ export default [
     },
     redirect: "system/places/index",
     children: [
-      {
-        path: "/system/menu/index",
-        meta: {
-          hide: 0,
-          icon: "el-icon-set-up",
-          title: "菜单管理",
-        },
-      },
-      {
-        path: "/system/basis/index",
-        meta: {
-          hide: 0,
-          icon: "el-icon-set-up",
-          title: "基础数据",
-        },
-      },
+      // {
+      //   path: '/system/menu/index',
+      //   meta: {
+      //     hide: 0,
+      //     icon: 'el-icon-set-up',
+      //     title: '菜单管理'
+      //   }
+      // },
       {
         path: "/system/places/index",
         meta: {
           hide: 0,
           icon: "el-icon-set-up",
           title: "监测点管理",
+        },
+      },
+      {
+        path: "/system/item/index",
+        meta: {
+          hide: 0,
+          icon: "el-icon-set-up",
+          title: "检测项管理",
         },
       },
     ],
