@@ -55,7 +55,6 @@
   </div>
 </template>
 <script>
-import { columns } from "./columns";
 import edit from "./edit";
 
 export default {
@@ -66,7 +65,7 @@ export default {
   data() {
     return {
       table: {
-        url: "/basic/Items/GetList",
+        url: "/basic/Places/GetList",
         where: {},
         parseData: (res) => {
           return {
@@ -76,7 +75,6 @@ export default {
           };
         },
       },
-      columns: columns,
       choose: [],
       /* edit */
       showEdit: false,
