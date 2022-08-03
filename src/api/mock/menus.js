@@ -862,6 +862,14 @@ export default [
           title: "检测项管理",
         },
       },
+      {
+        path: "/system/devices/index",
+        meta: {
+          hide: 0,
+          icon: "el-icon-set-up",
+          title: "监测设备",
+        },
+      },
     ],
   },
 ];
